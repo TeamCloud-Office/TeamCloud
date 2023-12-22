@@ -1,0 +1,18 @@
+{
+    "id": "a641238c-7d84-47e6-b9b3-96c98e00c310",
+    "version": 0,
+    "name": "Kakao-cord",
+    "mainScript": "Kakao-cord.js",
+    "languageId": "JS_RHINO",
+    "isEnabled": true,
+    "isPinned": false,
+    "trust": true,
+    "createdMillis": 1684419221575,
+    "allowedEventIds": [
+        "discord.*",
+        "starlight.*"
+    ],
+    "packages": [
+        "com.kakao.talk"
+    ]
+}
