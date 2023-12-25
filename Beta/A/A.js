@@ -1,4 +1,4 @@
-//let A = Bridge.getScopeOf("A");
+//let A = Bridge.getScopeOf("A"); 
 
 let prefix = '에릭아 ';
 
