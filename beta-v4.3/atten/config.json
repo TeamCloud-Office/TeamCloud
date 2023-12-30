@@ -1,0 +1,36 @@
+{
+    "beta_features": {
+        "custom_buttons": {
+            "type": "String",
+            "value": "[{\"button_id\":{\"type\":\"String\",\"value\":\"reset_tc\"},\"button_icon\":{\"type\":\"Int\",\"value\":\"1\"}}]"
+        }
+    },
+    "editor": {
+        "saved_tabs": {
+            "type": "String",
+            "value": "[\"atten.js\"]"
+        }
+    },
+    "events": {
+        "allowed_events": {
+            "type": "String",
+            "value": "[{\"event_id\":{\"type\":\"String\",\"value\":\"starlight.*\"}}]"
+        }
+    },
+    "JS_RHINO": {
+        "load_ext_modules": {
+            "type": "Boolean",
+            "value": "true"
+        },
+        "optimize_code": {
+            "type": "Boolean",
+            "value": "true"
+        }
+    },
+    "general": {
+        "shutdown_on_error": {
+            "type": "Boolean",
+            "value": "false"
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "id": "66e55c33-4414-4e4e-bc1c-b9c0bae7b29d",
+    "version": 0,
+    "name": "post",
+    "mainScript": "post.js",
+    "languageId": "JS_RHINO",
+    "isEnabled": true,
+    "isPinned": false,
+    "trust": true,
+    "createdMillis": 1691818658918,
+    "allowedEventIds": [
+        "starlight.*"
+    ],
+    "packages": [
+        "com.kakao.talk"
+    ]
+}

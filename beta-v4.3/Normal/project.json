@@ -1,0 +1,18 @@
+{
+    "id": "7208dfc4-e370-4ce2-97d9-47f5efd627f9",
+    "version": 0,
+    "name": "Normal",
+    "mainScript": "Normal.js",
+    "languageId": "JS_RHINO",
+    "isEnabled": true,
+    "isPinned": false,
+    "trust": true,
+    "createdMillis": 1691818658918,
+    "allowedEventIds": [
+        "starlight.*",
+        "discord.*"
+    ],
+    "packages": [
+        "com.kakao.talk"
+    ]
+}

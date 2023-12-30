@@ -1,0 +1,26 @@
+{
+    "beta_features": {
+    },
+    "editor": {
+        "saved_tabs": {
+            "type": "String",
+            "value": "[\"A.js\"]"
+        }
+    },
+    "events": {
+        "allowed_events": {
+            "type": "String",
+            "value": "[{\"event_id\":{\"type\":\"String\",\"value\":\"starlight.*\"}}]"
+        }
+    },
+    "JS_RHINO": {
+        "optimize_code": {
+            "type": "Boolean",
+            "value": "true"
+        },
+        "load_ext_modules": {
+            "type": "Boolean",
+            "value": "true"
+        }
+    }
+}

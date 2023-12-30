@@ -1,0 +1,17 @@
+{
+    "id": "1d84b739-9182-4178-8613-b202c9a61110",
+    "version": 0,
+    "name": "test",
+    "mainScript": "test.js",
+    "languageId": "JS_RHINO",
+    "isEnabled": true,
+    "isPinned": false,
+    "trust": true,
+    "createdMillis": 1694160414738,
+    "allowedEventIds": [
+        "starlight.*"
+    ],
+    "packages": [
+        "com.kakao.talk"
+    ]
+}
