@@ -1,47 +1,75 @@
-let A = Bridge.getScopeOf("A");
+import {
+    prefix,
+    cut,
+    User,
+    snd,
+    msg,
+    chat_log,
+    Coin,
+    Nickname,
+} from "A_module";
 
 function onMessage(event) {
-    let name = (msg) => event.message.replace(A.prefix + msg + " ", "").split(" ` ")[0];
-    let count = (msg) => Number(event.message.replace(A.prefix + msg + " ", "").split(" ` ")[1]);
 
-    if (event.message.startsWith(A.prefix + "경고")) {
-        if (!A.user.edit(event.sender.name).admin) event.room.send(A.msg.noti + '우리 가족이 아냐!');
-        if (!A.user.read(name("경고"))) return event.room.send("그런 친구는 모르는데..(" + name("경고") + ")");
-        if (count("경고") > 0) {
-            event.room.send("경고를 " + count("경고") + "회 추가할게!");
-            let a = A.user.edit(name("경고"), false).warning_count += count("경고");
-            A.user.edit(name("경고"), false).warning_count = a;
-            A.user.save();
-        }
-        if (count("경고") < 0) {
-            event.room.send("경고를 " + count("경고") + "회 제거할게!");
-            let a = A.user.edit(name("경고"), false).warning_count += count("경고");
-            A.user.edit(name("경고"), false).warning_count = a;
-            A.user.save();
-        }
-    }
+    let id = cut[2];
+    let count = Number(cut[3]);
 
-    if (event.message.startsWith(A.prefix + "밴")) {
-        if (!A.user.edit(event.sender.name).admin) event.room.send(A.msg.noti + '우리 가족이 아냐!');
-        if (!A.user.read(name("밴"))) return event.room.send("그런 친구는 모르는데..(" + name("밴") + ")");
-        if (count("밴") == "true") {
-            event.room.send("ban true");
-            A.user.edit(name("밴")).ban == true;
-            A.user.save();
-        }
-        if (count == "false") {
-            event.room.send("ban false");
-            A.user.edit(name("밴")).ban == false;
-            A.user.save();
+    /*if (event.message.startsWith(prefix + "기록")) {
+        if (!User.edit(event.sender.name).admin) event.room.send(msg.noti + msg.admin);
+        event.room.send(JSON.stringify(JSON.parse(fs.read("sdcard/BotData/chat/" + (cut[2] + "y/") + (cut[3] + "m/") + (cut[4] + "d") + ".json")), null, 4));
+    }*/
+
+    if (event.message.startsWith(prefix)) {
+        if (!User.edit(event.sender.name).admin, false) return event.room.send(msg.noti + msg.admin);
+        if (!User.read(id)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
+        switch (id) {
+            case "경고":
+                if (count > 0) {
+                    event.room.send("경고가 " + count + "회 증감되었습니다.");
+                    let a = User.edit(id, false).warning_count += count;
+                    User.edit(id, false).warning_count = a;
+                    User.save();
+                }
+                if (count < 0) {
+                    event.room.send("경고가 " + count + "회 차감되었습니다.");
+                    let a = User.edit(id, false).warning_count += count;
+                    User.edit(id, false).warning_count = a;
+                    User.save();
+                }
+                break;
+            case "사용제한":
+                if (count == 1) {
+                    event.room.send("해당 사용자의 사용제한이 설정되었습니다.");
+                    User.edit(id, false).ban == true;
+                    User.save();
+                }
+                if (count == 0) {
+                    event.room.send("해당 사용자의 사용제한이 해제되었습니다.");
+                    User.edit(id, false).ban == false;
+                    User.save();
+                }
+                break;
+            case "코인":
+                event.room.send(Coin(id, cut[3], cut[4], true));
+                break;
+            case "닉네임":
+                event.room.send(Nickname(id, cut[3], cut[4], true));
+                break;
+            case "변경":
+                let id1 = cut[2], //old
+                    id2 = cut[3]; //new
+                let newName = User.edit(id2).name;
+                User.edit(id1).name = newName;
+                User.set(id2, User.edit(id1));
         }
     }
 
     if (event.message.startsWith(A.prefix + "절교")) {
-        if (!A.user.edit(event.sender.name).admin) event.room.send(A.msg.noti + '우리 가족이 아냐!');
-        if (!A.user.read(event.message.replace(A.prefix + "절교 ", ""))) return event.room.send("그런 친구는 모르는데..");
+        if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
+        if (!User.read(event.message.replace(A.prefix + "절교 ", ""))) return event.room.send("그런 친구는 모르는데..");
         event.room.send('힝.. 슬프지만 어쩔 수 없지..ㅠ');
-        A.user.delete(event.message.split(" ")[2]);
-        A.user.save();
+        User.delete(event.message.split(" ")[2]);
+        User.save();
         return;
     }
 

@@ -6,16 +6,6 @@ let atten_json = JSON.parse(A.fs.read(atten_path));
 
 let today = new Date().getFullYear() + '.' + (new Date().getMonth() + 1) + '.' + new Date().getDate();
 
-let getDate = {
-    year: new Date().getFullYear(),
-    month: new Date().getMonth() + 1,
-    date: new Date().getDate(),
-    hour: new Date().getHours(),
-    minute: new Date().getMinutes(),
-    second: new Date().getSeconds(),
-    day: new Date().getDay()
-};
-
 let random = (per) => {
     if (Math.random() * 100 < per) {
         return true;
@@ -44,5 +34,6 @@ function onMessage(event) {
         if (![0, 6].includes(getDate.day)) return;
         if (Array(atten_json['list'][event.room.name]).includes(event.sender.name)) return;
         event.room.send(A.msg.coin(event.sender.name, "주말 출석 이벤트!(" + result + ") #" + getDate.day, coin));
+        
     }
 }

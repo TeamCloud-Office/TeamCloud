@@ -1,16 +1,31 @@
-let A = Bridge.getScopeOf("A");
-
-let snd = {};
+import {
+    prefix,
+    Lw,
+    fs,
+    cut,
+    getDate,
+    Kakaocord,
+    User,
+    snd,
+    msg,
+    Pos,
+    chat_log,
+    random,
+    Coin,
+    Nickname,
+    ogimg,
+    c_path,
+} from "A_module";
 
 function onMessage(event) {
         let target = event.message.replace(A.prefix + "우편 ", "").split(" ` ")[0];
         let msg = event.message.replace(A.prefix + "우편 ", "").split(" ` ")[1];
 
-        if (event.message.startsWith(A.prefix + "우편")) {
-            if (!A.user.read(event.sender.name)) return event.room.send(A.msg.noti + A.msg.terms);
-            if (A.user.edit(event.sender.name, false).ban) return event.room.send(A.msg.noti + '나 너 싫어!');
-            if (!A.user.edit(event.sender.name, false).admin) return event.room.send(A.msg.noti + '우리 가족이 아냐!');
-            if (A.user.read(target)) {
+        if (event.message.startsWith(prefix + "우편")) {
+            if (!User.read(event.sender.name)) return event.room.send(msg.noti + msg.terms);
+            if (User.edit(event.sender.name, false).ban) return event.room.send(msg.noti + '나 너 싫어!');
+            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + '우리 가족이 아냐!');
+            if (User.read(target)) {
                 if (!snd[target]) snd[target] = [];
                 event.room.send(event.sender.name + '가 ' + target + '에게 메세지를 보냈어!');
                 snd[target].push([

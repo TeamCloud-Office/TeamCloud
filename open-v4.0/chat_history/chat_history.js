@@ -1,21 +1,37 @@
 Device.acquireWakeLock(android.os.PowerManager.PARTIAL_WAKE_LOCK, ProjectManager.project.info.name);
-let A = Bridge.getScopeOf("A");
+import {
+    prefix,
+    Lw,
+    fs,
+    cut,
+    getDate,
+    Kakaocord,
+    User,
+    msg,
+    Pos,
+    chat_log,
+    random,
+    Coin,
+    Nickname,
+    ogimg,
+    c_path,
+} from "A_module";
 
 
 function onMessage(event) {
-    let today = new Date().getFullYear() + 'y/' + (new Date().getMonth() + 1) + 'm/' + new Date().getDate() + 'd';
-    let time = new Date().getHours() + "h " + new Date().getMinutes() + "m " + new Date().getSeconds() + "s";
+    let today = getDate.year + 'y/' + (getDate.month + 1) + 'm/' + getDate.day + 'd';
+    let time = getDate.hour + "h " + getDate.minutes + "m " + getDate.seconds + "s";
 
     let path = 'sdcard/BotData/chat/' + today + '.json';
 
-    if (!A.fs.read(path)) A.fs.write(path, '{}');
-    let json = JSON.parse(A.fs.read(path));
+    if (!fs.read(path)) fs.write(path, '{}');
+    let json = JSON.parse(fs.read(path));
 
     if (json[event.room.name] == undefined) json[event.room.name] = {};
     if (json[event.room.name][event.sender.name] == undefined) json[event.room.name][event.sender.name] = [];
 
-    if (event.message.startsWith(A.prefix)) {
-        if(event.message.startsWith(A.prefix + "e")) return;
+    if (event.message.startsWith(prefix)) {
+        if (event.message.startsWith(prefix + "e")) return;
         json[event.room.name][event.sender.name].push(time + " : " + event.message);
         A.fs.write(path, JSON.stringify(json, null, 4));
         return;

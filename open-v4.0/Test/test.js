@@ -15,7 +15,7 @@ function onMessage(event) {
         if (!String(A.user.edit(event.sender.name, false).nickname).includes("VIP")) return event.room.send(A.msg.noti + "이 기능은 VIP만 사용할 수 있어!");
         let msg = event.message.replace(A.prefix, "").replace("알려줘", "");
         event.room.send("잠시만 기다려줘!");
-        event.room.send(ai("bard", msg));
+        event.room.send(ai(2, msg));
     }
 
     if (event.message.startsWith("!기기확인")) {
@@ -59,7 +59,7 @@ function og(title, des, img) {
 }
 
 function ai(ai_, word) {
-    if (ai_ == "bard") {
+    if (ai_ == 1) { //bard
         return JSON.parse(
             org.jsoup.Jsoup.connect('https://vapis.run.goorm.site/api/bard?plusId=SkvssAizmSJE&word=' + word)
             .ignoreContentType(true)
@@ -68,7 +68,7 @@ function ai(ai_, word) {
             .text()
         ).message.split('"');
     }
-    if (ai_ == "chatgpt") {
+    if (ai_ == 2) { //ChatGPT4
         return JSON.parse(
             org.jsoup.Jsoup.connect('https://vapis.run.goorm.site/api/chatgpt4?plusId=SkvssAizmSJE&word=' + word)
             .ignoreContentType(true)

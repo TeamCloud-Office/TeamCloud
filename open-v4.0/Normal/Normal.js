@@ -1,4 +1,35 @@
+import {
+    prefix,
+    state
+} from "A_module";
+
 let rooms = {};
+
+
+
+function onProjectButtonClicked(id) {
+    if (id == "normal") {
+        state = "normal";
+        Api.showToast('정상 모드', 0);
+    }
+    if (id == "check") {
+        state = "check";
+        Api.showToast('점검 모드', 0);
+    }
+    if (id == "test") {
+        state = "test";
+        Api.showToast('테스트 모드', 0);
+    }
+
+    if (id == reset){
+        for (let room in rooms) {
+            if (!rooms[room]) {
+                Api.markAsRead(room);
+            }
+        }
+        Api.compile();
+    }
+}
 
 function onMessage(event) {
     if (!rooms[event.room.name]) {
@@ -6,6 +37,24 @@ function onMessage(event) {
     } else {
         rooms[event.room.name] = false;
     }
+
+    let cmd_list = [
+        "도움말",
+        "약관",
+        "동의",
+        "출석",
+        "출석순위",
+        "내 출석",
+        "멜론차트",
+        "음악검색",
+        "가위바위보",
+        "주사위",
+        "날씨",
+        "홀짝",
+        "디데이",
+        "내 정보",
+        "주식",
+    ];
 
     //테스트
     if (event.message == "!테스트" || event.message.includes("봇상태")) {
