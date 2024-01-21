@@ -1,11 +1,13 @@
-import {
+Device.acquireWakeLock(android.os.PowerManager.PARTIAL_WAKE_LOCK, ProjectManager.project.info.name);
+let {
     prefix,
     Lw,
-    fs,
+    FS,
     cut,
     getDate,
     Kakaocord,
     User,
+    LS,
     msg,
     Pos,
     chat_log,
@@ -14,46 +16,39 @@ import {
     Nickname,
     ogimg,
     c_path,
-} from "A";
+} = require("A");
 
-let onf = "on";
+let onf = true;
 
 function onProjectButtonClicked(id) {
     if (id == "on") {
-        onf = "on";
-        Api.makeNoti('eval', onf);
-        Api.showToast('eval 기능 : ' + onf, 0);
+        onf = true;
+        Api.showToast('eval : ' + onf, 0);
     }
     if (id == "off") {
-        onf = "off";
-        Api.makeNoti('eval', onf);
-        Api.showToast('eval 기능 : ' + onf, 0);
+        onf = false;
+        Api.showToast('eval : ' + onf, 0);
     }
 }
 
 function onMessage(event) {
+    let cut = event.message.split(" ");
 
     let test = "본 메시지는 테스트 메시지 입니다!";
 
 
-    if (event.message.startsWith(prefix + "e")) {
-        if (onf == "on") {
-            if (!User.read(event.sender.name)) event.room.send("나한테 명령하지마!");
-            if (User.edit(event.sender.name, false).admin) {
-                try {
-                    var before = Date.now();
-                    event.room.send(msg.noti + eval((event.message).substr(5)) + "\n\n[" + Env.runtimeName + " " + Env.runtimeVersion + "]에서 실행됨");
-                    java.lang.Thread.sleep(0);
-                    var after = Date.now();
-                    event.room.send("RunTime : " + (after - before) + "ms");
-                } catch (e) {
-                    event.room.send("[" + e.name + "]\n" + e.message + "\n" + "line : #" + e.lineNumber);
-                }
-            } else {
-                event.room.send("나한테 명령하지마!");
-            }
-        } else if (onf == "off") {
-            event.room.send("eval 기능이 꺼져있어!");
+    if (event.message.startsWith(prefix + "oe")) {
+        if (!onf) return event.room.send(msg.noti + "eval 기능이 꺼져있습니다.");
+        //if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
+        //if (User.edit(event.sender.name).admin == false) return event.room.send(msg.admin);
+        try {
+            var before = Date.now();
+            event.room.send(msg.noti + eval((event.message).substr(6)));
+            java.lang.Thread.sleep(0);
+            var after = Date.now();
+            event.room.send("RunTime : " + (after - before) + "ms");
+        } catch (e) {
+            event.room.send(msg.error + JSON.stringify(e));
         }
     }
 }

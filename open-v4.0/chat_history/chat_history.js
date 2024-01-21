@@ -1,21 +1,12 @@
 Device.acquireWakeLock(android.os.PowerManager.PARTIAL_WAKE_LOCK, ProjectManager.project.info.name);
-import {
-    prefix,
-    Lw,
-    fs,
-    cut,
-    getDate,
+let {
+    prefix, Lw, FS, state, snd, getDate, c_path,
     Kakaocord,
-    User,
     msg,
-    Pos,
-    chat_log,
-    random,
-    Coin,
-    Nickname,
-    ogimg,
-    c_path,
-} from "A_module";
+    Pos, chat_log, random,
+    addCode, User, Coin, Nickname,
+    ogimg 
+} = require("A");
 
 
 function onMessage(event) {

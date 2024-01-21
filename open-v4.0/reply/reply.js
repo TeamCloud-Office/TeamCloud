@@ -1,20 +1,23 @@
-import {
-  prefix,
-  Lw,
-  fs,
-  cut,
-  getDate,
-  Kakaocord,
-  User,
-  msg,
-  Pos,
-  chat_log,
-  random,
-  Coin,
-  Nickname,
-  ogimg,
-  c_path,
-} from "A";
+Device.acquireWakeLock(android.os.PowerManager.PARTIAL_WAKE_LOCK, ProjectManager.project.info.name);
+let {
+    prefix,
+    Lw,
+    FS,
+    state,
+    snd,
+    getDate,
+    c_path,
+    Kakaocord,
+    msg,
+    Pos,
+    chat_log,
+    random,
+    addID,
+    User,
+    Coin,
+    Nickname,
+    ogimg
+} = require("A");
 
 function onMessage(event) {
 
@@ -94,6 +97,7 @@ function onMessage(event) {
             }
         }
         break;
+
       case "내 정보":
         event.room.send([
           msg.noti,
@@ -108,19 +112,6 @@ function onMessage(event) {
         ].join("\n"));
         break;
 
-      case "정보 ":
-        if (!A.user.edit(event.sender.name, false).admin) return event.room.send(A.msg.noti + '우리 가족이 아냐!')
-        event.room.send([
-          msg.noti,
-          "이름 : " + User.edit(event.message.replace("에릭아 정보 ", ""), false).name,
-          "닉네임 : " + User.edit(event.message.replace("에릭아 정보 ", ""), false).nickname,
-          "관리자 : " + (User.edit(event.message.replace("에릭아 정보 ", ""), false).admin ? "예" : "아니오"),
-          "팀클 코인 : " + User.edit(event.message.replace("에릭아 정보 ", ""), false).teamcloud_coin + "코인",
-          "경고 횟수 : " + User.edit(event.message.replace("에릭아 정보 ", ""), false).warning_count + "회",
-          "주식 보유 종목: " + User.edit(event.message.replace("에릭아 정보 ", ""), false).stock,
-          "에릭과의 호감도 : " + User.edit(event.message.replace("에릭아 정보 ", ""), false).like,
-          "기타 : " + User.edit(event.message.replace("에릭아 정보 ", ""), false).etc
-        ].join("\n"));
     }
   }
 

@@ -1,7 +1,23 @@
-import {
+Device.acquireWakeLock(android.os.PowerManager.PARTIAL_WAKE_LOCK, ProjectManager.project.info.name);
+let {
     prefix,
-    state
-} from "A_module";
+    Lw,
+    FS,
+    state,
+    snd,
+    getDate,
+    c_path,
+    Kakaocord,
+    msg,
+    Pos,
+    chat_log,
+    random,
+    addID,
+    User,
+    Coin,
+    Nickname,
+    ogimg
+} = require("A");
 
 let rooms = {};
 
@@ -9,15 +25,15 @@ let rooms = {};
 
 function onProjectButtonClicked(id) {
     if (id == "normal") {
-        state = "normal";
+        state = 1;
         Api.showToast('정상 모드', 0);
     }
     if (id == "check") {
-        state = "check";
+        state = 0;
         Api.showToast('점검 모드', 0);
     }
     if (id == "test") {
-        state = "test";
+        state = 2;
         Api.showToast('테스트 모드', 0);
     }
 

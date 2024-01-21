@@ -1,38 +1,29 @@
-/*
-제작자: hello(TeamCloud)
-라이선스: 없음(TeamCloud 라이선스: CCL BY-SA 2.0)
-*/
-
-import {
-    User
-} from "A_module";
-
 (function () {
-
     toFixed = function (number) {
         return (~~(number * 1e4) / 1e4)
     }
-
-    let open = [9, 15]; //장 여는 시간
-
+    let open = [9, 15];
     let path1 = "sdcard/BotData/assess.json";
     let path2 = "sdcard/BotData/admin/UseData.json";
-
     let company = {
         // "이름" : [가격:Number,  판매가능유무:Boolean[unfinished],  분류:Number[0:IT, 1:보건(건강), 2:환경, 3:엔터테이먼트],  type:Number[]  ,  arr:Object[] ]
-        "TC반도체": [740, true, 0, "", 0, []], //TeamCloud 반도체 - 반도체 주식회사(IT)
-        "For health": [500, true, 1, "", 0, []], //For health - 건강 주식회사(보건)
-        "EP": [530, true, 2, "", 0, []], //Environmental Protection - 환경보호 주식회사(환경)
-        "CBE": [700, true, 3, "", 0, []], //Cherry Blossom Entertainment - 벚꽃엔터 주식회사(엔터)
+        "a주식회사": [0, true, 0, "", 0, []],
+        "b주식회사": [0, true, 0, "", 0, []],
+        "c주식회사": [0, true, 1, "", 0, []],
+        "d주식회사": [0, true, 1, "", 0, []],
+        "e주식회사": [0, true, 1, "", 0, []],
+        "f주식회사": [0, true, 2, "", 0, []],
+        "g주식회사": [0, true, 2, "", 0, []],
+        "h주식회사": [0, true, 3, "", 0, []],
+        "i주식회사": [0, true, 3, "", 0, []]
     }
-
     let assess = [
         [ //IT
             ["신규 기능 출시로 기대감 상승", "차세대 기술 도입으로 경쟁우위", "긍정적인 인터뷰로 신뢰 회복", "사용자 경험 개선에 긍정적인 피드백", "글로벌 시장에서 호조를 보이는 추세", "혁신적인 마케팅 전략으로 주목받음", "파트너십 강화로 사업 다각화", "환경 친화적 제품 출시로 호감도 상승", "효율적인 비즈니스 프로세스 구축", "사내 인재 발굴 및 육성으로 업무 성과 향상", "새로운 비즈니스 모델 도입으로 수익성 향상", "고객 중심의 서비스 개선", "글로벌 경제 여건에 대한 대응력 강화", "지속 가능한 경영으로 사회적 기업 이미지 강화", "신뢰성 높은 보안 시스템 도입", "사용자 데이터 보호 강화로 신뢰 회복"],
             ["서비스 장애로 불만족 증가", "보안 취약점으로 우려 상승", "경영진 변동에 불안감 표출", "고객 서비스 품질 하락으로 불신 증가", "사용자 데이터 유출 사건으로 신뢰 손상", "소송 발생으로 리스크 증가", "금융 위기로 인한 영향 커짐", "품질 관리 미흡으로 불량률 상승", "전략적 파트너십 해지로 영업 손실", "책임 회피 발언으로 인한 브랜드 이미지 하락", "비즈니스 모델 쇠퇴로 수익 감소", "기술 문제로 제품 불만족이 급증", "종업원 파업으로 인한 생산 차질", "관련 법규 위반으로 인한 소송 발생", "경영진 갈등으로 회사 내부 불안"],
             ["예측불가능한 사건으로 인한 영향 파악 어려움", "글로벌 이슈에 대한 대응 부재", "신기술 도입으로 미래 전망 긍정적", "경영진의 투명성 부족으로 신뢰 감소", "코로나19 대유행으로 인한 경영 난관", "비용 증가에 따른 수익 감소", "지속적인 연구 및 개발 부재로 혁신성 부족", "전략적 비전 부재로 사업 방향성 불분명", "글로벌 경제 불안으로 인한 영향", "핵심 임직원 이탈로 조직 안정성 저하", "자원 확보 어려움으로 인한 생산 차질", "기술력 미흡으로 시장 경쟁력 하락", "기업 내부 정보 유출에 대한 우려", "사회적 책임에 대한 불만이 커지는 추세"]
         ],
-        [ //보건(건강)
+        [ //보겅(건강)
             ["새로운 치료법 개발로 기대감 상승", "건강식품 수요 증가에 따른 성장", "환자 경험 개선으로 긍정적 평가", "의료 기술 혁신으로 인한 업계 선도", "글로벌 건강 트렌드에 부응하여 성과 향상", "환자 중심의 의료 서비스로 신뢰 회복", "생활습관 개선 프로그램으로 긍정적 평가", "건강 관리 솔루션으로 소비자 만족도 상승", "지속 가능한 건강 제품 개발로 호감도 상승", "의료 서비스 접근성 개선으로 긍정적 평가", "긴급 상황 대비를 위한 응급 의료 솔루션 개발", "건강 캠페인 및 교육으로 사회 기여 강화", "지역사회 건강 증진 프로젝트로 긍정적 평가", "협력 기관과의 파트너십 강화로 사업 다각화", "감염 예방을 위한 새로운 의약품 개발", "자연 속에 치유를 찾는 치유 여행 프로그램"],
             ["서비스 장애로 불만족 증가", "보안 취약점으로 우려 상승", "경영진 변동에 불안감 표출", "고객 서비스 품질 하락으로 불신 증가", "사용자 데이터 유출 사건으로 신뢰 손상", "소송 발생으로 리스크 증가", "금융 위기로 인한 영향 커짐", "품질 관리 미흡으로 불량률 상승", "전략적 파트너십 해지로 영업 손실", "책임 회피 발언으로 인한 브랜드 이미지 하락", "비즈니스 모델 쇠퇴로 수익 감소", "기술 문제로 제품 불만족이 급증", "종업원 파업으로 인한 생산 차질", "관련 법규 위반으로 인한 소송 발생", "경영진 갈등으로 회사 내부 불안"],
             ["예측불가능한 사건으로 인한 영향 파악 어려움", "글로벌 이슈에 대한 대응 부재", "신기술 도입으로 미래 전망 긍정적", "환경 변화에 대한 대비 부족으로 리스크 상승", "경영진의 투명성 부족으로 신뢰 감소", "코로나19 대유행으로 인한 경영 난관", "비용 증가에 따른 수익 감소", "지속적인 연구 및 개발 부재로 혁신성 부족", "전략적 비전 부재로 사업 방향성 불분명", "글로벌 경제 불안으로 인한 영향", "핵심 임직원 이탈로 조직 안정성 저하", "자원 확보 어려움으로 인한 생산 차질", "기술력 미흡으로 시장 경쟁력 하락", "기업 내부 정보 유출에 대한 우려", "사회적 책임에 대한 불만이 커지는 추세"]
@@ -48,68 +39,59 @@ import {
             ["글로벌 엔터테인먼트 이슈에 대한 대응 부재", "엔터테인먼트 기술 혁신", "경영진의 투명성 부족으로 신뢰 감소", "코로나19 대유행으로 인한 경영 난관", "경영 전략 부재", "지속적인 연구 및 개발 부재로 혁신성 부족", "글로벌 엔터테인먼트 전략 부재", "글로벌 경제 불안으로 인한 영향", "핵심 임직원 이탈로 조직 안정성 저하", "자원 확보 어려움으로 인한 생산 차질", "기술력 미흡으로 시장 경쟁력 하락", "엔터테인먼트 기업 내부 정보 유출에 대한 우려", "사회적 책임에 대한 불만이 커지는 추세"]
         ]
     ];
-
-    let file = new java.io.File(path1.substring(0, path1.lastIndexOf('/')));
-
+    let file = new java.io.File(path1.substring(0, path1.lastIndexOf('/')))
     if (!file.exists()) {
-        file.mkdirs();
+        file.mkdirs()
     }
-
     /*
-    저작자: 몽둥2
-    원본: https://cafe.naver.com/nameyee/44010
-    라이선스: 없음
-    */
+        https://m.cafe.naver.com/ca-fe/web/cafes/29537083/articles/44010
+     */
     json_reply = function (data) {
-        let result = "";
+        let result = ""
         if (typeof data !== "object") {
-            throw new Error("타입이 올바르지 않습니다 / " + typeof data + " !== object");
+            throw new Error("타입이 올바르지 않습니다 / " + typeof data + " !== object")
         } else {
             if (Array.isArray(data)) {
-                throw new Error("Json 값이 아닙니다");
+                throw new Error("Json 값이 아닙니다")
             } else {
                 if (Object.keys(data).length == 0) {
-                    return "";
+                    return ""
                 } else {
                     for (let key in data) {
-                        result += key + "\n";
+                        result += key + "\n"
                         if (typeof data[key] !== "object") {
-                            result += data[key];
+                            result += data[key]
                         } else if (Array.isArray(data[key])) {
-                            result += data[key].join(" , ");
+                            result += data[key].join(" , ")
                         } else {
-                            result += json_reply(data[key]);
+                            result += json_reply(data[key])
                         }
-                        result += "\n\n";
+                        result += "\n\n"
                     }
-                    return result.trim(); // 마지막에 있는 \n\n 삭제
+                    return result.trim() // 마지막에 있는 \n\n 삭제
                 }
             }
         }
     }
-
-
     /**
-     * 
      * @param {function} call 
      * @param {number} delay 
      * @returns 
      */
     setTimeout2 = function (call, delay) {
         if ((typeof call == "function" && typeof delay == "number") && delay > 0) {
-            var timer = java.util.Timer();
+            var timer = java.util.Timer()
             var timerTask = java.util.TimerTask({
                 run: function () {
                     call()
                 }
-            });
+            })
             timer.schedule(timerTask, delay)
             return true;
         } else {
-            return "something is wrong";
+            return "something is wrong"
         }
     }
-
     /**
      * @param {Object} arr array
      * @returns 
@@ -118,7 +100,6 @@ import {
         let a = Math.floor(Math.random() * arr.length);
         return [arr[a], a];
     }
-
     /**
      * 장이 열렸는지 확인
      * @param {number} hours hour
@@ -134,7 +115,6 @@ import {
             return false;
         }
     }
-
     /**
      * 장이 열리는시각까지의 시간(ms)
      */
@@ -156,7 +136,6 @@ import {
         }
         return delay;
     }
-
     /**
      * 가격변동
      * @param {number} delay delay
@@ -207,7 +186,6 @@ import {
             });
         }, delay);
     }
-
     /**
      * @param {string} name 기업명
      * @param {number} number 갯수
@@ -224,8 +202,8 @@ import {
             if (!Object.keys(company).includes(name)) {
                 return "존재하지 않는 기업명입니다";
             } else {
-                if (user["stocks"][name] == undefined || typeof user["stocks"][name] == "string") {
-                    user["stocks"][name] = 0
+                if (user[sender]["stocks"][name] == undefined || typeof user[sender]["stocks"][name] == "string") {
+                    user[sender]["stocks"][name] = 0
                 }
                 if (number <= 0.000099999999999999998) {
                     return "0.0001주 이상만 구매및 판매가 가능합니다";
@@ -234,62 +212,72 @@ import {
                 } else if (number.length > 6) {
                     return "소수점 4자리까지만 구매및 판매가 가능합니다";
                 } else if (type1) {
-                    if (company[name][0] * number > User.edit(sender)["coin"]) {
+                    if (company[name][0] * number > user[sender]["money"]) {
                         return "잔액이 부족합니다";
                     } else if (type2) {
-                        User.edit(sender)["coin"] = toFixed(User.edit(sender)["coin"] - company[name][0] * number);
-                        user["stocks"][name] = toFixed(user["stocks"][name] + number)
+                        user[sender]["money"] = toFixed(user[sender]["money"] - company[name][0] * number);
+                        user[sender]["stocks"][name] = toFixed(user[sender]["stocks"][name] + number)
                         if (!company[name][5].includes(sender)) {
                             company[name][5].push(sender)
                         }
+
+                        let value = A.Local.getItem(sender)
+                        value["stock"] = user[sender]
+                        A.user.set(sender, value)
+
                         return "구매가 완료되었습니다";
                     } else {
                         setTimeout2(() => {
-                            if (company[name][0] * number > User.edit(sender)["coin"]) {} else {
-                                User.edit(sender)["coin"] = toFixed(User.edit(sender)["coin"] - company[name][0] * number);
-                                user["stocks"][name] = toFixed(user["stocks"][name] + number);
+                            if (company[name][0] * number > user[sender]["money"]) {} else {
+                                user[sender]["money"] = toFixed(user[sender]["money"] - company[name][0] * number);
+                                user[sender]["stocks"][name] = toFixed(user[sender]["stocks"][name] + number);
                                 if (!company[name][5].includes(sender)) {
                                     company[name][5].push(sender);
                                 }
                             }
                         }, get_delay());
+
+                        let value = A.Local.getItem(sender)
+                        value["stock"] = user[sender]
+                        A.user.set(sender, value)
                         return "구매신청이 완료되었습니다";
                     }
                 } else {
-                    if (number > user["stocks"][name]) {
+                    if (number > user[sender]["stocks"][name]) {
                         return "보유중인 주식이 부족합니다";
                     } else if (type2) {
-                        user["stocks"][name] = Number((user["stocks"][name] - number).toFixed(4));
-                        User.edit(sender)["coin"] = Number((User.edit(sender)["coin"] + company[name][0] * number).toFixed(4));
-                        if (user["stocks"][name] == 0) {
+                        user[sender]["stocks"][name] = Number((user[sender]["stocks"][name] - number).toFixed(4));
+                        user[sender]["money"] = Number((user[sender]["money"] + company[name][0] * number).toFixed(4));
+                        if (user[sender]["stocks"][name] == 0) {
                             company[name][5].splice(company[name][5].indexOf(sender), 1);
                         }
+                        let value = A.Local.getItem(sender)
+                        value["stock"] = user[sender]
+                        A.user.set(sender, value)
                         return "판매가 완료되었습니다";
                     } else {
                         setTimeout2(() => {
-                            user["stocks"][name] = Number((user["stocks"][name] - number).toFixed(4));
-                            User.edit(sender)["coin"] = Number((User.edit(sender)["coin"] + company[name][0] * number).toFixed(4));
-                            if (user["stocks"][name] == 0) {
+                            user[sender]["stocks"][name] = Number((user[sender]["stocks"][name] - number).toFixed(4));
+                            user[sender]["money"] = Number((user[sender]["money"] + company[name][0] * number).toFixed(4));
+                            if (user[sender]["stocks"][name] == 0) {
                                 company[name][5].splice(company[name][5].indexOf(sender), 1);
                             }
                         }, get_delay());
+                        let value = A.Local.getItem(sender)
+                        value["stock"] = user[sender]
+                        A.user.set(sender, value)
                         return "판매신청이 완료되었습니다";
                     }
                 }
             }
         }
     }
-
     let result = FileStream.read(path1);
     if (result == null) {
         FileStream.write(path1, JSON.stringify({
             "date": "00000000"
         }));
     }
-
-
-
-    let user = User.edit(sender)["stock"]
     if (JSON.parse(result).date !== new Date().toLocaleDateString()) {
         result = JSON.parse(result);
         result.date = new Date().toLocaleDateString();
@@ -304,7 +292,6 @@ import {
     } else {
         company = JSON.parse(result)["company"]
     }
-
     module.exports = {
         company: company,
         toFixed: toFixed,
@@ -316,10 +303,9 @@ import {
         get_delay: get_delay,
         price: price,
         process: process,
-        user: user,
         path1: path1,
         path2: path2,
-        assess: assess
-
+        assess: assess,
+        company: company
     }
 })()

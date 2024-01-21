@@ -1,5 +1,12 @@
 Device.acquireWakeLock(android.os.PowerManager.PARTIAL_WAKE_LOCK, ProjectManager.project.info.name);
-let A = Bridge.getScopeOf("A");
+let {
+    prefix, Lw, FS, state, snd, getDate, c_path,
+    Kakaocord,
+    msg,
+    Pos, chat_log, random,
+    addCode, User, Coin, Nickname,
+    ogimg 
+} = require("A");
 
 let atten_path = 'sdcard/BotData/check-in_list.json';
 let atten_json = JSON.parse(A.fs.read(atten_path));

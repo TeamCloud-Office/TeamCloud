@@ -17,15 +17,19 @@ import {
     toFixed
 } from "index";
 
-import {
+let {
     prefix,
     User,
     Coin
-} from "A_module";
+} = require("A")
 
-setInterval(() => {
-    User.save();
-}, 1000 * 60 * 10);
+function aaaaa(sender) {
+    if (A.user.edit(sender) == null || A.user.edit(sender)["stock"] == undefined) {
+        user[sender] = undefined
+    } else {
+        user[sender] = A.user.edit(sender)["stock"]
+    }
+}
 
 const scriptName = ProjectManager.project.info.name;
 
@@ -59,6 +63,7 @@ function onMessage(event) {
                     break;
 
                 case '구매 ': //에릭아 주식 구매 a기업 1
+                    aaaaa(sender)
                     event.room.send(process(cmd.b[1], cmd.b[2], event.sender.name, 1, 1)); //process(기업명, 개수, 사용자, 구매 판매 유무, 예약 유무)
                     break;
 

@@ -1,21 +1,23 @@
-import {
+Device.acquireWakeLock(android.os.PowerManager.PARTIAL_WAKE_LOCK, ProjectManager.project.info.name);
+let {
     prefix,
     Lw,
-    fs,
-    cut,
-    getDate,
-    Kakaocord,
-    User,
+    FS,
+    state,
     snd,
+    getDate,
+    c_path,
+    Kakaocord,
     msg,
     Pos,
     chat_log,
     random,
+    addID,
+    User,
     Coin,
     Nickname,
-    ogimg,
-    c_path,
-} from "A_module";
+    ogimg
+} = require("A");
 
 function onMessage(event) {
         let target = event.message.replace(A.prefix + "우편 ", "").split(" ` ")[0];
