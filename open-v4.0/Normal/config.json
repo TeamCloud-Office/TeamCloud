@@ -1,5 +1,9 @@
 {
     "beta_features": {
+        "custom_buttons": {
+            "type": "String",
+            "value": "[{\"button_icon\":{\"type\":\"Int\",\"value\":\"54\"},\"button_id\":{\"type\":\"String\",\"value\":\"normal\"}},{\"button_icon\":{\"type\":\"Int\",\"value\":\"14\"},\"button_id\":{\"type\":\"String\",\"value\":\"check\"}},{\"button_icon\":{\"type\":\"Int\",\"value\":\"49\"},\"button_id\":{\"type\":\"String\",\"value\":\"test\"}},{\"button_icon\":{\"type\":\"Int\",\"value\":\"1\"},\"button_id\":{\"type\":\"String\",\"value\":\"reset\"}}]"
+        }
     },
     "editor": {
         "saved_tabs": {
@@ -10,9 +14,23 @@
     "events": {
         "allowed_events": {
             "type": "String",
-            "value": "[{\"event_id\":{\"type\":\"String\",\"value\":\"starlight.*\"}}]"
+            "value": "[{\"event_id\":{\"type\":\"String\",\"value\":\"starlight.*\"}},{\"event_id\":{\"type\":\"String\",\"value\":\"discord.*\"}}]"
         }
     },
     "general": {
+    },
+    "JS_RHINO": {
+        "js_version": {
+            "type": "Int",
+            "value": "9"
+        },
+        "optimize_code": {
+            "type": "Boolean",
+            "value": "true"
+        },
+        "load_ext_modules": {
+            "type": "Boolean",
+            "value": "true"
+        }
     }
 }

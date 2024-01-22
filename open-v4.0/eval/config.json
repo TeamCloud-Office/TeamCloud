@@ -31,6 +31,10 @@
         "load_ext_modules": {
             "type": "Boolean",
             "value": "true"
+        },
+        "js_version": {
+            "type": "Int",
+            "value": "9"
         }
     }
 }

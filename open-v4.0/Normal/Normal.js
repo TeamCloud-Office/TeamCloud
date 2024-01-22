@@ -1,23 +1,21 @@
-Device.acquireWakeLock(android.os.PowerManager.PARTIAL_WAKE_LOCK, ProjectManager.project.info.name);
 let {
     prefix,
     Lw,
     FS,
-    state,
-    snd,
+    cut,
     getDate,
-    c_path,
     Kakaocord,
+    User,
     msg,
     Pos,
     chat_log,
     random,
-    addID,
-    User,
     Coin,
     Nickname,
-    ogimg
+    ogimg,
+    c_path,
 } = require("A");
+
 
 let rooms = {};
 
@@ -37,7 +35,7 @@ function onProjectButtonClicked(id) {
         Api.showToast('테스트 모드', 0);
     }
 
-    if (id == reset){
+    if (id == "reset"){
         for (let room in rooms) {
             if (!rooms[room]) {
                 Api.markAsRead(room);
