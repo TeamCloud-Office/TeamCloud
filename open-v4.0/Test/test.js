@@ -12,10 +12,10 @@ function onMessage(event) {
 
     if (event.message.startsWith(A.prefix) && event.message.endsWith("알려줘")) {
         if (!A.user.read(event.sender.name)) return event.room.send(A.msg.noti + A.msg.terms);
-        if (!String(A.user.edit(event.sender.name, false).nickname).includes("VIP")) return event.room.send(A.msg.noti + "이 기능은 VIP만 사용할 수 있어!");
+        if (!A.user.edit(event.sender.name).nickname.includes("VIP")) return event.room.send(A.msg.noti + "이 기능은 VIP만 사용할 수 있어!");
         let msg = event.message.replace(A.prefix, "").replace("알려줘", "");
         event.room.send("잠시만 기다려줘!");
-        event.room.send(ai(2, msg));
+        event.room.send(ai(2, msg)); //1: Bard | 2: ChatGPT 3.5 | 3: ChatGPT 4
     }
 
     if (event.message.startsWith("!기기확인")) {
@@ -56,25 +56,4 @@ function og(title, des, img) {
 
     return (JSON.parse(response.body()).data.viewUrl).split('"');
     //return JSON.stringify(JSON.parse(response.body()).data.viewUrl.split('"'), null, 4);
-}
-
-function ai(ai_, word) {
-    if (ai_ == 1) { //bard
-        return JSON.parse(
-            org.jsoup.Jsoup.connect('https://vapis.run.goorm.site/api/bard?plusId=SkvssAizmSJE&word=' + word)
-            .ignoreContentType(true)
-            .timeout(1000 * 60 * 2)
-            .get()
-            .text()
-        ).message.split('"');
-    }
-    if (ai_ == 2) { //ChatGPT4
-        return JSON.parse(
-            org.jsoup.Jsoup.connect('https://vapis.run.goorm.site/api/chatgpt4?plusId=SkvssAizmSJE&word=' + word)
-            .ignoreContentType(true)
-            .timeout(1000 * 60 * 2)
-            .get()
-            .text()
-        ).message.split('"');
-    }
 }

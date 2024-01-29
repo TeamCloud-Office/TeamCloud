@@ -3,9 +3,11 @@
 라이선스: 없음(TeamCloud 라이선스: CCL BY-SA 2.0)
 */
 
-import {
-    User
-} from "A_module";
+let {
+    prefix,
+    User,
+    Coin
+} = require("A")
 
 (function () {
 
@@ -20,10 +22,14 @@ import {
 
     let company = {
         // "이름" : [가격:Number,  판매가능유무:Boolean[unfinished],  분류:Number[0:IT, 1:보건(건강), 2:환경, 3:엔터테이먼트],  type:Number[]  ,  arr:Object[] ]
-        "TC반도체": [740, true, 0, "", 0, []], //TeamCloud 반도체 - 반도체 주식회사(IT)
-        "For health": [500, true, 1, "", 0, []], //For health - 건강 주식회사(보건)
-        "EP": [530, true, 2, "", 0, []], //Environmental Protection - 환경보호 주식회사(환경)
-        "CBE": [700, true, 3, "", 0, []], //Cherry Blossom Entertainment - 벚꽃엔터 주식회사(엔터)
+        "TC반도체": [740, true, 0, "", 0, []],
+        //TeamCloud 반도체 - 반도체 주식회사(IT)
+        "For health": [500, true, 1, "", 0, []],
+        //For health - 건강 주식회사(보건)
+        "EP": [530, true, 2, "", 0, []],
+        //Environmental Protection - 환경보호 주식회사(환경)
+        "CBE": [700, true, 3, "", 0, []],
+        //Cherry Blossom Entertainment - 벚꽃엔터 주식회사(엔터)
     }
 
     let assess = [
@@ -49,11 +55,6 @@ import {
         ]
     ];
 
-    let file = new java.io.File(path1.substring(0, path1.lastIndexOf('/')));
-
-    if (!file.exists()) {
-        file.mkdirs();
-    }
 
     /*
     저작자: 몽둥2
@@ -138,10 +139,13 @@ import {
     /**
      * 장이 열리는시각까지의 시간(ms)
      */
-    let get_delay = function (d) {
-        if (d == undefined) {
-            d = open[0];
-        }
+    /**
+     * 
+     * @param {Number} d 
+     * @returns 
+     */
+    function get_delay(d) {
+        if (d == undefined) d = open[0];
         let time = new Date();
         let delay = 0;
         delay -= time.getTime();
@@ -171,8 +175,6 @@ import {
                 } else if (new Date().getHours() !== open[1] || result !== new Date().toLocaleDateString()) {
                     price(get_delay());
                     clearInterval();
-                    Log.d("초기화 작업을위해 리로드를 진행합니다")
-                    Api.reload(scriptName);
                 } else {
                     setTimeout2(() => {
                         for (let i = 0; i <= Object.keys(company).lengtth - 1; i++) {
@@ -192,13 +194,8 @@ import {
                                     company[Object.keys(company)[i]][0] = company[Object.keys(company)[i]][0] - Math.floor(Math.random() * 10000);
                                 } else if (Math.random() > 0.4) { //24%
                                     company[Object.keys(company)[i]][0] = company[Object.keys(company)[i]][0] + Math.floor(Math.random() * 10000);
-                                } else if (Math.random() > 0.01) {
-                                    //가격 유지
-                                } else { //0.16
-                                    company[Object.keys(company)[i]][5].map(e => {
-                                        delete user[e]["stocks"][Object.keys(company)[i]];
-                                    });
-                                    delete company[Object.keys(company)[i]];
+                                } else { //16%
+                                    //가격유지
                                 }
                             }
                         }
@@ -215,8 +212,11 @@ import {
      * @param {number|boolean} type1 구매 판매 구분
      * @param {number|boolean} type2 예약 유무
      * @returns {string} 결과
+     * @etc1 type1 이 0 일때 구매 / 판매
+     * @etc2 type2이 0일때 즉시처리 / 1일때 예약처리
      */
     process = function (name, number, sender, type1, type2) {
+        let data = User.edit(sender)
         number = Number(number)
         if (name == undefined || number == undefined) {
             return "형식을 확인해주세요";
@@ -224,8 +224,8 @@ import {
             if (!Object.keys(company).includes(name)) {
                 return "존재하지 않는 기업명입니다";
             } else {
-                if (user["stocks"][name] == undefined || typeof user["stocks"][name] == "string") {
-                    user["stocks"][name] = 0
+                if (data["stocks"][name] == undefined || typeof data["stocks"][name] == "string") {
+                    data["stocks"][name] = 0
                 }
                 if (number <= 0.000099999999999999998) {
                     return "0.0001주 이상만 구매및 판매가 가능합니다";
@@ -234,45 +234,49 @@ import {
                 } else if (number.length > 6) {
                     return "소수점 4자리까지만 구매및 판매가 가능합니다";
                 } else if (type1) {
-                    if (company[name][0] * number > User.edit(sender)["coin"]) {
+                    if (company[name][0] * number > data["coin"]) {
                         return "잔액이 부족합니다";
                     } else if (type2) {
-                        User.edit(sender)["coin"] = toFixed(User.edit(sender)["coin"] - company[name][0] * number);
-                        user["stocks"][name] = toFixed(user["stocks"][name] + number)
+                        data["coin"] = toFixed(data["coin"] - company[name][0] * number);
+                        data["stocks"][name] = toFixed(data["stocks"][name] + number)
                         if (!company[name][5].includes(sender)) {
                             company[name][5].push(sender)
                         }
                         return "구매가 완료되었습니다";
                     } else {
                         setTimeout2(() => {
-                            if (company[name][0] * number > User.edit(sender)["coin"]) {} else {
-                                User.edit(sender)["coin"] = toFixed(User.edit(sender)["coin"] - company[name][0] * number);
-                                user["stocks"][name] = toFixed(user["stocks"][name] + number);
+                            if (company[name][0] * number > data["coin"]) {
+                            } else {
+                                data["coin"] = toFixed(data["coin"] - company[name][0] * number);
+                                data["stocks"][name] = toFixed(data["stocks"][name] + number);
                                 if (!company[name][5].includes(sender)) {
                                     company[name][5].push(sender);
                                 }
                             }
                         }, get_delay());
+                        User.save()
                         return "구매신청이 완료되었습니다";
                     }
                 } else {
-                    if (number > user["stocks"][name]) {
+                    if (number > data["stocks"][name]) {
                         return "보유중인 주식이 부족합니다";
                     } else if (type2) {
-                        user["stocks"][name] = Number((user["stocks"][name] - number).toFixed(4));
-                        User.edit(sender)["coin"] = Number((User.edit(sender)["coin"] + company[name][0] * number).toFixed(4));
-                        if (user["stocks"][name] == 0) {
+                        data["stocks"][name] = Number((data["stocks"][name] - number).toFixed(4));
+                        data["coin"] = Number((data["coin"] + company[name][0] * number).toFixed(4));
+                        if (data["stocks"][name] == 0) {
                             company[name][5].splice(company[name][5].indexOf(sender), 1);
                         }
+                        User.save()
                         return "판매가 완료되었습니다";
                     } else {
                         setTimeout2(() => {
-                            user["stocks"][name] = Number((user["stocks"][name] - number).toFixed(4));
-                            User.edit(sender)["coin"] = Number((User.edit(sender)["coin"] + company[name][0] * number).toFixed(4));
-                            if (user["stocks"][name] == 0) {
+                            data["stocks"][name] = Number((data["stocks"][name] - number).toFixed(4));
+                            data["coin"] = Number((data["coin"] + company[name][0] * number).toFixed(4));
+                            if (data["stocks"][name] == 0) {
                                 company[name][5].splice(company[name][5].indexOf(sender), 1);
                             }
                         }, get_delay());
+                        User.save()
                         return "판매신청이 완료되었습니다";
                     }
                 }
@@ -288,8 +292,6 @@ import {
     }
 
 
-
-    let user = User.edit(sender)["stock"]
     if (JSON.parse(result).date !== new Date().toLocaleDateString()) {
         result = JSON.parse(result);
         result.date = new Date().toLocaleDateString();
@@ -305,6 +307,9 @@ import {
         company = JSON.parse(result)["company"]
     }
 
+
+
+
     module.exports = {
         company: company,
         toFixed: toFixed,
@@ -316,10 +321,11 @@ import {
         get_delay: get_delay,
         price: price,
         process: process,
-        user: user,
         path1: path1,
         path2: path2,
         assess: assess
-
     }
+
+
+
 })()

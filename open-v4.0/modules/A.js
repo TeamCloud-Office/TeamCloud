@@ -13,7 +13,9 @@ let {
 
     let prefix = '파이야 ';
 
-    let Lw = '\u200b'.repeat(500);
+    let Lw = '\u200b'.repeat(500),
+        Line = (num) => "========".repeat(num),
+        LM = (str) => Line(1) + str + Line(1);
 
     let FS = FileStream;
 
@@ -28,7 +30,9 @@ let {
         hour: new Date().getHours(),
         minute: new Date().getMinutes(),
         second: new Date().getSeconds(),
-        day: new Date().getDay()
+        day: new Date().getDay(),
+        today: (str) => new Date().getFullYear() + str + (new Date().getMonth() + 1) + str + new Date().getDate(),
+        time: (str) => new Date().getHours() + str + new Date().getMinutes() + str + new Date().getSeconds()
     };
 
     let Kakaocord = {
@@ -55,52 +59,43 @@ let {
 
     let LS = new LocalStorage(UP, false);
 
+    function findUser(k, d) {
+        try {
+            if (d === true) // ID로 검색
+                return LS.getItem(k);
+
+            // 유저명대로 검색
+            let storageData = LS.getData();
+            let nUser;
+            for (let key in storageData) {
+                nUser = storageData[key];
+                if (nUser && nUser.name === k)
+                    return nUser;
+            }
+            return null;
+        } catch (e) {
+            Log.i(e)
+        }
+    }
+
     let User = {
         set: (k, v) => LS.setItem(k, v),
-        edit: (k, d) => { // d가 true이면 사용자 id로, false가 사용자 이름으로
-            try {
-                if (d == true) {
-                    return LS.getItem(k);
-                } else {
-                    let target = {};
-                    UP = JSON.parse(FS.read(UP));
-                    for (let key in UP) {
-                        if (UP[key].name == k) {
-                            target[key] = UP[key];
-                        }
-                    }
-                    return LS.getItem(Object.keys(target), false);
-                }
-            } catch (e) {
-                Log.i(e)
-            }
-        },
-        read: (k, d) => { // d가 true이면 사용자 id로, false가 사용자 이름으로
-            try {
-                if (d == true) {
-                    return LS.hasItem(k);
-                } else {
-                    let target = {};
-                    UP = JSON.parse(FS.read(UP));
-                    for (let key in UP) {
-                        if (UP[key].name == k) {
-                            target[key] = UP[key];
-                        }
-                    }
-                    return LS.hasItem(Object.keys(target), false);
-                }
-            } catch (e) {
-                Log.i(e)
-            }
+        edit: (k, d) => findUser(k, d),
+        read: (k, d) => {
+            let result = findUser(k, d);
+            return result !== null && result !== void 0;
         },
         save: () => LS.save(),
-        delete: (k) => LS.removeItem(k),
+        delete: (k) => {
+            LS.removeItem(k);
+            LS.save();
+        },
         search: (k) => {
             let target = {};
-            UP = JSON.parse(FS.read(UP));
-            for (let key in UP) {
-                if (UP[key].id == k) {
-                    target[key] = UP[key];
+            let storageData = LS.getData();
+            for (let key in storageData) {
+                if (storageData[key].id === k) {
+                    target[key] = storageData[key];
                 }
             }
             return JSON.stringify(target);
@@ -109,15 +104,12 @@ let {
             let id = '';
             let list = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
-            while (true) {
+            do {
                 id = '';
                 for (let i = 0; i < 5; i++) {
                     id += list[Math.floor(Math.random() * list.length)];
                 }
-                if (!LS.hasItem(id, false)) {
-                    break;
-                }
-            }
+            } while (LS.hasItem(id));
             return id;
         }
     };
@@ -125,9 +117,10 @@ let {
     let msg = {
 
         noti: [
-            '[ Eric Ver : ' + 'Open v4.0' + ']',
+            '[ Eric Ver : ' + 'Open v4.0.11' + ']',
             //'TeamCloud Eric 4.0 정식 출시!!',
             //"지금바로 사용해보세요!",
+            "",
             "",
             //봇 답변
         ].join('\n'),
@@ -145,13 +138,24 @@ let {
             "> 관리자 명령어입니다."
         ].join('\n'),
 
+        ban: [
+            "해당 명령어를 실행할 수 없습니다.",
+            "> 사용제한된 사용자입니다."
+        ].join("\n"),
+
         error: [
             "해당 명령어를 실행할 수 없습니다.",
             "> 아래 오류 내용을 TeamCloud 문의 메일로 전송해주세요.",
             "help@team-cloud.kro.kr",
             "",
+            "",
             //오류 내용
-        ].join('\n')
+        ].join('\n'),
+        
+        error_: [
+            "해당 명령어를 실행할 수 없습니다.",
+            "> "
+        ].join("\n")
 
     };
 
@@ -160,10 +164,13 @@ let {
         return (str) + (str.slice(-1).normalize("NFKD")[2] != undefined) ? t : f;
     } //Pos("누구", "이가", "가")
 
-    let c_path = 'sdcard/BotData/log/' + getDate.year + 'y/' + (getDate.month + 1) + 'm/' + getDate.day + 'd' + '.json';
+    let c_path = 'sdcard/StarLight/BotData/log/' + getDate.year + 'y/' + (getDate.month) + 'm/' + getDate.day + 'd' + '.json';
 
-    function chat_log() {
-        return JSON.parse(FS.read(c_path));
+    let chat = {
+        save: (room, sender, msg) => {
+            JSON.parse(FS.read(c_path))[room][sender][getDate.time(":")] = msg;
+            FS.write(c_path, JSON.stringify(chat_log, null, 4));
+        }
     }
 
     function random(num) {
@@ -171,7 +178,7 @@ let {
     }
 
     function post(s, m) {
-        return snd[s].push(m)
+        snd[s].push(m)
     }
 
     /**
@@ -193,8 +200,8 @@ let {
             if (tf == true) {
                 post(s, [
                     '메시지: ',
-                    "[코인 증감]",
-                    "사용자: " + "[" + "[" + User.edit(s).nickname + "]" + s + "]",
+                    LM("[코인 증감]"),
+                    "사용자: " + "[" + "[" + User.edit(s).nickname[0] + "]" + s + "]",
                     "사유: " + e,
                     "증감 코인: " + c + "coin",
                     _coin + "coin" + " → " + User.edit(s).coin + "coin",
@@ -205,8 +212,8 @@ let {
                 return (s + '님의 코인이 ' + c + ' 증감하였습니다.');
             } else if (tf == false) {
                 return [
-                    "[코인 증감]",
-                    "사용자: " + "[" + "[" + User.edit(s).nickname + "]" + s + "]",
+                    LM("[코인 증감]"),
+                    "사용자: " + "[" + "[" + User.edit(s).nickname[0] + "]" + s + "]",
                     "사유: " + e,
                     "증감 코인: " + c + "coin",
                     _coin + "coin" + " → " + User.edit(s).coin + "coin"
@@ -221,8 +228,8 @@ let {
             if (tf == true) {
                 post(s, [
                     '메시지: ',
-                    "[코인 감소]",
-                    "사용자: " + "[" + "[" + User.edit(s).nickname + "]" + s + "]",
+                    LM("[코인 감소]"),
+                    "사용자: " + "[" + "[" + User.edit(s).nickname[0] + "]" + s + "]",
                     "사유: " + e,
                     "감소 코인: " + c + "coin",
                     _coin + "coin" + " → " + User.edit(s).coin + "coin",
@@ -233,8 +240,8 @@ let {
                 return (s + '님의 코인이 ' + c + ' 감소하였습니다.');
             } else if (tf == false) {
                 return [
-                    "[코인 감소]",
-                    "사용자: " + "[" + "[" + User.edit(s).nickname + "]" + s + "]",
+                    LM("[코인 감소]"),
+                    "사용자: " + "[" + "[" + User.edit(s).nickname[0] + "]" + s + "]",
                     "사유: " + e,
                     "감소 코인: " + c + "coin",
                     _coin + "coin" + " → " + User.edit(s).coin + "coin"
@@ -258,8 +265,9 @@ let {
         (User.edit(s).nickname).unshift(n);
         User.save();
         if (tf == true) {
-            post(s, ['메시지: ',
-                "[호칭 지급]",
+            post(s, [
+                '메시지: ',
+                LM("[호칭 지급]"),
                 "사용자: " + "[" + "[" + User.edit(s).nickname + "]" + s + "]",
                 "사유: " + e,
                 "지급 호칭: " + c + "coin",
@@ -271,7 +279,7 @@ let {
             return (s + '님께 [' + n + ']닉네임이 지급됐습니다.');
         } else if (tf == false) {
             return [
-                "[호칭 지급]",
+                LM("[호칭 지급]"),
                 "사용자: " + "[" + "[" + _nickname + "]" + s + "]",
                 "사유: " + e,
                 "지급 호칭: " + c + "coin",
@@ -309,6 +317,8 @@ let {
     module.exports = {
         prefix: prefix,
         Lw: Lw,
+        Line: Line,
+        LM: LM,
         FS: FS,
         state: state,
         snd: snd,
@@ -319,7 +329,7 @@ let {
         msg: msg,
         c_path: c_path,
         Pos: Pos,
-        chat_log: chat_log,
+        chat: chat,
         random: random,
         Coin: Coin,
         Nickname: Nickname,

@@ -15,8 +15,8 @@ function onMessage(event) {
 
     let path = 'sdcard/BotData/chat/' + today + '.json';
 
-    if (!fs.read(path)) fs.write(path, '{}');
-    let json = JSON.parse(fs.read(path));
+    if (!FS.read(path)) FS.write(path, '{}');
+    let json = JSON.parse(FS.read(path));
 
     if (json[event.room.name] == undefined) json[event.room.name] = {};
     if (json[event.room.name][event.sender.name] == undefined) json[event.room.name][event.sender.name] = [];

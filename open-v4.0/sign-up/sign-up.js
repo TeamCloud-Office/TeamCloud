@@ -62,7 +62,7 @@ function onMessage(event) {
             //닉네임
             like: 0,
             //호감도
-            stock: {},
+            stocks: {},
             etc: []
             //기타
         };

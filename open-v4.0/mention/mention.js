@@ -1,4 +1,24 @@
 Device.acquireWakeLock(android.os.PowerManager.PARTIAL_WAKE_LOCK, ProjectManager.project.info.name);
+let {
+    prefix,
+    Lw,
+    FS,
+    state,
+    snd,
+    getDate,
+    c_path,
+    Kakaocord,
+    msg,
+    Pos,
+    chat_log,
+    random,
+    addCode,
+    User,
+    Coin,
+    Nickname,
+    ogimg
+} = require("A");
+
 let mentions = {};
 let nicknames = [];
 let block_room = ["노란콩대화 자동응답기 공동체", "카카오톡봇 RPG Maker 공식방 (코드:1345z)"];

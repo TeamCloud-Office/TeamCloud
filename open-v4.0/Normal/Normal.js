@@ -71,7 +71,7 @@ function onMessage(event) {
     ];
 
     //테스트
-    if (event.message == "!테스트" || event.message.includes("봇상태")) {
+    if (event.message == "@테스트" || event.message.includes("봇상태")) {
         let before = Date.now();
         event.room.send("TEST!");
         let after = Date.now();
@@ -80,7 +80,7 @@ function onMessage(event) {
     }
 
     //읽음처리
-    if (event.message == "!읽음") {
+    if (event.message == "@읽음") {
         try {
             for (let room in rooms) {
                 if (!rooms[room]) {
@@ -106,7 +106,7 @@ function onMessage(event) {
     }
 
     //스크립트 재설정
-    if (event.message == "!재설정") {
+    if (event.message == "@재설정") {
         try {
             Api.compile();
             event.room.send("모든 스크립트를 재설정했어!");
