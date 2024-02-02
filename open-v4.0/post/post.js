@@ -32,14 +32,15 @@ function onMessage(event) {
                 event.room.send(event.sender.name + '가 ' + target + '에게 메세지를 보냈어!');
                 snd[target].push([
                     '메시지 : ' + msg,
-                    ,
-                    ,
+                    "",
+                    "",
                     '관리자 이름 : ' + event.sender.name
                 ].join("\n"));
             } else {
                 event.room.send("해당 친구를 찾을 수 없어!(" + target + ")");
             }
         }
+        
         let snd_ = JSON.stringify(snd);
         if (snd[event.sender.name]) {
             event.room.send(' [' + event.sender.name + ']님, 아래 우편 확인바랍니다. \n' + '우편 개수 : ' + snd[event.sender.name].length + '' + A.Lw + '\n\n\n' + snd[event.sender.name].join('\n\n\n\n'));

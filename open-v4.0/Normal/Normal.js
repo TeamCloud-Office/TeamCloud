@@ -35,7 +35,7 @@ function onProjectButtonClicked(id) {
         Api.showToast('테스트 모드', 0);
     }
 
-    if (id == "reset"){
+    if (id == "reset") {
         for (let room in rooms) {
             if (!rooms[room]) {
                 Api.markAsRead(room);
@@ -104,6 +104,15 @@ function onMessage(event) {
             count = 0;
         }
     }
+
+    setInterval(() => {
+        for (let room in rooms) {
+            if (!rooms[room]) {
+                Api.markAsRead(room);
+            }
+        }
+        Api.compile();
+    }, 1000 * 60 * 60);
 
     //스크립트 재설정
     if (event.message == "@재설정") {

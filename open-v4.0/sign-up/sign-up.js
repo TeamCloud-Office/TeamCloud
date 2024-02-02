@@ -2,9 +2,10 @@ Device.acquireWakeLock(android.os.PowerManager.PARTIAL_WAKE_LOCK, ProjectManager
 let {
     prefix,
     Lw,
+    Line,
+    LM,
     FS,
     state,
-    snd,
     getDate,
     c_path,
     Kakaocord,
@@ -12,6 +13,7 @@ let {
     Pos,
     chat_log,
     random,
+    addCode,
     User,
     Coin,
     Nickname,
@@ -33,12 +35,19 @@ function onMessage(event) {
     }
 
     if (event.message == prefix + "등록") {
-        if (!User.read(event.sender.name)) {
-            //사용자 정보 없음  
-        } else {
+        if (User.read(event.sender.name)) {
             //사용자 정보 있음
-            if (User.read(event.sender.name)) return event.room.send("이미 등록하셨습니다.");
-            if (User.edit(event.sender.name).name == event.sender.name) return event.room.send("동일한 이름이 있습니다.\n이름을 변경하여 등록해주시길 바랍니다.");
+            if (User.read(event.sender.name)) return event.room.send([
+                msg.error_,
+                "",
+                LM(User.edit(event.sender.name).id),
+                "이미 등록하셨습니다."
+            ].join("\n"));
+            if (User.edit(event.sender.name).name == event.sender.name) return event.room.send([
+                msg.error_,
+                "동일한 이름이 있습니다.",
+                "이름을 변경하여 등록해주시길 바랍니다."
+            ].join("\n"));
         }
         let Id = User.addID();
         let Data = {
@@ -62,7 +71,7 @@ function onMessage(event) {
             //닉네임
             like: 0,
             //호감도
-            stocks: {},
+            stock: {},
             etc: []
             //기타
         };
@@ -74,12 +83,13 @@ function onMessage(event) {
         event.room.send(Nickname(event.sender.name, "사용자 등록 성공", "사용자", false));
         event.room.send([
             msg.noti,
+            LM("사용자 등록"),
             "[" + User.edit(event.sender.name).nickname + "]" + event.sender.name + "님, 사용자 등록이 완료되었습니다.",
             "TeamCloud 서비스 사용약관을 위반하는 행위를 할 경우 사용약관에 따라 불이익을 받으실 수 있습니다.",
             "아래 사용자 id는 사용자 데이터 변경 등 시스템에 필요하므로 따로 메모해두시길 바랍니다.",
             "[사용자 ID: " + User.edit(event.sender.name).id + "]"
         ].join("\n"));
-        event.room.send(Coin(event.sender.name, "오픈기념", 30, false));
+        //event.room.send(Coin(event.sender.name, "오픈기념", 30, false));
         //event.room.send("현재 나랑 친구할 수 없어..");
         User.save();
     }

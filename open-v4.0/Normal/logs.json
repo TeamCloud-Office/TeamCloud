@@ -1,7 +1,40 @@
 [
     {
         "t": "INFO",
+        "th": "Project-Normal-worker-1",
         "m": "프로젝트 Normal 컴파일 중...",
-        "l": 1706445759436
+        "l": 1706879396552
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-Normal",
+        "m": "engine released",
+        "l": 1706880254626
+    },
+    {
+        "t": "INFO",
+        "m": "프로젝트 Normal 컴파일 중...",
+        "l": 1706880254634
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-Normal",
+        "m": "engine released",
+        "l": 1706880595478
+    },
+    {
+        "t": "INFO",
+        "m": "프로젝트 Normal 컴파일 중...",
+        "l": 1706880595478
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-Normal",
+        "m": "engine released",
+        "l": 1706881184523
+    },
+    {
+        "t": "INFO",
+        "m": "프로젝트 Normal 컴파일 중..."
     }
 ]

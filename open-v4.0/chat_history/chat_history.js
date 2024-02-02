@@ -1,6 +1,6 @@
 Device.acquireWakeLock(android.os.PowerManager.PARTIAL_WAKE_LOCK, ProjectManager.project.info.name);
 let {
-    prefix, Lw, FS, state, snd, getDate, c_path,
+    prefix, Lw, FS, state, getDate, c_path,
     Kakaocord,
     msg,
     Pos, chat_log, random,

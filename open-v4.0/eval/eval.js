@@ -39,8 +39,8 @@ function onMessage(event) {
 
     if (event.message.startsWith(prefix + "e")) {
         if (!onf) return event.room.send(msg.noti + "eval 기능이 꺼져있습니다.");
-        if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-        if (User.edit(event.sender.name).admin == false) return event.room.send(msg.admin);
+        //if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
+        //if (User.edit(event.sender.name).admin == false) return event.room.send(msg.admin);
         try {
             var before = Date.now();
             event.room.send(msg.noti + eval((event.message).substr(6)));

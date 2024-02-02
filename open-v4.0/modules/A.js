@@ -9,12 +9,16 @@ let {
 } = require("A");
 */
 
+/*
+    * Google Gemini AI token : AIzaSyC67uhwAN9UqC9fxtAITrcohhZk5xB0tA8
+*/
+
 (function () {
 
     let prefix = '파이야 ';
 
     let Lw = '\u200b'.repeat(500),
-        Line = (num) => "========".repeat(num),
+        Line = (num) => "======".repeat(num),
         LM = (str) => Line(1) + str + Line(1);
 
     let FS = FileStream;
@@ -117,10 +121,9 @@ let {
     let msg = {
 
         noti: [
-            '[ Eric Ver : ' + 'Open v4.0.11' + ']',
+            '[ Eric Ver : ' + 'Alpha-v4.0.11' + ']',
             //'TeamCloud Eric 4.0 정식 출시!!',
             //"지금바로 사용해보세요!",
-            "",
             "",
             //봇 답변
         ].join('\n'),
@@ -147,6 +150,7 @@ let {
             "해당 명령어를 실행할 수 없습니다.",
             "> 아래 오류 내용을 TeamCloud 문의 메일로 전송해주세요.",
             "help@team-cloud.kro.kr",
+            "",
             "",
             "",
             //오류 내용
@@ -177,23 +181,23 @@ let {
         return Math.floor(Math.random() * num) + 1;
     }
 
-    function post(s, m) {
+    /*function post(s, m) {
         snd[s].push(m)
-    }
+    }*/
 
     /**
      * 
      * @param {String} s 사용자
      * @param {String} e 증감/감소 사유
      * @param {Number} c 코인 개수
-     * @param {Boolean} tf 쪽지 전송 여부
+     * @param {Boolean} tf 쪽지 전송 여부 = 사용하지않음
      * @returns 
      */
     function Coin(s, e, c, tf) {
         let _coin = User.edit(s).coin
         c = Number(c);
-        if (!snd[s]) snd[s] = [];
-        if (c > 0) { //증감
+        //if (!snd[s]) snd[s] = [];
+        /*if (c > 0) { //증감
             let coin = User.edit(s).coin += c;
             User.edit(s).coin = coin;
             User.save();
@@ -210,7 +214,7 @@ let {
                     '관리자 이름: ' + "TeamCloud"
                 ].join("\n"));
                 return (s + '님의 코인이 ' + c + ' 증감하였습니다.');
-            } else if (tf == false) {
+            } else if (tf == false) {*/
                 return [
                     LM("[코인 증감]"),
                     "사용자: " + "[" + "[" + User.edit(s).nickname[0] + "]" + s + "]",
@@ -218,14 +222,14 @@ let {
                     "증감 코인: " + c + "coin",
                     _coin + "coin" + " → " + User.edit(s).coin + "coin"
                 ].join("\n")
-            }
+            //}
 
         }
         if (c < 0) { //감소
             let coin = User.edit(s).coin += c;
             User.edit(s).coin = coin;
             User.save();
-            if (tf == true) {
+            /*if (tf == true) {
                 post(s, [
                     '메시지: ',
                     LM("[코인 감소]"),
@@ -238,7 +242,7 @@ let {
                     '관리자 이름: ' + "TeamCloud"
                 ].join("\n"));
                 return (s + '님의 코인이 ' + c + ' 감소하였습니다.');
-            } else if (tf == false) {
+            } else if (tf == false) {*/
                 return [
                     LM("[코인 감소]"),
                     "사용자: " + "[" + "[" + User.edit(s).nickname[0] + "]" + s + "]",
@@ -246,8 +250,8 @@ let {
                     "감소 코인: " + c + "coin",
                     _coin + "coin" + " → " + User.edit(s).coin + "coin"
                 ].join('\n');
-            }
-        }
+            //}
+        //}
     }
 
 
@@ -256,36 +260,36 @@ let {
      * @param {String} s 사용자
      * @param {String} e 증감/감소 사유
      * @param {String} n 닉네임
-     * @param {Boolean} tf 쪽지 전송 여부
+     * @param {Boolean} tf 쪽지 전송 여부 = 사용하지않음
      * @returns 
      */
     function Nickname(s, e, n, tf) {
         let _nickname = User.edit(s).nickname;
-        if (!snd[s]) snd[s] = [];
+        //if (!snd[s]) snd[s] = [];
         (User.edit(s).nickname).unshift(n);
         User.save();
-        if (tf == true) {
+        /*if (tf == true) {
             post(s, [
                 '메시지: ',
                 LM("[호칭 지급]"),
                 "사용자: " + "[" + "[" + User.edit(s).nickname + "]" + s + "]",
                 "사유: " + e,
-                "지급 호칭: " + c + "coin",
-                _nickname + " → " + User.edit(s).nickname + "coin",
+                "지급 호칭: " + n,
+                _nickname + " → " + User.edit(s).nickname,
                 "",
                 "",
                 '관리자 이름: ' + "TeamCloud"
             ].join("\n"));
             return (s + '님께 [' + n + ']닉네임이 지급됐습니다.');
-        } else if (tf == false) {
+        } else {*/
             return [
                 LM("[호칭 지급]"),
                 "사용자: " + "[" + "[" + _nickname + "]" + s + "]",
                 "사유: " + e,
-                "지급 호칭: " + c + "coin",
-                _nickname + " → " + User.edit(s).nickname + "coin"
+                "지급 호칭: " + n,
+                _nickname + " → " + User.edit(s).nickname
             ].join('\n'); //닉네임 지급
-        }
+        //}
 
     }
 
@@ -321,7 +325,7 @@ let {
         LM: LM,
         FS: FS,
         state: state,
-        snd: snd,
+        //snd: snd,
         getDate: getDate,
         Kakaocord: Kakaocord,
         User: User,
