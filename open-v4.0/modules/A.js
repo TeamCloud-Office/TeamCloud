@@ -10,22 +10,18 @@ let {
 */
 
 /*
-    * Google Gemini AI token : AIzaSyC67uhwAN9UqC9fxtAITrcohhZk5xB0tA8
-*/
+ * Google Gemini AI token : AIzaSyC67uhwAN9UqC9fxtAITrcohhZk5xB0tA8
+ */
 
 (function () {
 
-    let prefix = '파이야 ';
+    let prefix = '아리아 ';
 
     let Lw = '\u200b'.repeat(500),
         Line = (num) => "======".repeat(num),
         LM = (str) => Line(1) + str + Line(1);
 
     let FS = FileStream;
-
-    let state = "";
-
-    let snd = {};
 
     let getDate = {
         year: new Date().getFullYear(),
@@ -38,6 +34,11 @@ let {
         today: (str) => new Date().getFullYear() + str + (new Date().getMonth() + 1) + str + new Date().getDate(),
         time: (str) => new Date().getHours() + str + new Date().getMinutes() + str + new Date().getSeconds()
     };
+
+
+    let UserPath = "/sdcard/StarLight/BotData/admin/UseData.json",
+        SetPath = "/sdcard/StarLight/BotData/Set.json",
+        ChatPath = 'sdcard/StarLight/BotData/Chat/' + getDate.year + 'y/' + (getDate.month) + 'm/' + getDate.day + 'd' + '.json';
 
     let Kakaocord = {
         discord: {
@@ -55,13 +56,19 @@ let {
         }
     }
 
+
+    if (!FS.read(SetPath)) FS.write(SetPath, '{}');
+    let Set = {
+        edit: JSON.parse(FS.read(SetPath)),
+        save: FS.write(SetPath, JSON.stringify(JSON.parse(FS.read(SetPath)), null, 4))
+    }
+
+
     let {
         LocalStorage
     } = require('LocalStorage');
 
-    let UP = "/sdcard/StarLight/BotData/admin/UseData.json";
-
-    let LS = new LocalStorage(UP, false);
+    let LS = new LocalStorage(UserPath, false);
 
     function findUser(k, d) {
         try {
@@ -78,7 +85,7 @@ let {
             }
             return null;
         } catch (e) {
-            Log.i(e)
+            Log.i(e);
         }
     }
 
@@ -155,7 +162,7 @@ let {
             "",
             //오류 내용
         ].join('\n'),
-        
+
         error_: [
             "해당 명령어를 실행할 수 없습니다.",
             "> "
@@ -168,12 +175,10 @@ let {
         return (str) + (str.slice(-1).normalize("NFKD")[2] != undefined) ? t : f;
     } //Pos("누구", "이가", "가")
 
-    let c_path = 'sdcard/StarLight/BotData/log/' + getDate.year + 'y/' + (getDate.month) + 'm/' + getDate.day + 'd' + '.json';
-
     let chat = {
         save: (room, sender, msg) => {
-            JSON.parse(FS.read(c_path))[room][sender][getDate.time(":")] = msg;
-            FS.write(c_path, JSON.stringify(chat_log, null, 4));
+            JSON.parse(FS.read(ChatPath))[room][sender][getDate.time(":")] = msg;
+            FS.write(ChatPath, JSON.stringify(chat_log, null, 4));
         }
     }
 
@@ -197,11 +202,11 @@ let {
         let _coin = User.edit(s).coin
         c = Number(c);
         //if (!snd[s]) snd[s] = [];
-        /*if (c > 0) { //증감
+        if (c > 0) { //증감
             let coin = User.edit(s).coin += c;
             User.edit(s).coin = coin;
             User.save();
-            if (tf == true) {
+            /*if (tf == true) {
                 post(s, [
                     '메시지: ',
                     LM("[코인 증감]"),
@@ -215,13 +220,13 @@ let {
                 ].join("\n"));
                 return (s + '님의 코인이 ' + c + ' 증감하였습니다.');
             } else if (tf == false) {*/
-                return [
-                    LM("[코인 증감]"),
-                    "사용자: " + "[" + "[" + User.edit(s).nickname[0] + "]" + s + "]",
-                    "사유: " + e,
-                    "증감 코인: " + c + "coin",
-                    _coin + "coin" + " → " + User.edit(s).coin + "coin"
-                ].join("\n")
+            return [
+                LM("[코인 증감]"),
+                "사용자: " + "[" + "[" + User.edit(s).nickname[0] + "]" + s + "]",
+                "사유: " + e,
+                "증감 코인: " + c + "coin",
+                _coin + "coin" + " → " + User.edit(s).coin + "coin"
+            ].join("\n")
             //}
 
         }
@@ -243,15 +248,16 @@ let {
                 ].join("\n"));
                 return (s + '님의 코인이 ' + c + ' 감소하였습니다.');
             } else if (tf == false) {*/
-                return [
-                    LM("[코인 감소]"),
-                    "사용자: " + "[" + "[" + User.edit(s).nickname[0] + "]" + s + "]",
-                    "사유: " + e,
-                    "감소 코인: " + c + "coin",
-                    _coin + "coin" + " → " + User.edit(s).coin + "coin"
-                ].join('\n');
+            return [
+                LM("[코인 감소]"),
+                "사용자: " + "[" + "[" + User.edit(s).nickname[0] + "]" + s + "]",
+                "사유: " + e,
+                "감소 코인: " + c + "coin",
+                _coin + "coin" + " → " + User.edit(s).coin + "coin"
+            ].join('\n');
             //}
-        //}
+            //}
+        }
     }
 
 
@@ -282,13 +288,13 @@ let {
             ].join("\n"));
             return (s + '님께 [' + n + ']닉네임이 지급됐습니다.');
         } else {*/
-            return [
-                LM("[호칭 지급]"),
-                "사용자: " + "[" + "[" + _nickname + "]" + s + "]",
-                "사유: " + e,
-                "지급 호칭: " + n,
-                _nickname + " → " + User.edit(s).nickname
-            ].join('\n'); //닉네임 지급
+        return [
+            LM("[호칭 지급]"),
+            "사용자: " + "[" + "[" + _nickname + "]" + s + "]",
+            "사유: " + e,
+            "지급 호칭: " + n,
+            _nickname + " → " + User.edit(s).nickname
+        ].join('\n'); //닉네임 지급
         //}
 
     }
@@ -314,7 +320,7 @@ let {
             return data;
             //return JSON.stringify(JSON.parse(response.body()).data.viewUrl.split('"'), null, 4);
         } catch (e) {
-            Log.d('{Name: ' + e.name + ', Message: ' + e.message + ', Line: ' + e.lineNumber + '}')
+            Log.d(JSON.stringify(e))
         }
     }
 
@@ -324,14 +330,15 @@ let {
         Line: Line,
         LM: LM,
         FS: FS,
-        state: state,
-        //snd: snd,
+        UP: UserPath,
+        SP: SetPath,
+        CP: ChatPath,
+        Set: Set,
         getDate: getDate,
         Kakaocord: Kakaocord,
         User: User,
         LS: LS,
         msg: msg,
-        c_path: c_path,
         Pos: Pos,
         chat: chat,
         random: random,

@@ -1,19 +1,24 @@
+
 let {
     prefix,
     Lw,
+    Line,
+    LM,
     FS,
-    cut,
+    UP,
+    SP,
+    CP,
+    Set,
     getDate,
-    Kakaocord,
     User,
+    LS,
     msg,
     Pos,
-    chat_log,
+    chat,
     random,
     Coin,
     Nickname,
-    ogimg,
-    c_path,
+    ogimg
 } = require("A");
 
 
@@ -21,18 +26,21 @@ let rooms = {};
 
 
 
-function onProjectButtonClicked(id) {
+/*function onProjectButtonClicked(id) {
     if (id == "normal") {
-        state = 1;
+        Set.edit("state") = 1;
         Api.showToast('정상 모드', 0);
+        Set.save();
     }
     if (id == "check") {
-        state = 0;
+        Set.edit("state") = 0;
         Api.showToast('점검 모드', 0);
+        Set.save();
     }
     if (id == "test") {
-        state = 2;
+        Set.edit("state") = 2;
         Api.showToast('테스트 모드', 0);
+        Set.save();
     }
 
     if (id == "reset") {
@@ -43,7 +51,7 @@ function onProjectButtonClicked(id) {
         }
         Api.compile();
     }
-}
+}*/
 
 function onMessage(event) {
     if (!rooms[event.room.name]) {
@@ -71,7 +79,7 @@ function onMessage(event) {
     ];
 
     //테스트
-    if (event.message == "@테스트" || event.message.includes("봇상태")) {
+    if (event.message == prefix + "테스트" || event.message.includes("봇상태")) {
         let before = Date.now();
         event.room.send("TEST!");
         let after = Date.now();
@@ -80,47 +88,26 @@ function onMessage(event) {
     }
 
     //읽음처리
-    if (event.message == "@읽음") {
+    if (event.message == prefix + "읽음") {
         try {
             for (let room in rooms) {
                 if (!rooms[room]) {
                     Api.markAsRead(room);
                 }
             }
-            event.room.send("모든 방을 읽음처리 했어!");
+            event.room.send("모든 채팅방을 읽음처리 했습니다.");
         } catch (e) {
-            event.room.send("에러가 발생했어!\n오류 내용 : " + e.message)
+            event.room.send(JSON.stringify(e))
         }
     }
-    if (event.message) {
-        let count;
-        count++;
-        if (count >= 100) {
-            for (let room in rooms) {
-                if (!rooms[room]) {
-                    Api.markAsRead(room);
-                }
-            }
-            count = 0;
-        }
-    }
-
-    setInterval(() => {
-        for (let room in rooms) {
-            if (!rooms[room]) {
-                Api.markAsRead(room);
-            }
-        }
-        Api.compile();
-    }, 1000 * 60 * 60);
 
     //스크립트 재설정
-    if (event.message == "@재설정") {
+    if (event.message == prefix + "재설정") {
         try {
             Api.compile();
-            event.room.send("모든 스크립트를 재설정했어!");
+            event.room.send("모든 스크립트를 재설정했습니다.");
         } catch (e) {
-            event.room.send("에러가 발생했어!\n오류 내용 : " + e.message)
+            event.room.send(JSON.stringify(e))
         }
     }
 }

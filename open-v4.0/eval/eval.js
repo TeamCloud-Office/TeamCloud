@@ -1,21 +1,24 @@
-Device.acquireWakeLock(android.os.PowerManager.PARTIAL_WAKE_LOCK, ProjectManager.project.info.name);
+
 let {
     prefix,
     Lw,
+    Line,
+    LM,
     FS,
-    cut,
+    UP,
+    SP,
+    CP,
+    Set,
     getDate,
-    Kakaocord,
     User,
     LS,
     msg,
     Pos,
-    chat_log,
+    chat,
     random,
     Coin,
     Nickname,
-    ogimg,
-    c_path,
+    ogimg
 } = require("A");
 
 let onf = true;
@@ -39,8 +42,8 @@ function onMessage(event) {
 
     if (event.message.startsWith(prefix + "e")) {
         if (!onf) return event.room.send(msg.noti + "eval 기능이 꺼져있습니다.");
-        //if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-        //if (User.edit(event.sender.name).admin == false) return event.room.send(msg.admin);
+        if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
+        if (User.edit(event.sender.name).admin == false) return event.room.send(msg.admin);
         try {
             var before = Date.now();
             event.room.send(msg.noti + eval((event.message).substr(6)));

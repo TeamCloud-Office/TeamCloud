@@ -1,4 +1,3 @@
-Device.acquireWakeLock(android.os.PowerManager.PARTIAL_WAKE_LOCK, ProjectManager.project.info.name);
 let {
     prefix,
     Lw,
@@ -49,6 +48,7 @@ function onMessage(event) {
                 "이름을 변경하여 등록해주시길 바랍니다."
             ].join("\n"));
         }
+        Api.compile();
         let Id = User.addID();
         let Data = {
             name: event.sender.name,
@@ -71,7 +71,7 @@ function onMessage(event) {
             //닉네임
             like: 0,
             //호감도
-            stock: {},
+            stocks: {},
             etc: []
             //기타
         };
@@ -80,17 +80,27 @@ function onMessage(event) {
 
 
         event.room.send(Coin(event.sender.name, "사용자 등록", 20, false));
+        java.lang.Thread.sleep(1500)
         event.room.send(Nickname(event.sender.name, "사용자 등록 성공", "사용자", false));
+        java.lang.Thread.sleep(1500)
         event.room.send([
             msg.noti,
             LM("사용자 등록"),
             "[" + User.edit(event.sender.name).nickname + "]" + event.sender.name + "님, 사용자 등록이 완료되었습니다.",
-            "TeamCloud 서비스 사용약관을 위반하는 행위를 할 경우 사용약관에 따라 불이익을 받으실 수 있습니다.",
-            "아래 사용자 id는 사용자 데이터 변경 등 시스템에 필요하므로 따로 메모해두시길 바랍니다.",
             "[사용자 ID: " + User.edit(event.sender.name).id + "]"
         ].join("\n"));
         //event.room.send(Coin(event.sender.name, "오픈기념", 30, false));
         //event.room.send("현재 나랑 친구할 수 없어..");
         User.save();
+        Api.compile();
     }
+
+    if (event.message == "아리아 등록T")
+        event.room.send([
+            msg.noti,
+            LM("사용자 등록"),
+            "[" + User.edit(event.sender.name).nickname + "]" + event.sender.name + "님, 사용자 등록이 완료되었습니다.",
+            "[사용자 ID: " + User.edit(event.sender.name).id + "]"
+        ].join("\n"));
+
 }

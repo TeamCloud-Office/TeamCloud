@@ -1,18 +1,20 @@
-Device.acquireWakeLock(android.os.PowerManager.PARTIAL_WAKE_LOCK, ProjectManager.project.info.name);
 let {
     prefix,
     Lw,
+    Line,
+    LM,
     FS,
-    state,
+    UP,
+    SP,
+    CP,
+    Set,
     getDate,
-    c_path,
-    Kakaocord,
+    User,
+    LS,
     msg,
     Pos,
-    chat_log,
+    chat,
     random,
-    addCode,
-    User,
     Coin,
     Nickname,
     ogimg
@@ -21,29 +23,40 @@ let {
 function onMessage(event) {
     let cut = event.message.split(" ");
 
+    let snd = Set.edit["snd"];
+
+    if (User.read(event.sender.name)) {
+        if (!snd[User.edit(event.sender.name).id]) {
+            snd[User.edit(event.sender.name).id] = [];
+            Log.i("id: " + User.edit(event.sender.name).id)
+            Set.save;
+            Log.i(JSON.stringify(snd))
+        }
+    }
+
     let id = cut[2];
     let count = Number(cut[3]);
     try {
 
-        if (event.message.startsWith(prefix + "기록 ")) {
+        /*if (event.message.startsWith(prefix + "기록 ")) {
             if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
             if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
 
             event.room.send(JSON.stringify(JSON.parse(FS.read("sdcard/BotData/chat/" + (cut[2] + "y/") + (cut[3] + "m/") + (cut[4] + "d") + ".json")), null, 4));
-        }
+        }*/
 
         if (event.message.startsWith(prefix + "경고 ")) {
             if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
             if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
 
             if (count > 0) {
-                event.room.send("경고가 " + count + "회 증감되었습니다.");
+                event.room.send(User.edit(id, true).name + "님의 경고 횟수가 " + count + "회 증감되었습니다.");
                 let a = User.edit(id, true).warning_count += count;
                 User.edit(id, true).warning_count = a;
                 User.save();
             }
             if (count < 0) {
-                event.room.send("경고가 " + count + "회 차감되었습니다.");
+                event.room.send(User.edit(id, true).name + "님의 경고 횟수가 " + count + "회 차감되었습니다.");
                 let a = User.edit(id, true).warning_count += count;
                 User.edit(id, true).warning_count = a;
                 User.save();
@@ -54,12 +67,12 @@ function onMessage(event) {
             if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
             if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
 
-            if (count == "1") {
+            if (count == 1) {
                 event.room.send("해당 사용자의 사용제한이 설정되었습니다.");
                 User.edit(id, true).ban == true;
                 User.save();
             }
-            if (count == "0") {
+            if (count == 0) {
                 event.room.send("해당 사용자의 사용제한이 해제되었습니다.");
                 User.edit(id, true).ban == false;
                 User.save();
@@ -96,16 +109,23 @@ function onMessage(event) {
             if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
             if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
 
+            let stocks;
+            if (String(JSON.stringify(User.edit(cut[2], true).stocks)) == "{}") {
+                stocks = "없음";
+            } else {
+                stocks = Object.keys(User.edit(cut[2], true).stocks)
+            }
+
             event.room.send([
                 msg.noti,
-                "이름 : " + User.edit(cut[2]).name,
-                "닉네임 : " + User.edit(cut[2]).nickname,
-                "관리자 : " + (User.edit(cut[2]).admin ? "예" : "아니오"),
-                "팀클 코인 : " + User.edit(cut[2]).teamcloud_coin + "코인",
-                "경고 횟수 : " + User.edit(cut[2]).warning_count + "회",
-                "주식 보유 종목: " + User.edit(cut[2]).stocks,
-                "에릭과의 호감도 : " + User.edit(cut[2]).like,
-                "기타 : " + User.edit(cut[2]).etc
+                "이름: " + User.edit(cut[2], true).name,
+                "닉네임: " + User.edit(cut[2], true).nickname,
+                "관리자: " + (User.edit(cut[2], true).admin ? "예" : "아니오"),
+                "팀클 코인: " + User.edit(cut[2], true).coin + "코인",
+                "경고 횟수: " + User.edit(cut[2], true).warn + "회",
+                "주식 보유 종목: " + stocks,
+                "에릭과의 호감도: " + User.edit(cut[2], true).like,
+                "기타: " + User.edit(cut[2], true).etc
             ].join("\n"));
         }
 
@@ -152,23 +172,27 @@ function onMessage(event) {
             let target = event.message.replace(prefix + "우편 ", "").split(" ` ")[0];
             let msgp = event.message.replace(prefix + "우편 ", "").split(" ` ")[1];
 
-            if (!snd[target]) snd[target] = [];
-            event.room.send(target + '님께 우편을 전송하였습니다.');
-            snd[target].push([
-                '메시지 : ' + msgp,
-                "",
-                "",
-                '관리자 이름 : ' + event.sender.name
-            ].join("\n"));
+            event.room.send(User.edit(target, true).name + '님께 우편을 전송하였습니다.');
+            snd[target].push("\n" + "메시지: " + msgp + "\n" + "관리자 이름: " + event.sender.name);
+            Set.save;
         }
-        let snd_ = JSON.stringify(snd);
-        if (snd[event.sender.name]) {
-            event.room.send(' [' + event.sender.name + ']님, 아래 우편 확인바랍니다. \n' + '우편 개수 : ' + snd[event.sender.name].length + '' + Lw + '\n\n\n' + snd[event.sender.name].join('\n\n\n\n'));
-            delete snd[event.sender.name];
+        if (User.read(event.sender.name)) {
+            if (snd[User.edit(event.sender.name).id] && (snd[User.edit(event.sender.name).id].length >= 1)) {
+                event.room.send([
+                    LM("우편 확인"),
+                    "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+                    '우편 개수: ' + snd[User.edit(event.sender.name).id].length,
+                    Lw,
+                    "",
+                    '\n━━━━━━━━━━━━━━━━━━━━━━━━\n',
+                    snd[User.edit(event.sender.name).id].join('\n━━━━━━━━━━━━━━━━━━━━━━━━\n')
+                ].join("\n"));
+                delete snd[User.edit(event.sender.name).id];
+                Set.save;
+            }
         }
 
-        if (event.message == "post Test") event.room.send(snd_);
-
+        if (event.message == "post Test") event.room.send(JSON.stringify(snd));
 
     } catch (e) {
         event.room.send(msg.error + JSON.stringify(e));
