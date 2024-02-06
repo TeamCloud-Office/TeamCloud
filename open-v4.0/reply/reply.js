@@ -1,4 +1,3 @@
-
 let {
   prefix,
   Lw,
@@ -69,13 +68,13 @@ function onMessage(event) {
     event.room.send(msg.noti + [
       cut[2] + "의 날씨",
       Weader.select("#wob_dc").text(), //요약
-      "섭씨 : " + Weader.select("#wob_tm").text() + "°C",
-      "화씨 : " + Weader.select("#wob_ttm").text() + "°F",
-      "강수확률 : " + Weader.select("#wob_pp").text(),
-      "습도 : " + Weader.select("#wob_hm").text(),
-      "풍속 : " + Weader.select("#wob_tws").text(),
+      "섭씨: " + Weader.select("#wob_tm").text() + "°C",
+      "화씨: " + Weader.select("#wob_ttm").text() + "°F",
+      "강수확률: " + Weader.select("#wob_pp").text(),
+      "습도: " + Weader.select("#wob_hm").text(),
+      "풍속: " + Weader.select("#wob_tws").text(),
       "",
-      "기준 시간 : " + Weader.select("#wob_dts").text().slice(5)
+      "기준 시간:" + Weader.select("#wob_dts").text().slice(5)
     ].join('\n'));
   }
 
@@ -164,18 +163,29 @@ function onMessage(event) {
     ].join("\n"));
   }
 
-  if (event.message == (prefix.slice(0, -1))) {
-    let list = {
-      hello: [
-        "부르셨습니까, " + event.sender.name + "님.",
-        "네, " + event.sender.name + "님.",
-        "반갑습니다.",
-        "무슨 일입니까?",
-        "부르셨습니까?"
-      ]
-    };
-    event.room.send(list["hello"][random(list["hello"].length - 1)]);
+  let time = "";
+  if (11 >= getDate.hour >= 5) {
+    time = "아침"
+  } else if (15 >= getDate.hour >= 12) {
+    time = "점심"
+  } else if (20 >= getDate.hour >= 16) {
+    time = "저녁"
+  } else {
+    time = "밤"
   }
+    if (event.message == (prefix.slice(0, -1))) {
+      let list = {
+        hello: [
+          "부르셨습니까, " + event.sender.name + "님.",
+          "네, " + event.sender.name + "님.",
+          "반갑습니다.",
+          "무슨 일입니까?",
+          "부르셨습니까?",
+          "좋은 " + time + "입니다."
+        ]
+      };
+      event.room.send(list["hello"][random(list["hello"].length - 1)]);
+    }
 
 }
 

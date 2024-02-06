@@ -97,7 +97,7 @@ function onMessage(event) {
             }
             event.room.send("모든 채팅방을 읽음처리 했습니다.");
         } catch (e) {
-            event.room.send(JSON.stringify(e))
+            event.room.send(JSON.stringify(e));
         }
     }
 
@@ -107,7 +107,7 @@ function onMessage(event) {
             Api.compile();
             event.room.send("모든 스크립트를 재설정했습니다.");
         } catch (e) {
-            event.room.send(JSON.stringify(e))
+            event.room.send(JSON.stringify(e));
         }
     }
 }

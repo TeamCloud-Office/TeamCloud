@@ -13,6 +13,7 @@ let {
     LS,
     msg,
     Pos,
+    post,
     chat,
     random,
     Coin,
@@ -23,14 +24,14 @@ let {
 function onMessage(event) {
     let cut = event.message.split(" ");
 
-    let snd = Set.edit["snd"];
+    if (Boolean(FS.read(SP)) == false) FS.write(SP, JSON.stringify({}, null, 4)) 
+    let data = JSON.parse(FS.read(SP));
+    let snd = data["snd"];
 
     if (User.read(event.sender.name)) {
         if (!snd[User.edit(event.sender.name).id]) {
             snd[User.edit(event.sender.name).id] = [];
-            Log.i("id: " + User.edit(event.sender.name).id)
-            Set.save;
-            Log.i(JSON.stringify(snd))
+            FS.write(SP, JSON.stringify(JSON.parse(FS.read(SP)), null, 4));
         }
     }
 
@@ -173,7 +174,7 @@ function onMessage(event) {
             let msgp = event.message.replace(prefix + "우편 ", "").split(" ` ")[1];
 
             event.room.send(User.edit(target, true).name + '님께 우편을 전송하였습니다.');
-            snd[target].push("\n" + "메시지: " + msgp + "\n" + "관리자 이름: " + event.sender.name);
+            post(target, msgp, event.sender.name);
             Set.save;
         }
         if (User.read(event.sender.name)) {
