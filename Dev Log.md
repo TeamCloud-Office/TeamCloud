@@ -1,65 +1,71 @@
 # Open-v4.0 Dev Log
 
 - [ ] A.js(module)
-  - [X] Postal function
-  - [X] Coin function
-  - [X] Nickname function
-  - [X] User data retrieval function
-  - [X] Output function such as error messages
+  - [x] Postal function
+  - [x] Coin function
+  - [x] Nickname function
+  - [x] User data retrieval function
+  - [x] Output function such as error messages
   - [ ] Chat save function
-  - [X] probability function
-  - [X] Likeability function
-  - [X] Open graph function
+  - [x] probability function
+  - [x] Likeability function
+  - [x] Open graph function
 
-- [X] admin.js
-  - [X] warning function
-  - [X] ben function
-  - [X] Coin function
-  - [X] Nickname function
-  - [X] User transfer function
-  - [X] User information function
-  - [X] User withdrawal function
-  - [X] Notice function
-  - [X] postal function
+- [x] admin.js
+  - [x] warning function
+  - [x] ben function
+  - [x] Coin function
+  - [x] Nickname function
+  - [x] User transfer function
+  - [x] User information function
+  - [x] User withdrawal function
+  - [x] Notice function
+  - [x] postal function
 
-- [X] atten.js
+- [x] atten.js
   - [x] Attendance check function
-  - [X] Attendance ranking function
+  - [x] Attendance ranking function
 
-- [X] chat_history.js
+- [x] chat_history.js
   - [x] User-used command storage function
   - [x] Command usage time storage function
 
-- [X] entrance.js
-  - [X] Chat room entry message function
+- [x] entrance.js
+  - [x] Chat room entry message function
 
-- [X] eval.js
+- [x] eval.js
 
-- [X] events.js
+- [x] events.js
 
-- [X] mention.js
-  - [X] Chat room classification function
+- [ ] like.js
+  -[ ] Affinity increase function
+
+- [x] Me.js
+  - [x] My information function
+
+- [x] mention.js
+  - [x] Chat room classification function
 
 - [ ] stock.js(module)
 
 - [ ] stock.js
 
-- [X] Normal.js
+- [x] Normal.js
   - [x] settings function
   - [x] Read and reset function
 
-- [X] reply.js
-  - [X] weather function
-  - [X] Rock, paper, scissors function
-  - [X] dice function
-  - [X] D-day function
-  - [X] “What are the odds?” function
-  - [X] odd/even function
+- [x] reply.js
+  - [x] weather function
+  - [x] Rock, paper, scissors function
+  - [x] dice function
+  - [x] D-day function
+  - [x] “What are the odds?” function
+  - [x] odd/even function
   - [x] music chart function
   - [x] Music search function
   - [x] AI features
   - [x] Simple response function
 
-- [X] sign-up.js
+- [x] sign-up.js
   - [x] Random ID generation function
   - [x] registration function
