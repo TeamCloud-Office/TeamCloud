@@ -4,13 +4,8 @@ let {
   Line,
   LM,
   FS,
-  UP,
-  SP,
-  CP,
-  Set,
   getDate,
   User,
-  LS,
   msg,
   Pos,
   chat,
@@ -28,45 +23,108 @@ function onMessage(event) {
     event.room.send(msg.noti + 'https://www.team-cloud.kro.kr/blog/manual');
   }
 
+  let time = "";
+  if (5 <= getDate.hour < 11) {
+    time = "아침"
+  } else if (12 <= getDate.hour < 15) {
+    time = "점심"
+  } else if (16 <= getDate.hour < 20) {
+    time = "저녁"
+  } else {
+    time = "밤"
+  }
+  if (event.message == (prefix.slice(0, -1))) {
+    if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
+    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
+
+    let list = {
+      hello: [
+        "부르셨습니까, " + event.sender.name + "님.",
+        "네, " + event.sender.name + "님.",
+        "반갑습니다.",
+        "무슨 일입니까?",
+        "부르셨습니까?",
+        "좋은 " + time + "입니다."
+      ]
+    };
+    event.room.send(list["hello"][Math.floor(random(list["hello"].length))]);
+  }
+
+  if (event.message == prefix + "지금 몇시야?") {
+    if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
+    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
+
+    event.room.send("지금은 " + getDate.today("/") + " " + getDate.time(":") + "입니다.");
+  }
+
+
   if (event.message.startsWith(prefix + "가위바위보 ")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.admin);
+    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
 
     switch (cut[2]) {
       case '바위':
-        array = ["가위\n" + event.sender.name + "님이 이기셨습니다.", "바위\n사용자님과 비겼습니다.", "보\n제가 이겼습니다."];
-        event.room.send(msg.noti + array[random(3)]);
+        array = ["가위\n" + event.sender.name + "님이 이기셨습니다.", "바위\n" + event.sender.name + "님과 비겼습니다.", "보\n제가 이겼습니다."];
+        event.room.send([
+          msg.noti,
+          LM("[가위바위보]"),
+          "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+          Line(3),
+          array[random(3)]
+        ].join("\n"));
         break;
       case '가위':
-        array = ["보\n" + event.sender.name + "님이 이기셨습니다.", "가위\n사용자님과 비겼습니다.", "바위\n제가 이겼습니다."];
-        event.room.send(msg.noti + array[random(3)]);
+        array = ["보\n" + event.sender.name + "님이 이기셨습니다.", "가위\n" + event.sender.name + "님과 비겼습니다.", "바위\n제가 이겼습니다."];
+        event.room.send([
+          msg.noti,
+          LM("[가위바위보]"),
+          "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+          Line(3),
+          array[random(3)]
+        ].join("\n"));
         break;
       case '보':
-        array = ["바위\n" + event.sender.name + "님이 이기셨습니다.", "보\사용자님과 비겼습니다.", "가위\n제가 이겼습니다."];
-        event.room.send(msg.noti + array[random(3)]);
+        array = ["바위\n" + event.sender.name + "님이 이기셨습니다.", "보\n" + event.sender.name + "님과 비겼습니다.", "가위\n제가 이겼습니다."];
+        event.room.send([
+          msg.noti,
+          LM("[가위바위보]"),
+          "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+          Line(3),
+          array[random(3)]
+        ].join("\n"));
         break;
     }
   }
 
   if (event.message.startsWith(prefix + "디데이")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.admin);
+    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
 
     let today = new Date(new Date().getYear(), new Date().getMonth() + 1, new Date().getDate());
     let day = new Date(new Date().getYear(), cut[2].split('/')[0], cut[2].split('/')[1]);
     let calculate = (today - day) / (1000 * 3600 * 24) * -1;
     if (calculate < 0) calculate = 365 - calculate * -1;
     if (calculate == 0) calculate = "Day";
-    event.room.send(msg.noti + 'D-' + calculate);
+    event.room.send([
+      msg.noti,
+      LM("[디데이]"),
+      "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+      Line(3),
+      'D-' + calculate
+    ].join("\n"));
   }
 
   if (event.message.startsWith(prefix + "날씨 ")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.admin);
+    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
 
-    let Weader = org.jsoup.Jsoup.connect("https://www.google.com/search?q=" + cut[2] + " 날씨").get();
-    event.room.send(msg.noti + [
-      cut[2] + "의 날씨",
+    let Weader = org.jsoup.Jsoup.connect("https://www.google.com/search?q=" + event.message.replace(prefix + "날씨 ", "") + " 날씨").get();
+    event.room.send([
+      msg.noti,
+      LM("[날씨]"),
+      "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+      Line(3),
+      "위치: " + event.message.replace(prefix + "날씨 ", ""),
       Weader.select("#wob_dc").text(), //요약
       "섭씨: " + Weader.select("#wob_tm").text() + "°C",
       "화씨: " + Weader.select("#wob_ttm").text() + "°F",
@@ -75,125 +133,138 @@ function onMessage(event) {
       "풍속: " + Weader.select("#wob_tws").text(),
       "",
       "기준 시간:" + Weader.select("#wob_dts").text().slice(5)
-    ].join('\n'));
+    ].join("\n"));
   }
 
   if (event.message.startsWith(prefix) && event.message.endsWith("확률은?")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.admin);
+    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
 
     let split = event.message.replace(prefix, "").replace("확률은?", "");
-    event.room.send(msg.noti + split + " 확률은 " + (Math.random() * 100).toFixed(3) + "% 이야.");
+    event.room.send([
+      msg.noti,
+      LM("[확률]"),
+      "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+      Line(3),
+      "► " + split + " 확률: " + (Math.random() * 100).toFixed(3) + "%"
+    ].join("\n"));
   }
 
   if (event.message.startsWith(prefix + "주사위")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.admin);
+    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
 
-    event.room.send(msg.noti + random(6));
+    event.room.send([
+      msg.noti,
+      LM("[주사위]"),
+      "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+      Line(3),
+      "► " + random(6)
+    ].join("\n"));
   }
 
 
   if (event.message.startsWith(prefix + "홀짝 ")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.admin);
+    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
 
     switch (cut[2]) {
       case '짝':
         if (random(10) % 2 == 0) {
-          event.room.send(msg.noti, "정답입니다.\n숫자는 [" + random(10) + "] 입니다.");
+          event.room.send([
+            msg.noti,
+            LM("[홀짝]"),
+            "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+            Line(3),
+            "정답입니다.",
+            "정답는 [" + random(10) + "] 입니다."
+          ].join("\n"));
         } else if (random(10) % 2 != 0) {
-          event.room.send(msg.noti + "오답입니다.\n숫자는 [" + random(10) + "] 입니다.");
+          event.room.send([
+            msg.noti,
+            LM("[홀짝]"),
+            "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+            Line(3),
+            "오답입니다.",
+            "정답은 [" + random(10) + "] 입니다."
+          ].join("\n"));
         }
         break;
       case '홀':
         if (random(10) % 2 != 0) {
-          event.room.send(msg.noti, "정답입니다.\n숫자는 [" + random(10) + "] 입니다.");
+          event.room.send([
+            msg.noti,
+            LM("[홀짝]"),
+            "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+            Line(3),
+            "정답입니다.",
+            "정답는 [" + random(10) + "] 입니다."
+          ].join("\n"));
         } else if (random(10) % 2 == 0) {
-          event.room.send(msg.noti + "오답입니다.\n숫자는 [" + random(10) + "] 입니다.");
+          event.room.send([
+            msg.noti,
+            LM("[홀짝]"),
+            "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+            Line(3),
+            "오답입니다.",
+            "숫자는 [" + random(10) + "] 입니다."
+          ].join("\n"));
         }
     }
   }
 
   if (event.message.startsWith(prefix + "음악 차트 ")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.admin);
+    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
 
-    event.room.send(msg.noti + music_chart(cut[3]));
+    event.room.send([
+      msg.noti,
+      LM("[음악 차트]"),
+      "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+      Line(3),
+      Lw,
+      music_chart(cut[3])
+    ].join("\n"));
   }
   if (event.message.startsWith(prefix + "음악 검색 ")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.admin);
+    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
 
-    event.room.send(msg.noti + music_search(event.message.replace(prefix + "음악 검색 ", "")));
+    event.room.send([
+      msg.noti,
+      LM("[음악 검색]"),
+      "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+      Line(3),
+      music_search(event.message.replace(prefix + "음악 검색 ", ""))
+    ].join("\n"));
   }
 
   if (event.message.startsWith(prefix + "ai ")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.admin);
-    if (!User.edit(event.sender.name).nickname.includes("Stars")) return event.room.send(msg.error_ + "본 기능은 Stars 전용 기능입니다.");
+    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
+    if (!User.edit(event.sender.name).User.edit(event.sender.name).nickname[0].includes("Stars")) return event.room.send([
+      msg.error_,
+      "본 기능은 Stars 전용 기능입니다.",
+      "혹시 Stars 회원인데도 이 에러가 발생한다면, Stars 전용 메일로 연락바랍니다."
+    ].join("\n"));
 
     event.room.send([
       msg.noti,
+      LM("[AI]"),
+      "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+      Line(3),
       "잠시만 기다려주세요."
     ].join("\n"));
     event.room.send(ai(2, event.message.replace(prefix + "ai ", ""))); //1: Bard | 2: ChatGPT 3.5 | 3: ChatGPT 4
   }
 
-  if (event.message.startsWith(prefix + "n")) {
-    event.room.send("본 기능은 테스트 기능입니다.(gemini)")
+  /*if (event.message.startsWith(prefix + "n")) {
+    event.room.send("본 기능은 테스트 기능입니다.(gemini)");
     event.room.send(gemini(event.message.replace(prefix + "n ", "")));
-  }
-
-  if (event.message.startsWith(prefix + "내정보")) {
-    if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.admin);
-
-    event.room.send([
-      msg.noti,
-      "이름: " + User.edit(event.sender.name).name,
-      "ID: " + User.edit(event.sender.name).id,
-      "닉네임: " + User.edit(event.sender.name).nickname,
-      "관리자: " + (User.edit(event.sender.name).admin ? "예" : "아니오"),
-      "팀클 코인: " + User.edit(event.sender.name).coin + "코인",
-      "경고 횟수: " + User.edit(event.sender.name).warn + "회",
-      "주식 보유 종목: " + User.edit(event.sender.name).stock,
-      "에릭과의 호감도: " + User.edit(event.sender.name).like,
-      "기타: " + User.edit(event.sender.name).etc
-    ].join("\n"));
-  }
-
-  let time = "";
-  if (11 >= getDate.hour >= 5) {
-    time = "아침"
-  } else if (15 >= getDate.hour >= 12) {
-    time = "점심"
-  } else if (20 >= getDate.hour >= 16) {
-    time = "저녁"
-  } else {
-    time = "밤"
-  }
-    if (event.message == (prefix.slice(0, -1))) {
-      let list = {
-        hello: [
-          "부르셨습니까, " + event.sender.name + "님.",
-          "네, " + event.sender.name + "님.",
-          "반갑습니다.",
-          "무슨 일입니까?",
-          "부르셨습니까?",
-          "좋은 " + time + "입니다."
-        ]
-      };
-      event.room.send(list["hello"][random(list["hello"].length - 1)]);
-    }
+  }*/ 
 
 }
 
-
-
-//단순답장 명령어
-//if (event.message == "응애")
-//event.room.send("응애");
 
 
 /*카카오톡 봇 커뮤니티

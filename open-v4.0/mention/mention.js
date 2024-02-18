@@ -1,36 +1,42 @@
-Device.acquireWakeLock(android.os.PowerManager.PARTIAL_WAKE_LOCK, ProjectManager.project.info.name);
 let {
     prefix,
     Lw,
+    Line,
+    LM,
     FS,
-    state,
+    UP,
+    SP,
+    CP,
+    AP,
     getDate,
-    c_path,
     Kakaocord,
+    User,
+    LS,
     msg,
     Pos,
-    chat_log,
+    chat,
+    post,
     random,
-    addCode,
-    User,
     Coin,
     Nickname,
+    Like,
     ogimg
 } = require("A");
 
-let mentions = {};
+let json = JSON.parse(FS.read(SP))
+let mentions = json['mentions'];
 let nicknames = [];
 let block_room = ["노란콩대화 자동응답기 공동체", "카카오톡봇 RPG Maker 공식방 (코드:1345z)"];
-let Lw = '\u200b'.repeat(500);
 
 function onMessage(event) {
+
     if (!nicknames.includes(event.sender.name))
         nicknames.push(event.sender.name);
 
     if (block_room.includes(event.room.name)) return;
 
     let time = (t) => {
-        let seconds = t % 60;
+        let seconds = Math.floor(t % 60);
         let minutes = Math.floor((t % 3600) / 60);
         let hours = Math.floor((t % (3600 * 24)) / 3600);
         let day = Math.floor(t / (3600 * 24));
@@ -38,22 +44,30 @@ function onMessage(event) {
         return day + "일 " + hours + "시간 " + minutes + "분 " + seconds + "초"
     };
 
-    if ((Object.keys(mentions).includes(event.sender.name)) && mentions[event.sender.name].room == event.room.name) {
-        let contents = mentions[event.sender.name].map((e, v) => {
-                return [
-                    '[채팅방: ' + e.room + '] ' + e.sender + '의 메시지 | ' + time(Date.now() - e.time) + ' 전',
-                    '→ ' + e.content
-                ].join('\n');
-            });
 
-        Api.replyRoom(mentions[event.sender.name].room, [
-            event.sender.name + '야! ' + contents.length + '개의 알림이 있어!',
-            '전체보기를 눌러 확인해줘!',
+    if ((Object.keys(mentions).includes(event.sender.name))) {
+        let items = mentions[event.sender.name];
+        let contents = [];
+
+        for (let i = 0; i < items.length; i++) {
+            let item = items[i];
+
+            if (item["room"] == event.room.name) {
+                contents.push('[채팅방: ' + item.room + '] ' + item.sender + '의 메시지 | ' + time(Math.floor(Date.now() / 1000) - item.time) + ' 전' +
+                    "\n" +
+                    '→ ' + item.content);
+            }
+        }
+        event.room.send([
+            msg.noti,
+            LM("멘션"),
+            event.sender.name + '님, ' + contents.length + '개의 알림이 있습니다.',
             Lw,
-            contents.join('\n\n')
+            contents.join('\n' + Line(3) + '\n')
         ].join('\n'));
 
         delete mentions[event.sender.name];
+        FS.write(SP, JSON.stringify(json, null, 4));
     }
 
     if ((/@.+/.test(event.message))) {
@@ -63,7 +77,7 @@ function onMessage(event) {
         let mention = {
             sender: event.sender.name,
             room: event.room.name,
-            time: Date.now(),
+            time: Math.floor(Date.now() / 1000),
             content: event.message
         };
 
@@ -75,8 +89,19 @@ function onMessage(event) {
             }
         });
         event.room.send([
-            event.sender.name + '가 ' + users.join(', ') + ' 를/을 멘션!',
-            '→ ' + users.join(', ') + '가 오면 전달해줄게!'
+            msg.noti,
+            LM("멘션"),
+            event.sender.name + '님이 ' + users.join(', ') + '님을 멘션하였습니다.',
+            '→ ' + users.join(', ') + '님이 오면 전달하겠습니다.'
         ].join('\n'));
+        FS.write(SP, JSON.stringify(json, null, 4));
     }
+
+    if (event.message == "!1") event.room.send(JSON.stringify(mentions, null, 4));
+    if (event.message == "!2") {
+        mentions = {};
+        FS.write(SP, JSON.stringify(json, null, 4));
+        event.room.send("success");
+    }
+
 }

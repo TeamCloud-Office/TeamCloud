@@ -4,21 +4,21 @@ let {
     Line,
     LM,
     FS,
-    state,
+    UP,
+    SP,
+    CP,
     getDate,
-    c_path,
-    Kakaocord,
+    User,
+    LS,
     msg,
     Pos,
-    chat_log,
+    post,
+    chat,
     random,
-    addCode,
-    User,
     Coin,
     Nickname,
     ogimg
 } = require("A");
-
 function onMessage(event) {
 
     if (event.message == prefix + '약관') {
@@ -65,13 +65,12 @@ function onMessage(event) {
             //팀클 코인
             warn: 0,
             //경고 횟수
-            feed: '밥',
-            //밥
             nickname: [],
             //닉네임
             like: 0,
             //호감도
             stocks: {},
+            //보유 주식
             etc: []
             //기타
         };
@@ -89,18 +88,14 @@ function onMessage(event) {
             "[" + User.edit(event.sender.name).nickname + "]" + event.sender.name + "님, 사용자 등록이 완료되었습니다.",
             "[사용자 ID: " + User.edit(event.sender.name).id + "]"
         ].join("\n"));
+        Api.replyRoom("TeamCloud 팀원", [
+            "사용자 등록 > " + event.sender.name,
+            "[사용자 ID: " + User.edit(event.sender.name).id + "]"
+        ].join("\n"));
         //event.room.send(Coin(event.sender.name, "오픈기념", 30, false));
         //event.room.send("현재 나랑 친구할 수 없어..");
         User.save();
         Api.compile();
     }
-
-    if (event.message == "아리아 등록T")
-        event.room.send([
-            msg.noti,
-            LM("사용자 등록"),
-            "[" + User.edit(event.sender.name).nickname + "]" + event.sender.name + "님, 사용자 등록이 완료되었습니다.",
-            "[사용자 ID: " + User.edit(event.sender.name).id + "]"
-        ].join("\n"));
 
 }

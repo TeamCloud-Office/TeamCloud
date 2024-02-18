@@ -6,7 +6,6 @@
     "languageId": "JS_RHINO",
     "isEnabled": true,
     "isPinned": false,
-    "trust": true,
     "createdMillis": 1691818658918,
     "allowedEventIds": [
         "starlight.*"

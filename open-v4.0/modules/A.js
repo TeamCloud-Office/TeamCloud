@@ -1,15 +1,4 @@
 /*
-let {
-    prefix, Lw, FS, state, snd, getDate, c_path,
-    Kakaocord,
-    msg,
-    Pos, chat_log, random,
-    User, Coin, Nickname,
-    ogimg 
-} = require("A");
-*/
-
-/*
  * Google Gemini AI token : AIzaSyC67uhwAN9UqC9fxtAITrcohhZk5xB0tA8
  */
 
@@ -18,8 +7,8 @@ let {
     let prefix = '아리아 ';
 
     let Lw = '\u200b'.repeat(500),
-        Line = (num) => "======".repeat(num),
-        LM = (str) => Line(1) + str + Line(1);
+        Line = (num) => "━━━━".repeat(num),
+        LM = (str) => "======".repeat(1) + str + "======".repeat(1);
 
     let FS = FileStream;
 
@@ -38,7 +27,8 @@ let {
 
     let UserPath = "/sdcard/StarLight/BotData/admin/UseData.json",
         SetPath = "/sdcard/StarLight/BotData/Set.json",
-        ChatPath = 'sdcard/StarLight/BotData/Chat/' + getDate.year + 'y/' + (getDate.month) + 'm/' + getDate.day + 'd' + '.json';
+        ChatPath = '/sdcard/StarLight/BotData/Chat/' + getDate.year + 'y/' + (getDate.month) + 'm/' + getDate.day + 'd' + '.json',
+        AttenPath = '/sdcard/BotData/check-in_list.json';
 
     let Kakaocord = {
         discord: {
@@ -56,12 +46,12 @@ let {
         }
     }
 
-
-    if (!FS.read(SetPath)) FS.write(SetPath, '{}');
-    let Set = {
-        edit: JSON.parse(FS.read(SetPath)),
-        save: FS.write(SetPath, JSON.stringify(JSON.parse(FS.read(SetPath)), null, 4))
+    /*
+    Set: {
+        JSON.parse(FS.read(SetPath)),
+        FS.write(SetPath, JSON.stringify(JSON.parse(FS.read(SetPath)), null, 4))
     }
+    */
 
 
     let {
@@ -128,15 +118,14 @@ let {
     let msg = {
 
         noti: [
-            '[ Eric Ver : ' + 'Alpha-v4.0.11' + ']',
-            //'TeamCloud Eric 4.0 정식 출시!!',
-            //"지금바로 사용해보세요!",
+            '[ Eric Ver : ' + 'Alpha-v4.0.18' + ']',
             "",
             //봇 답변
         ].join('\n'),
         //공지
 
         terms: [
+            LM("[Error]"),
             "해당 명령어를 실행할 수 없습니다.",
             "> 약관 미동의",
             "TeamCloud의 서비스를 사용하시려면 약관에 대해 동의해주세요.",
@@ -144,16 +133,19 @@ let {
         ].join('\n'), //약관
 
         admin: [
+            LM("[Error]"),
             "해당 명령어를 실행할 수 없습니다.",
             "> 관리자 명령어입니다."
         ].join('\n'),
 
         ban: [
+            LM("[Error]"),
             "해당 명령어를 실행할 수 없습니다.",
             "> 사용제한된 사용자입니다."
         ].join("\n"),
 
         error: [
+            LM("[Error]"),
             "해당 명령어를 실행할 수 없습니다.",
             "> 아래 오류 내용을 TeamCloud 문의 메일로 전송해주세요.",
             "help@team-cloud.kro.kr",
@@ -164,6 +156,7 @@ let {
         ].join('\n'),
 
         error_: [
+            LM("[Error]"),
             "해당 명령어를 실행할 수 없습니다.",
             "> "
         ].join("\n")
@@ -182,44 +175,54 @@ let {
         }
     }
 
-    function random(num) {
-        return Math.floor(Math.random() * num) + 1;
-    }
+    function random(per) {
+        if (Math.random() * 100 < per) {
+            return true;
+        } else {
+            return false;
+        }
+    };
 
-    /*function post(s, m) {
-        snd[s].push(m)
-    }*/
+    /**
+     * 
+     * @param {String} s 받을 사용자
+     * @param {String} m 메시지
+     * @param {String} an 관리자 이름
+     * @returns 
+     */
+    function post(s, m, an) {
+        let data = JSON.parse(FS.read(SetPath));
+        let snd = data['snd'];
+
+        let stc = {
+            sender: s,
+            time: getDate.today("/"),
+            content: m,
+            admin: an
+        };
+
+        if (s in snd) {
+            snd[s].push(stc);
+        } else {
+            snd[s] = [stc];
+        }
+        return FS.write(SetPath, JSON.stringify(data, null, 4))
+    }
 
     /**
      * 
      * @param {String} s 사용자
      * @param {String} e 증감/감소 사유
      * @param {Number} c 코인 개수
-     * @param {Boolean} tf 쪽지 전송 여부 = 사용하지않음
      * @returns 
      */
-    function Coin(s, e, c, tf) {
+    function Coin(s, e, c) {
         let _coin = User.edit(s).coin
         c = Number(c);
-        //if (!snd[s]) snd[s] = [];
         if (c > 0) { //증감
             let coin = User.edit(s).coin += c;
             User.edit(s).coin = coin;
             User.save();
-            /*if (tf == true) {
-                post(s, [
-                    '메시지: ',
-                    LM("[코인 증감]"),
-                    "사용자: " + "[" + "[" + User.edit(s).nickname[0] + "]" + s + "]",
-                    "사유: " + e,
-                    "증감 코인: " + c + "coin",
-                    _coin + "coin" + " → " + User.edit(s).coin + "coin",
-                    "",
-                    "",
-                    '관리자 이름: ' + "TeamCloud"
-                ].join("\n"));
-                return (s + '님의 코인이 ' + c + ' 증감하였습니다.');
-            } else if (tf == false) {*/
             return [
                 LM("[코인 증감]"),
                 "사용자: " + "[" + "[" + User.edit(s).nickname[0] + "]" + s + "]",
@@ -227,27 +230,10 @@ let {
                 "증감 코인: " + c + "coin",
                 _coin + "coin" + " → " + User.edit(s).coin + "coin"
             ].join("\n")
-            //}
-
-        }
-        if (c < 0) { //감소
+        } else if (c < 0) { //감소
             let coin = User.edit(s).coin += c;
             User.edit(s).coin = coin;
             User.save();
-            /*if (tf == true) {
-                post(s, [
-                    '메시지: ',
-                    LM("[코인 감소]"),
-                    "사용자: " + "[" + "[" + User.edit(s).nickname[0] + "]" + s + "]",
-                    "사유: " + e,
-                    "감소 코인: " + c + "coin",
-                    _coin + "coin" + " → " + User.edit(s).coin + "coin",
-                    "",
-                    "",
-                    '관리자 이름: ' + "TeamCloud"
-                ].join("\n"));
-                return (s + '님의 코인이 ' + c + ' 감소하였습니다.');
-            } else if (tf == false) {*/
             return [
                 LM("[코인 감소]"),
                 "사용자: " + "[" + "[" + User.edit(s).nickname[0] + "]" + s + "]",
@@ -255,8 +241,6 @@ let {
                 "감소 코인: " + c + "coin",
                 _coin + "coin" + " → " + User.edit(s).coin + "coin"
             ].join('\n');
-            //}
-            //}
         }
     }
 
@@ -264,30 +248,14 @@ let {
     /**
      * 
      * @param {String} s 사용자
-     * @param {String} e 증감/감소 사유
+     * @param {String} e 지급 사유
      * @param {String} n 닉네임
-     * @param {Boolean} tf 쪽지 전송 여부 = 사용하지않음
      * @returns 
      */
-    function Nickname(s, e, n, tf) {
+    function Nickname(s, e, n) {
         let _nickname = User.edit(s).nickname;
-        //if (!snd[s]) snd[s] = [];
         (User.edit(s).nickname).unshift(n);
         User.save();
-        /*if (tf == true) {
-            post(s, [
-                '메시지: ',
-                LM("[호칭 지급]"),
-                "사용자: " + "[" + "[" + User.edit(s).nickname + "]" + s + "]",
-                "사유: " + e,
-                "지급 호칭: " + n,
-                _nickname + " → " + User.edit(s).nickname,
-                "",
-                "",
-                '관리자 이름: ' + "TeamCloud"
-            ].join("\n"));
-            return (s + '님께 [' + n + ']닉네임이 지급됐습니다.');
-        } else {*/
         return [
             LM("[호칭 지급]"),
             "사용자: " + "[" + "[" + _nickname + "]" + s + "]",
@@ -295,8 +263,91 @@ let {
             "지급 호칭: " + n,
             _nickname + " → " + User.edit(s).nickname
         ].join('\n'); //닉네임 지급
-        //}
+    }
 
+
+    /**
+     * 
+     * @param {String} s 사용자
+     * @param {String} e 사유
+     * @param {Boolean} tf 코인t/닉네임f
+     * @param {String} cn 코인/닉네임
+     * @param {String} a 관리자 이름
+     * @returns 
+     */
+    function Admin(s, e, tf, cn, a) {
+        if (tf == true) {
+            let _coin = User.edit(s, true).coin
+            cn = Number(cn);
+            if (cn > 0) { //증감
+                let coin = User.edit(s, true).coin += cn;
+                User.edit(s, true).coin = coin;
+                User.save();
+                post(s, [
+                    LM("[코인 증감]"),
+                    "사유: " + e,
+                    "증감 코인: " + cn + "coin",
+                    _coin + "coin" + " → " + User.edit(s, true).coin + "coin",
+                    ""
+                ].join("\n"), a);
+                return (s + '님의 코인이 ' + cn + ' 증감하였습니다.');
+            } else if (cn < 0) {
+                let coin = User.edit(s, true).coin += cn;
+                User.edit(s, true).coin = coin;
+                User.save();
+                post(s, [
+                    LM("[코인 감소]"),
+                    "사유: " + e,
+                    "감소 코인: " + c + "coin",
+                    _coin + "coin" + " → " + User.edit(s, true).coin + "coin",
+                    "",
+                ].join("\n"), a);
+                return (s + '님의 코인이 ' + cn + ' 감소하였습니다.');
+            }
+        } else if (tf == false) {
+            let _nickname = User.edit(s, true).nickname;
+            cn = String(cn);
+            if (cn == 1) {
+                (User.edit(s, true).nickname).unshift(n);
+                User.save();
+                post(s, [
+                    LM("[호칭 지급]"),
+                    "사유: " + e,
+                    "지급 호칭: " + n,
+                    _nickname + " → " + User.edit(s, true).nickname,
+                    ""
+                ].join("\n"), a);
+                return (s + '님께 [' + n + ']호칭이 지급되었습니다.');
+            }
+        }
+    }
+
+
+
+
+    /**
+     * 
+     * @param {String} s 사용자
+     * @param {String} ud 상승/하락
+     * @param {String} l 호감도
+     * @returns 
+     */
+    function Like(s, ud, l) {
+        if (ud = "up") {
+            User.edit(s, false).like += l;
+            User.save();
+            return ([
+                LM("호감도 상승"),
+                "♥ + " + l
+            ].join("\n"));
+        } else if (ud = "down") {
+            User.edit(s, false).like -= l;
+            User.save();
+            return ([
+                LM("호감도 하락"),
+                "♥ - " + l
+            ].join("\n"));
+        }
     }
 
 
@@ -333,7 +384,7 @@ let {
         UP: UserPath,
         SP: SetPath,
         CP: ChatPath,
-        Set: Set,
+        AP: AttenPath,
         getDate: getDate,
         Kakaocord: Kakaocord,
         User: User,
@@ -341,11 +392,41 @@ let {
         msg: msg,
         Pos: Pos,
         chat: chat,
+        post: post,
         random: random,
         Coin: Coin,
         Nickname: Nickname,
+        Admin: Admin,
+        Like: Like,
         ogimg: ogimg
     }
 
 
 })()
+
+/* 
+let {
+    prefix,
+    Lw,
+    Line,
+    LM,
+    FS,
+    UP,
+    SP,
+    CP,
+    AP,
+    getDate,
+    Kakaocord,
+    User,
+    LS,
+    msg,
+    Pos,
+    chat,
+    post,
+    random,
+    Coin,
+    Nickname,
+    Like,
+    ogimg
+} = require("A");
+*/

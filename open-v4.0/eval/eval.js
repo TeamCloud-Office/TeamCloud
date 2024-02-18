@@ -1,4 +1,3 @@
-
 let {
     prefix,
     Lw,
@@ -8,16 +7,19 @@ let {
     UP,
     SP,
     CP,
-    Set,
+    AP,
     getDate,
+    Kakaocord,
     User,
     LS,
     msg,
     Pos,
     chat,
+    post,
     random,
     Coin,
     Nickname,
+    Like,
     ogimg
 } = require("A");
 

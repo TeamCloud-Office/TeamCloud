@@ -1,0 +1,18 @@
+{
+    "beta_features": {
+    },
+    "editor": {
+        "saved_tabs": {
+            "type": "String",
+            "value": "[\"like.js\"]"
+        }
+    },
+    "events": {
+        "allowed_events": {
+            "type": "String",
+            "value": "[{\"event_id\":{\"type\":\"String\",\"value\":\"starlight.*\"}}]"
+        }
+    },
+    "general": {
+    }
+}

@@ -26,21 +26,23 @@ let rooms = {};
 
 
 
-/*function onProjectButtonClicked(id) {
+function onProjectButtonClicked(id) {
+    let data = JSON.parse(FS.read(SP))
+    let state = data["set"]["state"];
     if (id == "normal") {
-        Set.edit("state") = 1;
+        state = 1;
         Api.showToast('정상 모드', 0);
-        Set.save();
+        FS.write(SP, JSON.stringify(data, null, 4))
     }
     if (id == "check") {
-        Set.edit("state") = 0;
+        state = 0;
         Api.showToast('점검 모드', 0);
-        Set.save();
+        FS.write(SP, JSON.stringify(data, null, 4))
     }
     if (id == "test") {
-        Set.edit("state") = 2;
+        state = 2;
         Api.showToast('테스트 모드', 0);
-        Set.save();
+        FS.write(SP, JSON.stringify(data, null, 4))
     }
 
     if (id == "reset") {
@@ -51,7 +53,7 @@ let rooms = {};
         }
         Api.compile();
     }
-}*/
+}
 
 function onMessage(event) {
     if (!rooms[event.room.name]) {
@@ -59,24 +61,6 @@ function onMessage(event) {
     } else {
         rooms[event.room.name] = false;
     }
-
-    let cmd_list = [
-        "도움말",
-        "약관",
-        "동의",
-        "출석",
-        "출석순위",
-        "내 출석",
-        "멜론차트",
-        "음악검색",
-        "가위바위보",
-        "주사위",
-        "날씨",
-        "홀짝",
-        "디데이",
-        "내 정보",
-        "주식",
-    ];
 
     //테스트
     if (event.message == prefix + "테스트" || event.message.includes("봇상태")) {

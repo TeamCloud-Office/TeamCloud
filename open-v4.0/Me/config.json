@@ -1,10 +1,8 @@
 {
-    "beta_features": {
-    },
     "editor": {
         "saved_tabs": {
             "type": "String",
-            "value": "[\"mention.js\"]"
+            "value": "[\"Me.js\"]"
         }
     },
     "events": {
@@ -14,12 +12,12 @@
         }
     },
     "general": {
+        "shutdown_on_error": {
+            "type": "Boolean",
+            "value": "false"
+        }
     },
     "JS_RHINO": {
-        "js_version": {
-            "type": "Int",
-            "value": "9"
-        },
         "optimize_code": {
             "type": "Boolean",
             "value": "true"
@@ -27,6 +25,10 @@
         "load_ext_modules": {
             "type": "Boolean",
             "value": "true"
+        },
+        "js_version": {
+            "type": "Int",
+            "value": "9"
         }
     }
 }

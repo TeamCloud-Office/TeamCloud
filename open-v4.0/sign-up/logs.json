@@ -1,42 +1,57 @@
 [
     {
         "t": "INFO",
+        "th": "Project-sign-up-worker-1",
         "m": "프로젝트 sign-up 컴파일 중...",
-        "l": 1706879396918
+        "l": 1708226754543
     },
     {
         "t": "VERBOSE",
         "a": "Project-sign-up",
-        "th": "Project-sign-up-worker-3",
+        "th": "Project-sign-up-worker-2",
         "m": "engine released",
-        "l": 1706880254844
+        "l": 1708230419762
     },
     {
         "t": "INFO",
-        "th": "Project-sign-up-worker-3",
+        "th": "Project-sign-up-worker-2",
         "m": "프로젝트 sign-up 컴파일 중...",
-        "l": 1706880254845
+        "l": 1708230419769
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-sign-up",
+        "th": "Project-sign-up-worker-2",
+        "m": "engine released",
+        "l": 1708234627709
+    },
+    {
+        "t": "INFO",
+        "th": "Project-sign-up-worker-2",
+        "m": "프로젝트 sign-up 컴파일 중...",
+        "l": 1708234627709
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-sign-up",
+        "th": "Project-sign-up-worker-1",
+        "m": "engine released",
+        "l": 1708238789074
+    },
+    {
+        "t": "INFO",
+        "th": "Project-sign-up-worker-1",
+        "m": "프로젝트 sign-up 컴파일 중...",
+        "l": 1708238789075
     },
     {
         "t": "VERBOSE",
         "a": "Project-sign-up",
         "m": "engine released",
-        "l": 1706880594098
+        "l": 1708241830765
     },
     {
         "t": "INFO",
-        "m": "프로젝트 sign-up 컴파일 중...",
-        "l": 1706880594099
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-sign-up",
-        "m": "engine released",
-        "l": 1706881184752
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 sign-up 컴파일 중...",
-        "l": 1706881184753
+        "m": "프로젝트 sign-up 컴파일 중..."
     }
 ]

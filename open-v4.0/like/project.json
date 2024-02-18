@@ -1,12 +1,12 @@
 {
-    "id": "a6949748-e44b-4502-869c-ce586bbb290c",
+    "id": "72c07afa-24e0-4a6d-b19a-26c3a7ff70d3",
     "version": 0,
-    "name": "reply",
-    "mainScript": "reply.js",
+    "name": "like",
+    "mainScript": "like.js",
     "languageId": "JS_RHINO",
-    "isEnabled": true,
+    "isEnabled": false,
     "isPinned": false,
-    "createdMillis": 1691976899029,
+    "createdMillis": 1691818658918,
     "allowedEventIds": [
         "starlight.*"
     ],
