@@ -20,3 +20,6 @@
 
 ## 2024/02/06 : Ver Alpha-4.0.14
 [#766ee72](https://github.com/TeamCloud-Office/TeamCloud/commit/766ee72e67e7110704adbe4d45e4fe37b4b2e2f6)
+
+## 2024/02/18 : Ver Alpha-4.0.18
+[#8866c95](https://github.com/TeamCloud-Office/TeamCloud/commit/8866c95f6cd1371f1d6df1f6748892835e4adb2f)
