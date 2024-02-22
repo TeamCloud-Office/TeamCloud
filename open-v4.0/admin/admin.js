@@ -31,7 +31,66 @@ function onMessage(event) {
             data["snd"][User.edit(event.sender.name).id] = [];
             FS.write(SP, JSON.stringify(data, null, 4));
         }
+
+        if ((User.edit(event.sender.name).nickname).some(item => ["Light Stars", "Stars"].includes(item)) == true) {
+            if ((User.edit(event.sender.name).stars["re"]) != getDate.month) {
+                //달마다 Stars 혜택 제공
+                if ((User.edit(event.sender.name).nickname).includes("Stars")) {
+                    User.edit(event.sender.name).stars["ai"] = 30;
+                    User.edit(event.sender.name).stars["re"] = getDate.month;
+                    User.save();
+                }
+                if ((User.edit(event.sender.name).nickname).includes("Light Stars")) {
+                    User.edit(event.sender.name).stars["ai"] = 60;
+                    User.edit(event.sender.name).stars["re"] = getDate.month;
+                    event.room.send(Admin(User.edit(event.sender.name).id, "Stars 혜택", true, 50, "TeamCloud 시스템"));
+                    User.save();
+                }
+            }
+        }
+        if ((User.edit(event.sender.name).nickname).some(item => ["Light Stars", "Stars"].includes(item)) == true) {
+            if ((User.edit(event.sender.name).nickname).includes("Stars")) {
+                if ((User.edit(event.sender.name).stars["D_date"]) == 0) {
+                    //Stars 자동 해제
+                    User.edit(event.sender.name).stars["date"] = "";
+                    User.edit(event.sender.name).stars["D_date"] = 0;
+                    User.edit(event.sender.name).stars["D"] = "";
+                    User.edit(event.sender.name).stars["ai"] = 0;
+                    User.edit(event.sender.name).stars["re"] = 0;
+                    (User.edit(event.sender.name).nickname).filter(e => e !== "Stars");
+                    User.save();
+                } else {
+                    //Stars 남은 일 카운트
+                    if (User.edit(event.sender.name).stars["D"] != getDate.date) {
+                        User.edit(event.sender.name).stars["D_date"] -= 1;
+                        User.edit(event.sender.name).stars["D"] = getDate.date;
+                        User.save();
+                    }
+                }
+            }
+            if ((User.edit(event.sender.name).nickname).includes("Light Stars")) {
+                if ((User.edit(event.sender.name).stars["D_date"]) == 0) {
+                    //Stars 자동 해제
+                    User.edit(event.sender.name).stars["date"] = "";
+                    User.edit(event.sender.name).stars["D_date"] = 0;
+                    User.edit(event.sender.name).stars["D"] = "";
+                    User.edit(event.sender.name).stars["ai"] = 0; 
+                    User.edit(event.sender.name).stars["re"] = 0;
+                    (User.edit(event.sender.name).nickname).filter(e => e !== "Light Stars");
+                    User.save();
+                } else {
+                    //Light Stars 남은 일 카운트
+                    if (User.edit(event.sender.name).stars["D"] != getDate.date) {
+                        User.edit(event.sender.name).stars["D_date"] -= 1;
+                        User.edit(event.sender.name).stars["D"] = getDate.date;
+                        User.save();
+                    }
+                }
+            }
+        }
     }
+
+
 
     let id = cut[2];
     let count = Number(cut[3]);
@@ -117,6 +176,33 @@ function onMessage(event) {
         }
 
 
+        if (event.message.startsWith(prefix + "S")) {
+            if (!User.read(event.sender.name)) return event.room.send(msg.noti + msg.terms);
+            if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
+            if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
+            switch (cut[3]) {
+                case "1":
+                    event.room.send(Admin(id, "Stars 가입", false, "Stars", event.sender.name))
+                    User.edit(id, true).stars["date"] = getDate.today("/");
+                    User.edit(id, true).stars["ai"] = 30;
+                    User.edit(id, true).stars["re"] = getDate.month;
+                    User.edit(id, true).stars["D"] = getDate.date;
+                    User.edit(id, true).stars["D_date"] = 60;
+                    User.save();
+                    break;
+                case "2":
+                    event.room.send(Admin(id, "Stars 가입", false, "Light Stars", event.sender.name))
+                    User.edit(id, true).stars["date"] = getDate.today("/");
+                    User.edit(id, true).stars["ai"] = 60;
+                    User.edit(id, true).stars["re"] = getDate.month;
+                    User.edit(id, true).stars["D"] = getDate.date;
+                    User.edit(id, true).stars["D_date"] = 120;
+                    User.save();
+                    break;
+            }
+        }
+
+
         if (event.message.startsWith(prefix + "변경 ")) {
             if (!User.read(event.sender.name)) return event.room.send(msg.noti + msg.terms);
             if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
@@ -146,12 +232,15 @@ function onMessage(event) {
                 msg.noti,
                 "이름: " + User.edit(id, true).name,
                 "ID: " + User.edit(id, true).id,
+                "등록 날짜: " + User.edit(id, true).date,
                 "닉네임: " + User.edit(id, true).nickname,
                 "관리자: " + (User.edit(id, true).admin ? "예" : "아니오"),
                 "팀클 코인: " + User.edit(id, true).coin + "코인",
                 "경고 횟수: " + User.edit(id, true).warn + "회",
                 "주식 보유 종목: " + stocks,
                 "호감도: " + User.edit(id, true).like,
+                "Stars 가입 날짜: " + User.edit(id, true).stars["date"] + "(" + User.edit(id, true).stars["D_date"] + "일 남음)",
+                "Ai 사용 가능 횟수: " + User.edit(id, true).stars["ai"],
                 "기타: " + User.edit(id, true).etc
             ].join("\n"));
         }
@@ -168,6 +257,7 @@ function onMessage(event) {
                 '해당 사용자와의 연결을 종료했습니다.',
                 "사용자명: " + User.edit(id, true).name
             ].join("\n"));
+
             User.delete(id);
             User.save();
             Api.reload();

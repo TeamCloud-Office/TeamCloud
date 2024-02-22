@@ -1,7 +1,31 @@
 [
     {
         "t": "INFO",
+        "th": "Project-chat_history-worker-1",
         "m": "프로젝트 chat_history 컴파일 중...",
-        "l": 1703231401088
+        "l": 1708583632508
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-chat_history",
+        "th": "Project-chat_history-worker-1",
+        "m": "engine released",
+        "l": 1708583697939
+    },
+    {
+        "t": "INFO",
+        "th": "Project-chat_history-worker-1",
+        "m": "프로젝트 chat_history 컴파일 중...",
+        "l": 1708583697940
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-chat_history",
+        "m": "engine released",
+        "l": 1708583726207
+    },
+    {
+        "t": "INFO",
+        "m": "프로젝트 chat_history 컴파일 중..."
     }
 ]

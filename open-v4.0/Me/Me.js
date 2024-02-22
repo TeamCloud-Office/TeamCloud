@@ -24,18 +24,19 @@ let {
 } = require("A");
 
 function onMessage(event) {
-    if (event.messsage.startsWith(prefix + "내 정보")) {
+
+    if (event.message.startsWith(prefix + "내정보")) {
         if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
         if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
 
         let stocks;
-        if (String(JSON.stringify(User.edit(cut[2], true).stocks)) == "{}") {
+        if (String(JSON.stringify(User.edit(event.sender.name).stocks)) == "{}") {
             stocks = "없음";
         } else {
-            stocks = Object.keys(User.edit(cut[2], true).stocks)
+            stocks = Object.keys(JSON.stringify(User.edit(event.sender.name).stocks))
         }
 
-        event.room.send([
+        event.room.send([ 
             msg.noti,
             LM("[내정보]"),
             "사용자: " + "[" + User.edit(event.sender.name).nickname + "]" + event.sender.name,
@@ -43,12 +44,15 @@ function onMessage(event) {
             Lw,
             "이름: " + User.edit(event.sender.name).name,
             "ID: " + User.edit(event.sender.name).id,
+            "등록 날짜: " + User.edit(event.sender.name).date,
             "닉네임: " + User.edit(event.sender.name).nickname,
             "관리자: " + (User.edit(event.sender.name).admin ? "예" : "아니오"),
             "팀클 코인: " + User.edit(event.sender.name).coin + "코인",
             "경고 횟수: " + User.edit(event.sender.name).warn + "회",
-            "주식 보유 종목: " + User.edit(event.sender.name).stock,
+            "주식 보유 종목: " + stocks,
             "호감도: " + User.edit(event.sender.name).like,
+            "Stars 가입 날짜: " + User.edit(event.sender.name).stars["date"] + "(" + User.edit(event.sender.name).stars["D_date"] + "일 남음)", 
+            "Ai 사용 가능 횟수: " + User.edit(event.sender.name).stars["ai"],
             Line(3),
             atten(event.sender.name)
         ].join("\n"));

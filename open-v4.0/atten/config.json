@@ -1,10 +1,4 @@
 {
-    "beta_features": {
-        "custom_buttons": {
-            "type": "String",
-            "value": "[{\"button_id\":{\"type\":\"String\",\"value\":\"reset_tc\"},\"button_icon\":{\"type\":\"Int\",\"value\":\"1\"}}]"
-        }
-    },
     "editor": {
         "saved_tabs": {
             "type": "String",
@@ -25,6 +19,10 @@
         "optimize_code": {
             "type": "Boolean",
             "value": "true"
+        },
+        "js_version": {
+            "type": "Int",
+            "value": "9"
         }
     },
     "general": {
@@ -32,5 +30,7 @@
             "type": "Boolean",
             "value": "false"
         }
+    },
+    "beta_features": {
     }
 }

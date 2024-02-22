@@ -4,9 +4,8 @@
     "name": "chat_history",
     "mainScript": "chat_history.js",
     "languageId": "JS_RHINO",
-    "isEnabled": true,
+    "isEnabled": false,
     "isPinned": false,
-    "trust": true,
     "createdMillis": 1695826371170,
     "allowedEventIds": [
         "starlight.*"

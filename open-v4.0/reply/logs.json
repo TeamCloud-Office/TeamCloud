@@ -1,86 +1,52 @@
 [
     {
         "t": "INFO",
-        "th": "Project-reply-worker-1",
         "m": "프로젝트 reply 컴파일 중...",
-        "l": 1708226754881
+        "l": 1708583598111
     },
     {
         "t": "VERBOSE",
         "a": "Project-reply",
         "m": "engine released",
-        "l": 1708230419971
+        "l": 1708583633605
     },
     {
         "t": "INFO",
         "m": "프로젝트 reply 컴파일 중...",
-        "l": 1708230419972
+        "l": 1708583633605
     },
     {
         "t": "VERBOSE",
         "a": "Project-reply",
         "m": "engine released",
-        "l": 1708234627972
+        "l": 1708583698943
     },
     {
         "t": "INFO",
         "m": "프로젝트 reply 컴파일 중...",
-        "l": 1708234627973
+        "l": 1708583698944
     },
     {
         "t": "VERBOSE",
-        "a": "Project-reply",
-        "th": "Project-reply-worker-1",
-        "m": "engine released",
-        "l": 1708238789258
-    },
-    {
-        "t": "INFO",
-        "th": "Project-reply-worker-1",
-        "m": "프로젝트 reply 컴파일 중...",
-        "l": 1708238789259
-    },
-    {
-        "t": "ERROR",
-        "a": "Project-reply",
-        "m": "Error while running: org.mozilla.javascript.EcmaError: TypeError: Cannot read property \"coin\" from null (reply#22)",
-        "l": 1708238956803
-    },
-    {
-        "t": "ERROR",
         "a": "Project-reply",
         "th": "Project-reply-worker-3",
-        "m": "Error while running: org.mozilla.javascript.EcmaError: TypeError: Cannot read property \"coin\" from null (reply#22)",
-        "l": 1708239613541
-    },
-    {
-        "t": "ERROR",
-        "a": "Project-reply",
-        "m": "Error while running: org.mozilla.javascript.EcmaError: TypeError: Cannot read property \"coin\" from null (reply#22)",
-        "l": 1708239615891
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-reply",
-        "th": "Project-reply-worker-1",
         "m": "engine released",
-        "l": 1708239923314
+        "l": 1708583727418
     },
     {
         "t": "INFO",
-        "th": "Project-reply-worker-1",
+        "th": "Project-reply-worker-3",
         "m": "프로젝트 reply 컴파일 중...",
-        "l": 1708239923314
+        "l": 1708583727419
     },
     {
         "t": "VERBOSE",
         "a": "Project-reply",
         "m": "engine released",
-        "l": 1708241831053
+        "l": 1708583962634
     },
     {
         "t": "INFO",
-        "m": "프로젝트 reply 컴파일 중...",
-        "l": 1708241831058
+        "m": "프로젝트 reply 컴파일 중..."
     }
 ]

@@ -3,97 +3,52 @@
         "t": "INFO",
         "th": "Project-admin-worker-1",
         "m": "프로젝트 admin 컴파일 중...",
-        "l": 1706879397403
+        "l": 1708583597568
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-admin",
+        "th": "Project-admin-worker-1",
+        "m": "engine released",
+        "l": 1708583631847
+    },
+    {
+        "t": "INFO",
+        "th": "Project-admin-worker-1",
+        "m": "프로젝트 admin 컴파일 중...",
+        "l": 1708583631847
     },
     {
         "t": "VERBOSE",
         "a": "Project-admin",
         "m": "engine released",
-        "l": 1706879507668
+        "l": 1708583697195
     },
     {
         "t": "INFO",
         "m": "프로젝트 admin 컴파일 중...",
-        "l": 1706879507671
+        "l": 1708583697196
     },
     {
         "t": "VERBOSE",
         "a": "Project-admin",
         "m": "engine released",
-        "l": 1706880254321
+        "l": 1708583725676
     },
     {
         "t": "INFO",
         "m": "프로젝트 admin 컴파일 중...",
-        "l": 1706880254321
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-admin",
-        "th": "Project-admin-worker-3",
-        "m": "engine released",
-        "l": 1706880591300
-    },
-    {
-        "t": "INFO",
-        "th": "Project-admin-worker-3",
-        "m": "프로젝트 admin 컴파일 중...",
-        "l": 1706880591301
+        "l": 1708583725677
     },
     {
         "t": "VERBOSE",
         "a": "Project-admin",
         "m": "engine released",
-        "l": 1706880825660
+        "l": 1708583946790
     },
     {
         "t": "INFO",
         "m": "프로젝트 admin 컴파일 중...",
-        "l": 1706880825661
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-admin",
-        "m": "engine released",
-        "l": 1706880875451
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 admin 컴파일 중...",
-        "l": 1706880875452
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-admin",
-        "m": "engine released",
-        "l": 1706881047359
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 admin 컴파일 중...",
-        "l": 1706881047361
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-admin",
-        "th": "Project-admin-worker-3",
-        "m": "engine released",
-        "l": 1706881142366
-    },
-    {
-        "t": "INFO",
-        "th": "Project-admin-worker-3",
-        "m": "프로젝트 admin 컴파일 중...",
-        "l": 1706881142367
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-admin",
-        "m": "engine released",
-        "l": 1706881184186
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 admin 컴파일 중..."
+        "l": 1708583946790
     }
 ]

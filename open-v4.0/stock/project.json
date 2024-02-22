@@ -4,9 +4,8 @@
     "name": "stock",
     "mainScript": "stock.js",
     "languageId": "JS_RHINO",
-    "isEnabled": true,
+    "isEnabled": false,
     "isPinned": false,
-    "trust": true,
     "createdMillis": 1697365802946,
     "allowedEventIds": [
         "starlight.*"

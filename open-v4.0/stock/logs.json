@@ -2,6 +2,47 @@
     {
         "t": "INFO",
         "m": "프로젝트 stock 컴파일 중...",
-        "l": 1703231402524
+        "l": 1708583598422
+    },
+    {
+        "t": "ERROR",
+        "a": "Project-stock",
+        "m": "ECOMF: org.mozilla.javascript.EcmaError: ReferenceError: \"require\" is not defined. (stock#3)",
+        "l": 1708583598434
+    },
+    {
+        "t": "INFO",
+        "m": "프로젝트 stock 컴파일 중...",
+        "l": 1708583634108
+    },
+    {
+        "t": "ERROR",
+        "a": "Project-stock",
+        "m": "ECOMF: org.mozilla.javascript.EcmaError: ReferenceError: \"require\" is not defined. (stock#3)",
+        "l": 1708583634141
+    },
+    {
+        "t": "INFO",
+        "th": "Project-stock-worker-2",
+        "m": "프로젝트 stock 컴파일 중...",
+        "l": 1708583699356
+    },
+    {
+        "t": "ERROR",
+        "a": "Project-stock",
+        "th": "Project-stock-worker-2",
+        "m": "ECOMF: org.mozilla.javascript.EcmaError: ReferenceError: \"require\" is not defined. (stock#3)",
+        "l": 1708583699383
+    },
+    {
+        "t": "INFO",
+        "m": "프로젝트 stock 컴파일 중...",
+        "l": 1708583727799
+    },
+    {
+        "t": "ERROR",
+        "a": "Project-stock",
+        "m": "ECOMF: org.mozilla.javascript.EcmaError: ReferenceError: \"require\" is not defined. (stock#3)",
+        "l": 1708583727822
     }
 ]

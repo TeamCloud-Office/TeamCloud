@@ -1,48 +1,39 @@
 [
     {
         "t": "INFO",
+        "th": "Project-like-worker-1",
         "m": "프로젝트 like 컴파일 중...",
-        "l": 1708230418469
+        "l": 1708583631572
     },
     {
         "t": "ERROR",
         "a": "Project-like",
+        "th": "Project-like-worker-1",
         "m": "ECOMF: org.mozilla.javascript.EcmaError: ReferenceError: \"require\" is not defined. (like#1)",
-        "l": 1708230418482
+        "l": 1708583631592
+    },
+    {
+        "t": "INFO",
+        "th": "Project-like-worker-1",
+        "m": "프로젝트 like 컴파일 중...",
+        "l": 1708583696804
+    },
+    {
+        "t": "ERROR",
+        "a": "Project-like",
+        "th": "Project-like-worker-1",
+        "m": "ECOMF: org.mozilla.javascript.EcmaError: ReferenceError: \"require\" is not defined. (like#1)",
+        "l": 1708583696821
     },
     {
         "t": "INFO",
         "m": "프로젝트 like 컴파일 중...",
-        "l": 1708234626120
+        "l": 1708583725326
     },
     {
         "t": "ERROR",
         "a": "Project-like",
         "m": "ECOMF: org.mozilla.javascript.EcmaError: ReferenceError: \"require\" is not defined. (like#1)",
-        "l": 1708234626132
-    },
-    {
-        "t": "INFO",
-        "th": "Project-like-worker-2",
-        "m": "프로젝트 like 컴파일 중...",
-        "l": 1708238787417
-    },
-    {
-        "t": "ERROR",
-        "a": "Project-like",
-        "th": "Project-like-worker-2",
-        "m": "ECOMF: org.mozilla.javascript.EcmaError: ReferenceError: \"require\" is not defined. (like#1)",
-        "l": 1708238787426
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 like 컴파일 중...",
-        "l": 1708241829096
-    },
-    {
-        "t": "ERROR",
-        "a": "Project-like",
-        "m": "ECOMF: org.mozilla.javascript.EcmaError: ReferenceError: \"require\" is not defined. (like#1)",
-        "l": 1708241829119
+        "l": 1708583725343
     }
 ]

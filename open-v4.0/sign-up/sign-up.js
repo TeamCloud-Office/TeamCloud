@@ -19,6 +19,7 @@ let {
     Nickname,
     ogimg
 } = require("A");
+
 function onMessage(event) {
 
     if (event.message == prefix + '약관') {
@@ -48,7 +49,6 @@ function onMessage(event) {
                 "이름을 변경하여 등록해주시길 바랍니다."
             ].join("\n"));
         }
-        Api.compile();
         let Id = User.addID();
         let Data = {
             name: event.sender.name,
@@ -57,6 +57,8 @@ function onMessage(event) {
             //사용자 Id
             hash: event.sender.profileHash,
             //해시
+            date: getDate.today("/"),
+            //가입 날짜
             admin: false,
             //관리자
             ban: false,
@@ -71,7 +73,20 @@ function onMessage(event) {
             //호감도
             stocks: {},
             //보유 주식
-            etc: []
+            stars: {
+                date: "",
+                //가입 날짜
+                D_date: 0,
+                //남은 일
+                D: "",
+                // 
+                ai: 0,
+                //ai 기능 횟수
+                re: 0
+                //혜택 확인
+            },
+            //Stars
+            etc: [] 
             //기타
         };
         User.set(Id, Data);
@@ -80,7 +95,7 @@ function onMessage(event) {
 
         event.room.send(Coin(event.sender.name, "사용자 등록", 20, false));
         java.lang.Thread.sleep(1500)
-        event.room.send(Nickname(event.sender.name, "사용자 등록 성공", "사용자", false));
+        event.room.send(Nickname(event.sender.name, "사용자 등록 성공", "사용자", false, "p"));
         java.lang.Thread.sleep(1500)
         event.room.send([
             msg.noti,
