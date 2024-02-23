@@ -60,7 +60,7 @@
 
     let LS = new LocalStorage(UserPath, false);
 
-    function findUser(k, d) {
+    function findUser(k, d) { 
         try {
             if (d === true) // ID로 검색
                 return LS.getItem(k);
@@ -86,7 +86,10 @@
             let result = findUser(k, d);
             return result !== null && result !== void 0;
         },
-        save: () => LS.save(),
+        save: () => {
+            LS.save();
+            Api.reload();
+        },
         delete: (k) => {
             LS.removeItem(k);
             LS.save();
@@ -185,6 +188,27 @@
 
     /**
      * 
+     * @param {Array} arr ex) [["A", 100], ["B", 50], ["C", 20]] //A
+     * @param {Number} bias ex) Math.random().toFixed(2) //0.23
+     * @returns 
+     */
+    function randomI(arr, bias) {
+        arr = arr.map(([a, pro]) => [a, Math.pow(pro, bias)]);
+        let totalWeight = arr.reduce((total, item) => total + item[1], 0);
+        let randomNum = Math.random() * totalWeight;
+        let weightSum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            weightSum += arr[i][1];
+
+            weightSum = +weightSum.toFixed(2);
+            if (randomNum <= weightSum) {
+                return arr[i][0];
+            }
+        }
+    }
+
+    /**
+     * 
      * @param {String} s 받을 사용자
      * @param {String} m 메시지
      * @param {String} an 관리자 이름
@@ -248,21 +272,32 @@
     /**
      * 
      * @param {String} s 사용자
-     * @param {String} e 지급 사유
+     * @param {String} e 지급 사유 
      * @param {String} n 닉네임
+     * @param {String} pm 지급/회수
      * @returns 
      */
-    function Nickname(s, e, n) {
-        let _nickname = User.edit(s).nickname;
-        (User.edit(s).nickname).unshift(n);
-        User.save();
-        return [
-            LM("[호칭 지급]"),
-            "사용자: " + "[" + "[" + _nickname + "]" + s + "]",
-            "사유: " + e,
-            "지급 호칭: " + n,
-            _nickname + " → " + User.edit(s).nickname
-        ].join('\n'); //닉네임 지급
+    function Nickname(s, e, n, pm) {
+        let _nickname = User.edit(s).nickname[0];
+        if (pm == "p") {
+            (User.edit(s).nickname).unshift(n);
+            User.save();
+            return [
+                LM("[호칭 지급]"),
+                "사용자: " + "[" + "[" + _nickname + "]" + s + "]",
+                "사유: " + e,
+                "지급 호칭: " + n
+            ].join('\n'); //닉네임 지급
+        } else if (pm == "m") {
+            (User.edit(s).nickname).filter(item => item != n);
+            User.save();
+            return [
+                LM("[호칭 회수]"),
+                "사용자: " + "[" + "[" + _nickname + "]" + s + "]",
+                "사유: " + e,
+                "회수 호칭: " + n
+            ].join('\n'); //닉네임 회수
+        }
     }
 
 
@@ -270,58 +305,78 @@
      * 
      * @param {String} s 사용자
      * @param {String} e 사유
-     * @param {Boolean} tf 코인t/닉네임f
-     * @param {String} cn 코인/닉네임
+     * @param {Number} c 코인
+     * @param {String} pm 지급/회수
      * @param {String} a 관리자 이름
      * @returns 
      */
-    function Admin(s, e, tf, cn, a) {
-        if (tf == true) {
-            let _coin = User.edit(s, true).coin
-            cn = Number(cn);
-            if (cn > 0) { //증감
-                let coin = User.edit(s, true).coin += cn;
-                User.edit(s, true).coin = coin;
-                User.save();
-                post(s, [
-                    LM("[코인 증감]"),
-                    "사유: " + e,
-                    "증감 코인: " + cn + "coin",
-                    _coin + "coin" + " → " + User.edit(s, true).coin + "coin",
-                    ""
-                ].join("\n"), a);
-                return (s + '님의 코인이 ' + cn + ' 증감하였습니다.');
-            } else if (cn < 0) {
-                let coin = User.edit(s, true).coin += cn;
-                User.edit(s, true).coin = coin;
-                User.save();
-                post(s, [
-                    LM("[코인 감소]"),
-                    "사유: " + e,
-                    "감소 코인: " + c + "coin",
-                    _coin + "coin" + " → " + User.edit(s, true).coin + "coin",
-                    "",
-                ].join("\n"), a);
-                return (s + '님의 코인이 ' + cn + ' 감소하였습니다.');
-            }
-        } else if (tf == false) {
-            let _nickname = User.edit(s, true).nickname;
-            cn = String(cn);
-            if (cn == 1) {
-                (User.edit(s, true).nickname).unshift(n);
-                User.save();
-                post(s, [
-                    LM("[호칭 지급]"),
-                    "사유: " + e,
-                    "지급 호칭: " + n,
-                    _nickname + " → " + User.edit(s, true).nickname,
-                    ""
-                ].join("\n"), a);
-                return (s + '님께 [' + n + ']호칭이 지급되었습니다.');
-            }
+    function CoinA(s, e, c, pm, a) {
+        let _coin = User.edit(s, true).coin
+        c = Number(c);
+        if (pm == "p") { //증감
+            let coin = User.edit(s, true).coin += c;
+            User.edit(s, true).coin = coin;
+            User.save();
+            post(s, [
+                LM("[코인 지급]"),
+                "사유: " + e,
+                "증감 코인: " + c + "coin",
+                _coin + "coin" + " → " + User.edit(s, true).coin + "coin",
+                ""
+            ].join("\n"), a);
+            return (s + '님의 코인이 ' + c + ' 증감하였습니다.');
+        } else if (pm == "m") {
+            let coin = User.edit(s, true).coin += c;
+            User.edit(s, true).coin = coin;
+            User.save();
+            post(s, [
+                LM("[코인 회수]"),
+                "사유: " + e,
+                "감소 코인: " + c + "coin",
+                _coin + "coin" + " → " + User.edit(s, true).coin + "coin",
+                "",
+            ].join("\n"), a);
+            return (s + '님의 코인이 ' + c + ' 감소하였습니다.');
         }
     }
 
+
+    /**
+     * 
+     * @param {String} s 사용자
+     * @param {String} e 사유
+     * @param {String} n 닉네임
+     * @param {String} pm 지급/회수
+     * @param {String} a 관리자 이름
+     * @returns 
+     */
+    function NicknameA(s, e, n, pm, a) {
+        let _nickname = User.edit(s, true).nickname[0];
+        n = String(n);
+        if (pm == "p") { //증감
+            (User.edit(s, true).nickname).unshift(n);
+            User.save();
+            post(s, [
+                LM("[호칭 지급]"),
+                "사유: " + e,
+                "지급 호칭: " + n,
+                _nickname + " → " + User.edit(s, true).nickname[0],
+                ""
+            ].join("\n"), a);
+            return (s + '님께 [' + n + ']호칭이 지급되었습니다.');
+        } else if (pm == "m") {
+            (User.edit(s).nickname).filter(e => e !== "Light Stars");
+            User.save();
+            post(s, [
+                LM("[호칭 회수]"),
+                "사유: " + e,
+                "회수 호칭: " + n,
+                _nickname + " → " + User.edit(s, true).nickname[0],
+                ""
+            ].join("\n"), a);
+            return (s + '님의 [' + n + ']호칭이 회수되었습니다.');
+        }
+    }
 
 
 
@@ -329,51 +384,88 @@
      * 
      * @param {String} s 사용자
      * @param {String} ud 상승/하락
-     * @param {String} l 호감도
+     * @param {Number} per %
      * @returns 
      */
-    function Like(s, ud, l) {
-        if (ud = "up") {
-            User.edit(s, false).like += l;
-            User.save();
-            return ([
-                LM("호감도 상승"),
-                "♥ + " + l
-            ].join("\n"));
-        } else if (ud = "down") {
-            User.edit(s, false).like -= l;
-            User.save();
-            return ([
-                LM("호감도 하락"),
-                "♥ - " + l
-            ].join("\n"));
+    function Like(s, ud, per) {
+        if (random(per * 10)) {
+            java.lang.Thread.sleep(2000);
+            if (ud = "up") {
+                if ((User.edit(s).nickname).some(item => ["Light Stars", "Stars"].includes(item))) {
+                    let r = randomI([
+                        [2, 100],
+                        [4, 50],
+                        [6, 20]
+                    ], Math.random().toFixed(2))
+                    User.edit(s, false).like += r;
+                    User.save();
+                    return ([
+                        LM("호감도 상승"),
+                        "♥ + " + r
+                    ].join("\n"));
+
+                } else {
+                    let r = randomI([
+                        [1, 100],
+                        [2, 50],
+                        [3, 20]
+                    ], Math.random().toFixed(2))
+                    User.edit(s, false).like += r;
+                    User.save();
+                    return ([
+                        LM("호감도 상승"),
+                        "♥ + " + r
+                    ].join("\n"));
+                }
+            } else if (ud = "down") {
+                let r = randomI([
+                    [2, 100],
+                    [4, 50],
+                    [6, 20]
+                ], Math.random().toFixed(2))
+                User.edit(s, false).like -= r;
+                User.save();
+                return ([
+                    LM("호감도 하락"),
+                    "♥ - " + r
+                ].join("\n"));
+            }
         }
     }
 
 
-    function ogimg(title, des, img) {
-        try {
-            let response = org.jsoup.Jsoup.connect("https://api.molya.kr/v1/image/create")
-                .header('x-api-key', '82d1547b-d50a-436c-83f6-0795e8f79303')
-                .method(org.jsoup.Connection.Method.POST)
-                .data({
-                    "type": "url",
-                    "image": img,
-                    "title": title,
-                    "description": des
-                })
-                .ignoreHttpErrors(true)
-                .ignoreContentType(true)
-                .timeout(1000 * 60 * 5)
-                .execute();
-
-            let data = JSON.parse(response.body()).data.viewUrl.split('"');
-            return data;
-            //return JSON.stringify(JSON.parse(response.body()).data.viewUrl.split('"'), null, 4);
-        } catch (e) {
-            Log.d(JSON.stringify(e))
+    function getImageAsBase64(url) {
+        let c = new java.net.URL(url).openConnection();
+        let s = new java.io.ByteArrayOutputStream();
+        let b = java.lang.reflect.Array.newInstance(java.lang.Byte.TYPE, 1024);
+        for (let r, n = c.getInputStream();
+            (r = n.read(b)) > 0;) {
+            s.write(b, 0, r);
         }
+        return android.util.Base64.encodeToString(s.toByteArray(), android.util.Base64.NO_WRAP);
     }
+
+    function ogimg(image_url) {
+        let APIKey = "24b8857b-cd44-4ffe-aa77-95580c993d9e";
+        return org.jsoup.Jsoup.connect("https://api.molya.kr/v1/image/create")
+            .header("Content-Type", "application/json")
+            .header("x-api-key", APIKey)
+            .requestBody(JSON.stringify({
+                "image": getImageAsBase64(image_url),
+                "title": "title",
+                "description": "description",
+                "onlyImage": true,
+                "resize": true,
+                "optOg": true
+            }))
+            .ignoreContentType(true)
+            .ignoreHttpErrors(true)
+            .post()
+            .text();
+    }
+
+
+
 
     module.exports = {
         prefix: prefix,
@@ -387,8 +479,8 @@
         AP: AttenPath,
         getDate: getDate,
         Kakaocord: Kakaocord,
-        User: User,
         LS: LS,
+        User: User,
         msg: msg,
         Pos: Pos,
         chat: chat,
@@ -396,13 +488,15 @@
         random: random,
         Coin: Coin,
         Nickname: Nickname,
-        Admin: Admin,
+        CoinA: CoinA,
+        NicknameA: NicknameA,
         Like: Like,
-        ogimg: ogimg
+        ogimg: ogimg,
+        getImageAsBase64: getImageAsBase64
     }
 
 
-})()
+})() 
 
 /* 
 let {
@@ -426,6 +520,8 @@ let {
     random,
     Coin,
     Nickname,
+    CoinA,
+    NicknameA,
     Like,
     ogimg
 } = require("A");

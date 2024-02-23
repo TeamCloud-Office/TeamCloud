@@ -4,7 +4,7 @@
     "name": "events",
     "mainScript": "events.js",
     "languageId": "JS_RHINO",
-    "isEnabled": true,
+    "isEnabled": false,
     "isPinned": false,
     "trust": true,
     "createdMillis": 1697712683449,

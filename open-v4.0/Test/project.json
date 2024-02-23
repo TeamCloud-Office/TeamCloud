@@ -4,7 +4,7 @@
     "name": "test",
     "mainScript": "test.js",
     "languageId": "JS_RHINO",
-    "isEnabled": true,
+    "isEnabled": false,
     "isPinned": false,
     "trust": true,
     "createdMillis": 1694160414738,

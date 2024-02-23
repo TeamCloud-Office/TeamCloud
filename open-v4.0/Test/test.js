@@ -1,4 +1,23 @@
-let A = Bridge.getScopeOf("A");
+let {
+    prefix,
+    Lw,
+    Line,
+    LM,
+    FS,
+    UP,
+    SP,
+    CP,
+    getDate,
+    User,
+    LS,
+    msg,
+    Pos,
+    chat,
+    random,
+    Coin,
+    Nickname,
+    ogimg
+  } = require("A");
 
 importClass(android.content.Context);
 

@@ -21,7 +21,7 @@ let {
     Nickname,
     Like,
     ogimg
-} = require("A");
+} = require("A"); 
 
 function onMessage(event) {
 

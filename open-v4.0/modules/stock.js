@@ -11,7 +11,7 @@ let {
 
 (function () {
 
-    toFixed = function (number) {
+    function toFixed(number) {
         return (~~(number * 1e4) / 1e4)
     }
 
@@ -22,6 +22,7 @@ let {
 
     let company = {
         // "이름" : [가격:Number,  판매가능유무:Boolean[unfinished],  분류:Number[0:IT, 1:보건(건강), 2:환경, 3:엔터테이먼트],  type:Number[]  ,  arr:Object[] ]
+
         "TC반도체": [740, true, 0, "", 0, []],
         //TeamCloud 반도체 - 반도체 주식회사(IT)
         "For health": [500, true, 1, "", 0, []],
@@ -54,14 +55,14 @@ let {
             ["글로벌 엔터테인먼트 이슈에 대한 대응 부재", "엔터테인먼트 기술 혁신", "경영진의 투명성 부족으로 신뢰 감소", "코로나19 대유행으로 인한 경영 난관", "경영 전략 부재", "지속적인 연구 및 개발 부재로 혁신성 부족", "글로벌 엔터테인먼트 전략 부재", "글로벌 경제 불안으로 인한 영향", "핵심 임직원 이탈로 조직 안정성 저하", "자원 확보 어려움으로 인한 생산 차질", "기술력 미흡으로 시장 경쟁력 하락", "엔터테인먼트 기업 내부 정보 유출에 대한 우려", "사회적 책임에 대한 불만이 커지는 추세"]
         ]
     ];
-
+ 
 
     /*
     저작자: 몽둥2
     원본: https://cafe.naver.com/nameyee/44010
     라이선스: 없음
     */
-    json_reply = function (data) {
+    function json_reply(data) {
         let result = "";
         if (typeof data !== "object") {
             throw new Error("타입이 올바르지 않습니다 / " + typeof data + " !== object");
@@ -96,7 +97,7 @@ let {
      * @param {number} delay 
      * @returns 
      */
-    setTimeout2 = function (call, delay) {
+    function setTimeout2 (call, delay) {
         if ((typeof call == "function" && typeof delay == "number") && delay > 0) {
             var timer = java.util.Timer();
             var timerTask = java.util.TimerTask({
@@ -115,7 +116,7 @@ let {
      * @param {Object} arr array
      * @returns 
      */
-    array_random = function (arr) {
+    function array_random(arr) {
         let a = Math.floor(Math.random() * arr.length);
         return [arr[a], a];
     }
@@ -125,7 +126,7 @@ let {
      * @param {number} hours hour
      * @returns {boolean}
      */
-    isOpen = function (hours) {
+    function isOpen (hours) {
         if (hours == undefined) {
             hours = Number(new Date().getHours());
         }
@@ -165,7 +166,7 @@ let {
      * 가격변동
      * @param {number} delay delay
      */
-    price = function (delay) {
+    function price (delay) {
         result = JSON.parse(FileStream.read(path1)).date;
         setTimeout2(() => {
             let hh = setInterval(() => {
@@ -215,7 +216,7 @@ let {
      * @etc1 type1 이 0 일때 구매 / 판매
      * @etc2 type2이 0일때 즉시처리 / 1일때 예약처리
      */
-    process = function (name, number, sender, type1, type2) {
+    function process (name, number, sender, type1, type2) {
         let data = User.edit(sender)
         number = Number(number)
         if (name == undefined || number == undefined) {
@@ -328,4 +329,4 @@ let {
 
 
 
-})()
+})() 

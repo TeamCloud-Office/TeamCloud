@@ -1,54 +1,7 @@
 [
     {
         "t": "INFO",
-        "th": "Project-admin-worker-1",
         "m": "프로젝트 admin 컴파일 중...",
-        "l": 1708583597568
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-admin",
-        "th": "Project-admin-worker-1",
-        "m": "engine released",
-        "l": 1708583631847
-    },
-    {
-        "t": "INFO",
-        "th": "Project-admin-worker-1",
-        "m": "프로젝트 admin 컴파일 중...",
-        "l": 1708583631847
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-admin",
-        "m": "engine released",
-        "l": 1708583697195
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 admin 컴파일 중...",
-        "l": 1708583697196
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-admin",
-        "m": "engine released",
-        "l": 1708583725676
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 admin 컴파일 중...",
-        "l": 1708583725677
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-admin",
-        "m": "engine released",
-        "l": 1708583946790
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 admin 컴파일 중...",
-        "l": 1708583946790
+        "l": 1708678880177
     }
 ]

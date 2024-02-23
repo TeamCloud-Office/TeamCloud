@@ -1,55 +1,6 @@
 [
     {
         "t": "INFO",
-        "m": "프로젝트 Normal 컴파일 중...",
-        "l": 1708226752940
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-Normal",
-        "th": "Project-Normal-worker-2",
-        "m": "engine released",
-        "l": 1708230418930
-    },
-    {
-        "t": "INFO",
-        "th": "Project-Normal-worker-2",
-        "m": "프로젝트 Normal 컴파일 중...",
-        "l": 1708230418930
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-Normal",
-        "m": "engine released",
-        "l": 1708234626620
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 Normal 컴파일 중...",
-        "l": 1708234626623
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-Normal",
-        "th": "Project-Normal-worker-3",
-        "m": "engine released",
-        "l": 1708238787858
-    },
-    {
-        "t": "INFO",
-        "th": "Project-Normal-worker-3",
-        "m": "프로젝트 Normal 컴파일 중...",
-        "l": 1708238787859
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-Normal",
-        "m": "engine released",
-        "l": 1708241829776
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 Normal 컴파일 중...",
-        "l": 1708241829778
+        "m": "프로젝트 Normal 컴파일 중..."
     }
 ]

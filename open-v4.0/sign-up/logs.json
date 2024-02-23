@@ -1,45 +1,7 @@
 [
     {
         "t": "INFO",
-        "th": "Project-sign-up-worker-1",
         "m": "프로젝트 sign-up 컴파일 중...",
-        "l": 1708583598013
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-sign-up",
-        "th": "Project-sign-up-worker-2",
-        "m": "engine released",
-        "l": 1708583633356
-    },
-    {
-        "t": "INFO",
-        "th": "Project-sign-up-worker-2",
-        "m": "프로젝트 sign-up 컴파일 중...",
-        "l": 1708583633356
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-sign-up",
-        "th": "Project-sign-up-worker-2",
-        "m": "engine released",
-        "l": 1708583698771
-    },
-    {
-        "t": "INFO",
-        "th": "Project-sign-up-worker-2",
-        "m": "프로젝트 sign-up 컴파일 중...",
-        "l": 1708583698772
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-sign-up",
-        "m": "engine released",
-        "l": 1708583727213
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 sign-up 컴파일 중...",
-        "l": 1708583727214
+        "l": 1708678880665
     }
 ]

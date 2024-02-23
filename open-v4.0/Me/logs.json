@@ -1,45 +1,6 @@
 [
     {
         "t": "INFO",
-        "th": "Project-Me-worker-1",
-        "m": "프로젝트 Me 컴파일 중...",
-        "l": 1708583597479
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-Me",
-        "th": "Project-Me-worker-2",
-        "m": "engine released",
-        "l": 1708583633167
-    },
-    {
-        "t": "INFO",
-        "th": "Project-Me-worker-2",
-        "m": "프로젝트 Me 컴파일 중...",
-        "l": 1708583633168
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-Me",
-        "th": "Project-Me-worker-2",
-        "m": "engine released",
-        "l": 1708583698508
-    },
-    {
-        "t": "INFO",
-        "th": "Project-Me-worker-2",
-        "m": "프로젝트 Me 컴파일 중...",
-        "l": 1708583698509
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-Me",
-        "m": "engine released",
-        "l": 1708583726936
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 Me 컴파일 중...",
-        "l": 1708583726938
+        "m": "프로젝트 Me 컴파일 중..."
     }
 ]

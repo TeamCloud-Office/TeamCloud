@@ -9,7 +9,7 @@ let {
     process,
     company,
     open
-} = require("stock");
+} = require("stock"); 
 
 let {
     prefix,

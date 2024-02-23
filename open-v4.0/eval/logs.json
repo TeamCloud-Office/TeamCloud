@@ -2,41 +2,6 @@
     {
         "t": "INFO",
         "m": "프로젝트 eval 컴파일 중...",
-        "l": 1706879396692
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-eval",
-        "th": "Project-eval-worker-3",
-        "m": "engine released",
-        "l": 1706880254022
-    },
-    {
-        "t": "INFO",
-        "th": "Project-eval-worker-3",
-        "m": "프로젝트 eval 컴파일 중...",
-        "l": 1706880254023
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-eval",
-        "m": "engine released",
-        "l": 1706880589712
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 eval 컴파일 중...",
-        "l": 1706880589713
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-eval",
-        "m": "engine released",
-        "l": 1706881183841
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 eval 컴파일 중...",
-        "l": 1706881183846
+        "l": 1708678879845
     }
 ]

@@ -7,17 +7,21 @@ let {
     UP,
     SP,
     CP,
+    AP,
     getDate,
+    Kakaocord,
     User,
     LS,
     msg,
     Pos,
-    post,
     chat,
+    post,
     random,
     Coin,
     Nickname,
-    Admin,
+    CoinA,
+    NicknameA,
+    Like,
     ogimg
 } = require("A");
 
@@ -32,7 +36,7 @@ function onMessage(event) {
             FS.write(SP, JSON.stringify(data, null, 4));
         }
 
-        if ((User.edit(event.sender.name).nickname).some(item => ["Light Stars", "Stars"].includes(item)) == true) {
+        if ((User.edit(event.sender.name).nickname).some(item => ["Light Stars", "Stars"].includes(item)) == true) { 
             if ((User.edit(event.sender.name).stars["re"]) != getDate.month) {
                 //달마다 Stars 혜택 제공
                 if ((User.edit(event.sender.name).nickname).includes("Stars")) {
@@ -43,7 +47,7 @@ function onMessage(event) {
                 if ((User.edit(event.sender.name).nickname).includes("Light Stars")) {
                     User.edit(event.sender.name).stars["ai"] = 60;
                     User.edit(event.sender.name).stars["re"] = getDate.month;
-                    event.room.send(Admin(User.edit(event.sender.name).id, "Stars 혜택", true, 50, "TeamCloud 시스템"));
+                    event.room.send(CoinA(User.edit(event.sender.name).id, "Stars 혜택", 50, "p", "TeamCloud 시스템"));
                     User.save();
                 }
             }
@@ -57,7 +61,7 @@ function onMessage(event) {
                     User.edit(event.sender.name).stars["D"] = "";
                     User.edit(event.sender.name).stars["ai"] = 0;
                     User.edit(event.sender.name).stars["re"] = 0;
-                    (User.edit(event.sender.name).nickname).filter(e => e !== "Stars");
+                    event.room.send(CoinA(User.edit(event.sender.name).id, "Stars 가입 종료", "Stars", "m", "TeamCloud 시스템"));
                     User.save();
                 } else {
                     //Stars 남은 일 카운트
@@ -76,7 +80,7 @@ function onMessage(event) {
                     User.edit(event.sender.name).stars["D"] = "";
                     User.edit(event.sender.name).stars["ai"] = 0; 
                     User.edit(event.sender.name).stars["re"] = 0;
-                    (User.edit(event.sender.name).nickname).filter(e => e !== "Light Stars");
+                    event.room.send(CoinA(User.edit(event.sender.name).id, "Stars 가입 종료", "Light Stars", "m", "TeamCloud 시스템"));
                     User.save();
                 } else {
                     //Light Stars 남은 일 카운트
@@ -182,7 +186,7 @@ function onMessage(event) {
             if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
             switch (cut[3]) {
                 case "1":
-                    event.room.send(Admin(id, "Stars 가입", false, "Stars", event.sender.name))
+                    event.room.send(NicknameA(id, "Stars 가입", "Stars", "p", event.sender.name))
                     User.edit(id, true).stars["date"] = getDate.today("/");
                     User.edit(id, true).stars["ai"] = 30;
                     User.edit(id, true).stars["re"] = getDate.month;
@@ -191,7 +195,7 @@ function onMessage(event) {
                     User.save();
                     break;
                 case "2":
-                    event.room.send(Admin(id, "Stars 가입", false, "Light Stars", event.sender.name))
+                    event.room.send(NicknameA(id, "Stars 가입", "Light Stars", "p", event.sender.name))
                     User.edit(id, true).stars["date"] = getDate.today("/");
                     User.edit(id, true).stars["ai"] = 60;
                     User.edit(id, true).stars["re"] = getDate.month;

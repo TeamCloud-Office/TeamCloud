@@ -2,51 +2,6 @@
     {
         "t": "INFO",
         "m": "프로젝트 reply 컴파일 중...",
-        "l": 1708583598111
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-reply",
-        "m": "engine released",
-        "l": 1708583633605
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 reply 컴파일 중...",
-        "l": 1708583633605
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-reply",
-        "m": "engine released",
-        "l": 1708583698943
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 reply 컴파일 중...",
-        "l": 1708583698944
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-reply",
-        "th": "Project-reply-worker-3",
-        "m": "engine released",
-        "l": 1708583727418
-    },
-    {
-        "t": "INFO",
-        "th": "Project-reply-worker-3",
-        "m": "프로젝트 reply 컴파일 중...",
-        "l": 1708583727419
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-reply",
-        "m": "engine released",
-        "l": 1708583962634
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 reply 컴파일 중..."
+        "l": 1708678880792
     }
 ]

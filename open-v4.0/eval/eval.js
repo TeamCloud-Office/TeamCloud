@@ -20,7 +20,8 @@ let {
     Coin,
     Nickname,
     Like,
-    ogimg
+    ogimg,
+    getImageBase64
 } = require("A");
 
 let onf = true;

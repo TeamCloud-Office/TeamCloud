@@ -64,7 +64,7 @@ function onMessage(event) {
   if (event.message.startsWith(prefix + "도움말")) {
     event.room.send(msg.noti + 'https://www.team-cloud.kro.kr/blog/manual');
   }
- 
+  
   if (event.message.startsWith(prefix)) {
     switch (event.message.replace(prefix, "")) {
 

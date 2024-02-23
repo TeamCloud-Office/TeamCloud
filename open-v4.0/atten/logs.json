@@ -1,44 +1,7 @@
 [
     {
         "t": "INFO",
-        "th": "Project-atten-worker-1",
         "m": "프로젝트 atten 컴파일 중...",
-        "l": 1708583597358
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-atten",
-        "th": "Project-atten-worker-1",
-        "m": "engine released",
-        "l": 1708583631598
-    },
-    {
-        "t": "INFO",
-        "th": "Project-atten-worker-1",
-        "m": "프로젝트 atten 컴파일 중...",
-        "l": 1708583631599
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-atten",
-        "th": "Project-atten-worker-1",
-        "m": "engine released",
-        "l": 1708583696829
-    },
-    {
-        "t": "INFO",
-        "th": "Project-atten-worker-1",
-        "m": "프로젝트 atten 컴파일 중...",
-        "l": 1708583696831
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-atten",
-        "m": "engine released",
-        "l": 1708583725349
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 atten 컴파일 중..."
+        "l": 1708678879961
     }
 ]
