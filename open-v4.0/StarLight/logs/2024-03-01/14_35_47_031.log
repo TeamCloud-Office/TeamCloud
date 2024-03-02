@@ -1,0 +1,3 @@
+2024-03-01 14:35:47.047    INFO [main                       ] -    GlobalApplication: 포그라운드 서비스 등록 성공!
+2024-03-01 14:35:47.050    INFO [DefaultDispatcher-worker-3 ] -   ApplicationSession: 카카오톡 버전: 10.5.5
+2024-03-01 14:35:47.051   DEBUG [DefaultDispatcher-worker-3 ] -   ApplicationSession: Initializing with locale KOREAN

@@ -1,0 +1,16 @@
+{
+    "id": "f74df2c4-581c-4ea5-9b77-486d74e9431b",
+    "version": 0,
+    "name": "entrance",
+    "mainScript": "entrance.js",
+    "languageId": "JS_RHINO",
+    "isEnabled": true,
+    "isPinned": false,
+    "createdMillis": 1695826371170,
+    "allowedEventIds": [
+        "starlight.*"
+    ],
+    "packages": [
+        "com.kakao.talk"
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "general": {
+        "token": {
+            "type": "String",
+            "value": "OTM4NTk0NDIxNzc0MTE0ODg2.GpoNDR.YZdUmJAOOKC3hoC58Y26vl0KhNd0fce0OeXq08"
+        },
+        "intents": {
+            "type": "String",
+            "value": "[{\"intent\":{\"type\":\"Int\",\"value\":\"15\"}},{\"intent\":{\"type\":\"Int\",\"value\":\"12\"}},{\"intent\":{\"type\":\"Int\",\"value\":\"9\"}},{\"intent\":{\"type\":\"Int\",\"value\":\"1\"}}]"
+        }
+    },
+    "event": {
+        "use_compat_event": {
+            "type": "Boolean",
+            "value": "true"
+        }
+    },
+    "dev_mode": {
+        "log_received_message": {
+            "type": "Boolean",
+            "value": "true"
+        }
+    }
+}

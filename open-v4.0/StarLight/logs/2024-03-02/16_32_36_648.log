@@ -1,0 +1,30 @@
+2024-03-02 16:32:36.658    INFO [main                       ] -    GlobalApplication: 포그라운드 서비스 등록 성공!
+2024-03-02 16:32:36.660   DEBUG [DefaultDispatcher-worker-1 ] -   ApplicationSession: Initializing with locale KOREAN
+2024-03-02 16:32:36.659    INFO [DefaultDispatcher-worker-1 ] -   ApplicationSession: 카카오톡 버전: 10.5.5
+2024-03-02 16:32:36.666    WARN [DefaultDispatcher-worker-1 ] -         PluginLoader: res/raw 경로는 더 이상 사용되지 않습니다. assets 경로를 사용하세요.
+2024-03-02 16:32:36.673    WARN [DefaultDispatcher-worker-1 ] -         PluginLoader: res/raw 경로는 더 이상 사용되지 않습니다. assets 경로를 사용하세요.
+2024-03-02 16:32:36.701   DEBUG [DefaultDispatcher-worker-1 ] -            AwtPlugin: Testing awt class loading, color = java.awt.Color[r=0,g=0,b=0]
+2024-03-02 16:32:36.776   DEBUG [main                       ] - NotificationListener: Listener connected
+2024-03-02 16:32:36.853   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: Discord Api 등록 성공
+2024-03-02 16:32:36.861   DEBUG [DefaultDispatcher-worker-1 ] -        DiscordPlugin: Starting discord client with intent: MESSAGE_CONTENT, DIRECT_MESSAGES, GUILD_MESSAGES, GUILD_MEMBERS
+2024-03-02 16:32:39.324    INFO [DefaultDispatcher-worker-1 ] -        DiscordPlugin: 디스코드 클라이언트 시작 성공! [디코서버 도우미]Eric#0937 로 로그인했어요.
+2024-03-02 16:32:39.326    INFO [DefaultDispatcher-worker-3 ] -       SplashActivity: 기본 라이브러리 로드중…
+2024-03-02 16:32:39.341   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: LanguageManager Api 등록 성공
+2024-03-02 16:32:39.341   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: Log Api 등록 성공
+2024-03-02 16:32:39.341   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: ProjectManager Api 등록 성공
+2024-03-02 16:32:39.342   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: PluginManager Api 등록 성공
+2024-03-02 16:32:39.342   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: Env Api 등록 성공
+2024-03-02 16:32:39.342   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: Java Api 등록 성공
+2024-03-02 16:32:39.342   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: Notification Api 등록 성공
+2024-03-02 16:32:39.342   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: EventEmitter Api 등록 성공
+2024-03-02 16:32:39.342   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: Utils Api 등록 성공
+2024-03-02 16:32:39.343   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: Broadcast Api 등록 성공
+2024-03-02 16:32:39.342   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: Api Api 등록 성공
+2024-03-02 16:32:39.342   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: FileStream Api 등록 성공
+2024-03-02 16:32:39.342   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: DataBase Api 등록 성공
+2024-03-02 16:32:39.343   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: Device Api 등록 성공
+2024-03-02 16:32:39.343   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: App Api 등록 성공
+2024-03-02 16:32:39.342   DEBUG [DefaultDispatcher-worker-1 ] -           ApiManager: Bridge Api 등록 성공
+2024-03-02 16:32:39.346    INFO [DefaultDispatcher-worker-6 ] -       SplashActivity: 프로젝트 로드중…
+2024-03-02 16:32:39.456    INFO [DefaultDispatcher-worker-1 ] -               System: | Project ✦ StarLight |
+Running PluginCore v0.2.0

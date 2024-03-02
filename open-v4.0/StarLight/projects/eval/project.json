@@ -1,0 +1,17 @@
+{
+    "id": "b8b37a1c-1827-499b-9c7a-b227f797d397",
+    "version": 0,
+    "name": "eval",
+    "mainScript": "eval.js",
+    "languageId": "JS_RHINO",
+    "isEnabled": true,
+    "isPinned": true,
+    "createdMillis": 1682772285590,
+    "allowedEventIds": [
+        "starlight.*",
+        "discord.*"
+    ],
+    "packages": [
+        "com.kakao.talk"
+    ]
+}

@@ -2,6 +2,61 @@
     {
         "t": "INFO",
         "m": "프로젝트 test 컴파일 중...",
-        "l": 1703231400149
+        "l": 1709100617273
+    },
+    {
+        "t": "ERROR",
+        "a": "Project-test",
+        "m": "Error while running: org.mozilla.javascript.EcmaError: ReferenceError: \"A\" is not defined. (test#24)",
+        "l": 1709100639037
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-test",
+        "th": "Project-test-worker-2",
+        "m": "engine released",
+        "l": 1709100639133
+    },
+    {
+        "t": "INFO",
+        "th": "Project-test-worker-2",
+        "m": "프로젝트 test 컴파일 중...",
+        "l": 1709100639134
+    },
+    {
+        "t": "ERROR",
+        "a": "Project-test",
+        "m": "Error while running: org.mozilla.javascript.EcmaError: ReferenceError: \"A\" is not defined. (test#24)",
+        "l": 1709100699512
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-test",
+        "th": "Project-test-worker-3",
+        "m": "engine released",
+        "l": 1709100699803
+    },
+    {
+        "t": "INFO",
+        "th": "Project-test-worker-3",
+        "m": "프로젝트 test 컴파일 중...",
+        "l": 1709100699804
+    },
+    {
+        "t": "ERROR",
+        "a": "Project-test",
+        "th": "Project-test-worker-2",
+        "m": "Error while running: org.mozilla.javascript.EcmaError: ReferenceError: \"A\" is not defined. (test#24)",
+        "l": 1709100718774
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-test",
+        "m": "engine released",
+        "l": 1709100718849
+    },
+    {
+        "t": "INFO",
+        "m": "프로젝트 test 컴파일 중..."
     }
 ]

@@ -1,0 +1,36 @@
+{
+    "editor": {
+        "saved_tabs": {
+            "type": "String",
+            "value": "[\"atten.js\"]"
+        }
+    },
+    "events": {
+        "allowed_events": {
+            "type": "String",
+            "value": "[{\"event_id\":{\"type\":\"String\",\"value\":\"starlight.*\"}}]"
+        }
+    },
+    "JS_RHINO": {
+        "load_ext_modules": {
+            "type": "Boolean",
+            "value": "true"
+        },
+        "optimize_code": {
+            "type": "Boolean",
+            "value": "true"
+        },
+        "js_version": {
+            "type": "Int",
+            "value": "9"
+        }
+    },
+    "general": {
+        "shutdown_on_error": {
+            "type": "Boolean",
+            "value": "false"
+        }
+    },
+    "beta_features": {
+    }
+}

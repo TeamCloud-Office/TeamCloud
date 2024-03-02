@@ -1,0 +1,22 @@
+2024-02-28 19:22:29.714    INFO [main                       ] -    GlobalApplication: 포그라운드 서비스 등록 성공!
+2024-02-28 19:22:29.718    INFO [DefaultDispatcher-worker-3 ] -   ApplicationSession: 카카오톡 버전: 10.5.5
+2024-02-28 19:22:29.719   DEBUG [DefaultDispatcher-worker-3 ] -   ApplicationSession: Initializing with locale KOREAN
+2024-02-28 19:22:29.731   DEBUG [main                       ] - NotificationListener: Listener connected
+2024-02-28 19:22:29.870   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: LanguageManager Api 등록 성공
+2024-02-28 19:22:29.871   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Log Api 등록 성공
+2024-02-28 19:22:29.871   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: PluginManager Api 등록 성공
+2024-02-28 19:22:29.871   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: ProjectManager Api 등록 성공
+2024-02-28 19:22:29.871   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Env Api 등록 성공
+2024-02-28 19:22:29.871   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Notification Api 등록 성공
+2024-02-28 19:22:29.872   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Java Api 등록 성공
+2024-02-28 19:22:29.872   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: EventEmitter Api 등록 성공
+2024-02-28 19:22:29.873   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Utils Api 등록 성공
+2024-02-28 19:22:29.873   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: FileStream Api 등록 성공
+2024-02-28 19:22:29.873   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Bridge Api 등록 성공
+2024-02-28 19:22:29.873   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Api Api 등록 성공
+2024-02-28 19:22:29.874   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Device Api 등록 성공
+2024-02-28 19:22:29.873   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: DataBase Api 등록 성공
+2024-02-28 19:22:29.874   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Broadcast Api 등록 성공
+2024-02-28 19:22:29.874   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: App Api 등록 성공
+2024-02-28 19:22:29.893    INFO [DefaultDispatcher-worker-3 ] -               System: | Project ✦ StarLight |
+Running PluginCore v0.2.0

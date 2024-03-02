@@ -1,0 +1,16 @@
+{
+    "id": "5a5cafe7-30b7-4c32-a5aa-899be7d38d13",
+    "version": 0,
+    "name": "stock",
+    "mainScript": "stock.js",
+    "languageId": "JS_RHINO",
+    "isEnabled": true,
+    "isPinned": false,
+    "createdMillis": 1697365802946,
+    "allowedEventIds": [
+        "starlight.*"
+    ],
+    "packages": [
+        "com.kakao.talk"
+    ]
+}

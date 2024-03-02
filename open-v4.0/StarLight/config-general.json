@@ -1,0 +1,50 @@
+{
+    "general": {
+        "global_power": {
+            "type": "Boolean",
+            "value": "true"
+        }
+    },
+    "plugin": {
+    },
+    "dev": {
+        "dev_mode": {
+            "type": "Boolean",
+            "value": "true"
+        }
+    },
+    "dev_mode_config": {
+    },
+    "beta_features": {
+        "change_thread_pool_size": {
+            "type": "Boolean",
+            "value": "true"
+        }
+    },
+    "project": {
+        "load_global_libraries": {
+            "type": "Boolean",
+            "value": "true"
+        }
+    },
+    "widgets": {
+    },
+    "logs": {
+    },
+    "notifications": {
+        "log_received_message": {
+            "type": "Boolean",
+            "value": "false"
+        }
+    },
+    "e_general": {
+        "theme": {
+            "type": "Int",
+            "value": "0"
+        }
+    },
+    "e_files": {
+    },
+    "e_code": {
+    }
+}

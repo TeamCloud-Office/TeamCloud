@@ -1,0 +1,32 @@
+{
+    "beta_features": {
+    },
+    "editor": {
+        "saved_tabs": {
+            "type": "String",
+            "value": "[\"mention.js\"]"
+        }
+    },
+    "events": {
+        "allowed_events": {
+            "type": "String",
+            "value": "[{\"event_id\":{\"type\":\"String\",\"value\":\"starlight.*\"}}]"
+        }
+    },
+    "general": {
+    },
+    "JS_RHINO": {
+        "js_version": {
+            "type": "Int",
+            "value": "9"
+        },
+        "optimize_code": {
+            "type": "Boolean",
+            "value": "true"
+        },
+        "load_ext_modules": {
+            "type": "Boolean",
+            "value": "true"
+        }
+    }
+}
