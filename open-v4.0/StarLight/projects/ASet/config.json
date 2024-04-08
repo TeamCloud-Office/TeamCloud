@@ -1,5 +1,9 @@
 {
     "beta_features": {
+        "thread_pool_size": {
+            "type": "Int",
+            "value": "1"
+        }
     },
     "editor": {
         "saved_tabs": {

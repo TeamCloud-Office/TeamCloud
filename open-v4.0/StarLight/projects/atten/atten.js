@@ -66,7 +66,7 @@ function onMessage(event) {
 
     if (event.message.startsWith(prefix + "출석")) {
         if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-        if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
+        if (User.edit(event.sender.name, false).ban == true) return event.room.send(msg.ban);
         if (state != 0) return;
 
         switch (cut[2]) {
@@ -75,7 +75,7 @@ function onMessage(event) {
                     event.room.send([
                         msg.noti,
                         LM("[출석체크]"),
-                        "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+                        "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
                         Line(3),
                         "출석체크를 " + json["list"][event.room.name][event.sender.name] + "에 이미 완료하였습니다."
                     ].join('\n')); //출석체크
@@ -85,7 +85,7 @@ function onMessage(event) {
                     event.room.send([
                         msg.noti,
                         LM("[출석체크]"),
-                        "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+                        "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
                         Line(3),
                         "출석체크를 " + time + "에 완료하였습니다.",
                         "► 오늘의 순위: " + rank
@@ -115,12 +115,12 @@ function onMessage(event) {
                     }
 
                     if (json['store'][event.room.name][event.sender.name]['first_count'] >= 100) {
-                        if (User.edit(event.sender.name).nickname.includes("출석왕!") == false) {
+                        if (User.edit(event.sender.name, false).nickname.includes("출석왕!") == false) {
                             event.room.send(Nickname(event.sender.name, "출석 100회 이상 1등", "출석왕!", false));
                         }
                     }
                     if (json['store'][event.room.name][event.sender.name]['count'] >= 500) {
-                        if (User.edit(event.sender.name).nickname.includes("다(多)출석자") == false) {
+                        if (User.edit(event.sender.name, false).nickname.includes("다(多)출석자") == false) {
                             event.room.send(Nickname(event.sender.name, "출석 500회 이상", "다(多)출석자", false));
                         }
                     }
@@ -136,7 +136,7 @@ function onMessage(event) {
                     event.room.send([
                         msg.noti,
                         LM("[출석순위]"),
-                        "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+                        "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
                         Line(3),
                         "현재 " + '[' + event.room.name + ']' + "의 출석순위가 없습니다.",
                         "출석체크를 진행해주세요."
@@ -145,7 +145,7 @@ function onMessage(event) {
                     event.room.send([
                         msg.noti,
                         LM("[출석순위]"),
-                        "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+                        "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
                         Line(3),
                         "현재 " + '[' + event.room.name + ']' + " 의 출석순위입니다.",
                         Lw,

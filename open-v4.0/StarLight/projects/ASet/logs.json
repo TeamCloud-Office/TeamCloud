@@ -1,142 +1,259 @@
 [
     {
         "t": "INFO",
-        "m": "프로젝트 ASet 컴파일 중...",
-        "l": 1709364925769
+        "m": "ASet[Success]",
+        "l": 1712579024127
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:T4OE4",
+        "l": 1712579024129
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579024131
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:FU11P",
+        "l": 1712579024132
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579024133
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:ZA6CT",
+        "l": 1712579024133
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579024133
     },
     {
         "t": "VERBOSE",
         "a": "Project-ASet",
         "m": "engine released",
-        "l": 1709364973729
+        "l": 1712579435651
     },
     {
         "t": "INFO",
         "m": "프로젝트 ASet 컴파일 중...",
-        "l": 1709364973729
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-ASet",
-        "th": "Project-ASet-worker-2",
-        "m": "engine released",
-        "l": 1709371641854
+        "l": 1712579435652
     },
     {
         "t": "INFO",
-        "th": "Project-ASet-worker-2",
-        "m": "프로젝트 ASet 컴파일 중...",
-        "l": 1709371641854
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-ASet",
-        "th": "Project-ASet-worker-2",
-        "m": "engine released",
-        "l": 1709371713253
+        "m": "ASet[Start] 대상 ID:DVHQB",
+        "l": 1712579442490
     },
     {
         "t": "INFO",
-        "th": "Project-ASet-worker-2",
-        "m": "프로젝트 ASet 컴파일 중...",
-        "l": 1709371713254
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-ASet",
-        "m": "engine released",
-        "l": 1709372326471
+        "m": "ASet[Success]",
+        "l": 1712579442491
     },
     {
         "t": "INFO",
-        "m": "프로젝트 ASet 컴파일 중...",
-        "l": 1709372326472
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-ASet",
-        "th": "Project-ASet-worker-3",
-        "m": "engine released",
-        "l": 1709372677248
+        "m": "ASet[Start] 대상 ID:T4OE4",
+        "l": 1712579442491
     },
     {
         "t": "INFO",
-        "th": "Project-ASet-worker-3",
-        "m": "프로젝트 ASet 컴파일 중...",
-        "l": 1709372677249
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-ASet",
-        "th": "Project-ASet-worker-2",
-        "m": "engine released",
-        "l": 1709384013858
+        "m": "ASet[Success]",
+        "l": 1712579442491
     },
     {
         "t": "INFO",
-        "th": "Project-ASet-worker-2",
-        "m": "프로젝트 ASet 컴파일 중...",
-        "l": 1709384013858
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-ASet",
-        "th": "Project-ASet-worker-3",
-        "m": "engine released",
-        "l": 1709384993652
+        "m": "ASet[Start] 대상 ID:FU11P",
+        "l": 1712579442492
     },
     {
         "t": "INFO",
-        "th": "Project-ASet-worker-3",
-        "m": "프로젝트 ASet 컴파일 중...",
-        "l": 1709384993653
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-ASet",
-        "th": "Project-ASet-worker-3",
-        "m": "engine released",
-        "l": 1709385551232
+        "m": "ASet[Success]",
+        "l": 1712579442492
     },
     {
         "t": "INFO",
-        "th": "Project-ASet-worker-3",
-        "m": "프로젝트 ASet 컴파일 중...",
-        "l": 1709385551233
+        "m": "ASet[Start] 대상 ID:ZA6CT",
+        "l": 1712579442492
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579442497
     },
     {
         "t": "VERBOSE",
         "a": "Project-ASet",
         "m": "engine released",
-        "l": 1709385613330
+        "l": 1712579446765
     },
     {
         "t": "INFO",
         "m": "프로젝트 ASet 컴파일 중...",
-        "l": 1709385613331
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-ASet",
-        "th": "Project-ASet-worker-2",
-        "m": "engine released",
-        "l": 1709385859030
+        "l": 1712579446766
     },
     {
         "t": "INFO",
-        "th": "Project-ASet-worker-2",
-        "m": "프로젝트 ASet 컴파일 중...",
-        "l": 1709385859031
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-ASet",
-        "m": "engine released",
-        "l": 1709386021052
+        "m": "ASet[Start] 대상 ID:DVHQB",
+        "l": 1712579472599
     },
     {
         "t": "INFO",
-        "m": "프로젝트 ASet 컴파일 중...",
-        "l": 1709386021052
+        "m": "ASet[Success]",
+        "l": 1712579472599
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:T4OE4",
+        "l": 1712579472599
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579472600
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:FU11P",
+        "l": 1712579472600
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579472600
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:ZA6CT",
+        "l": 1712579472600
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579472601
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:DVHQB",
+        "l": 1712579480685
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579480689
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:T4OE4",
+        "l": 1712579480693
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579480695
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:FU11P",
+        "l": 1712579480697
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579480697
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:ZA6CT",
+        "l": 1712579480698
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579480698
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:DVHQB",
+        "l": 1712579498097
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579498098
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:T4OE4",
+        "l": 1712579498099
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579498100
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:FU11P",
+        "l": 1712579498100
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579498101
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:ZA6CT",
+        "l": 1712579498101
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579498102
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:DVHQB",
+        "l": 1712579538182
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579538183
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:T4OE4",
+        "l": 1712579538183
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579538183
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:FU11P",
+        "l": 1712579538184
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579538184
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Start] 대상 ID:ZA6CT",
+        "l": 1712579538186
+    },
+    {
+        "t": "INFO",
+        "m": "ASet[Success]",
+        "l": 1712579538188
     }
 ]

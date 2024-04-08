@@ -1,142 +1,137 @@
 [
     {
         "t": "INFO",
+        "th": "Project-chat_history-worker-1",
         "m": "프로젝트 chat_history 컴파일 중...",
-        "l": 1709364925288
+        "l": 1712573201252
     },
     {
         "t": "VERBOSE",
         "a": "Project-chat_history",
         "m": "engine released",
-        "l": 1709364972303
+        "l": 1712574038939
     },
     {
         "t": "INFO",
         "m": "프로젝트 chat_history 컴파일 중...",
-        "l": 1709364972303
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-chat_history",
-        "th": "Project-chat_history-worker-2",
-        "m": "engine released",
-        "l": 1709371639867
-    },
-    {
-        "t": "INFO",
-        "th": "Project-chat_history-worker-2",
-        "m": "프로젝트 chat_history 컴파일 중...",
-        "l": 1709371639868
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-chat_history",
-        "th": "Project-chat_history-worker-2",
-        "m": "engine released",
-        "l": 1709371711383
-    },
-    {
-        "t": "INFO",
-        "th": "Project-chat_history-worker-2",
-        "m": "프로젝트 chat_history 컴파일 중...",
-        "l": 1709371711384
+        "l": 1712574038939
     },
     {
         "t": "VERBOSE",
         "a": "Project-chat_history",
         "m": "engine released",
-        "l": 1709372324702
+        "l": 1712576345826
     },
     {
         "t": "INFO",
         "m": "프로젝트 chat_history 컴파일 중...",
-        "l": 1709372324702
+        "l": 1712576345828
     },
     {
         "t": "VERBOSE",
         "a": "Project-chat_history",
-        "th": "Project-chat_history-worker-3",
+        "th": "Project-chat_history-worker-1",
         "m": "engine released",
-        "l": 1709372675303
+        "l": 1712577150447
     },
     {
         "t": "INFO",
-        "th": "Project-chat_history-worker-3",
+        "th": "Project-chat_history-worker-1",
         "m": "프로젝트 chat_history 컴파일 중...",
-        "l": 1709372675304
+        "l": 1712577150447
     },
     {
         "t": "VERBOSE",
         "a": "Project-chat_history",
-        "th": "Project-chat_history-worker-2",
         "m": "engine released",
-        "l": 1709384012073
+        "l": 1712577182118
     },
     {
         "t": "INFO",
-        "th": "Project-chat_history-worker-2",
         "m": "프로젝트 chat_history 컴파일 중...",
-        "l": 1709384012074
+        "l": 1712577182119
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-chat_history",
+        "m": "engine released",
+        "l": 1712577349461
+    },
+    {
+        "t": "INFO",
+        "m": "프로젝트 chat_history 컴파일 중...",
+        "l": 1712577349462
     },
     {
         "t": "VERBOSE",
         "a": "Project-chat_history",
         "th": "Project-chat_history-worker-3",
         "m": "engine released",
-        "l": 1709384991833
+        "l": 1712577652723
     },
     {
         "t": "INFO",
         "th": "Project-chat_history-worker-3",
         "m": "프로젝트 chat_history 컴파일 중...",
-        "l": 1709384991833
+        "l": 1712577652724
     },
     {
         "t": "VERBOSE",
         "a": "Project-chat_history",
         "th": "Project-chat_history-worker-3",
         "m": "engine released",
-        "l": 1709385549319
+        "l": 1712577895157
     },
     {
         "t": "INFO",
         "th": "Project-chat_history-worker-3",
         "m": "프로젝트 chat_history 컴파일 중...",
-        "l": 1709385549320
+        "l": 1712577895157
     },
     {
         "t": "VERBOSE",
         "a": "Project-chat_history",
         "m": "engine released",
-        "l": 1709385611385
+        "l": 1712578395486
     },
     {
         "t": "INFO",
         "m": "프로젝트 chat_history 컴파일 중...",
-        "l": 1709385611385
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-chat_history",
-        "th": "Project-chat_history-worker-2",
-        "m": "engine released",
-        "l": 1709385856766
-    },
-    {
-        "t": "INFO",
-        "th": "Project-chat_history-worker-2",
-        "m": "프로젝트 chat_history 컴파일 중...",
-        "l": 1709385856766
+        "l": 1712578395487
     },
     {
         "t": "VERBOSE",
         "a": "Project-chat_history",
         "m": "engine released",
-        "l": 1709386019193
+        "l": 1712578497470
     },
     {
         "t": "INFO",
         "m": "프로젝트 chat_history 컴파일 중...",
-        "l": 1709386019194
+        "l": 1712578497471
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-chat_history",
+        "th": "Project-chat_history-worker-1",
+        "m": "engine released",
+        "l": 1712579432646
+    },
+    {
+        "t": "INFO",
+        "th": "Project-chat_history-worker-1",
+        "m": "프로젝트 chat_history 컴파일 중...",
+        "l": 1712579432647
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-chat_history",
+        "m": "engine released",
+        "l": 1712579443894
+    },
+    {
+        "t": "INFO",
+        "m": "프로젝트 chat_history 컴파일 중...",
+        "l": 1712579443895
     }
 ]

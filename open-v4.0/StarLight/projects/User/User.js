@@ -15,10 +15,10 @@ let Data = {
         "stocks": {},
         "stars": {
             "date": "2024/2/22",
-            "D_date": 60,
-            "D": 22,
+            "D_date": 54,
+            "D": 7,
             "ai": 30,
-            "re": 2
+            "re": 4
         },
         "etc": []
     },
@@ -29,7 +29,7 @@ let Data = {
         "date": "2024/2/22",
         "admin": true,
         "ban": false,
-        "coin": 20,
+        "coin": 22,
         "warn": 0,
         "nickname": [
             "관리자",
@@ -39,10 +39,10 @@ let Data = {
         "stocks": {},
         "stars": {
             "date": "2024/2/24",
-            "D_date": 60,
-            "D": 24,
+            "D_date": 55,
+            "D": 7,
             "ai": 30,
-            "re": 2
+            "re": 4
         },
         "etc": []
     },
@@ -53,13 +53,13 @@ let Data = {
         "date": "2024/2/23",
         "admin": true,
         "ban": false,
-        "coin": 10,
+        "coin": 1000061,
         "warn": 0,
         "nickname": [
             "관리자",
             "사용자"
         ],
-        "like": 0,
+        "like": 3,
         "stocks": {},
         "stars": {
             "date": "",

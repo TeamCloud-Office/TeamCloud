@@ -24,6 +24,24 @@ let {
     getImageBase64
 } = require("A");
 
+let {
+    company,
+    toFixed,
+    open,
+    json_reply,
+    array_random,
+    isOpen,
+    get_delay,
+    price,
+    process,
+    path1,
+    path2,
+    assess,
+    get_remain,
+    change_m,
+    timer
+} = require("stock_m")
+
 let onf = true;
 
 function onProjectButtonClicked(id) {
@@ -60,8 +78,8 @@ function onMessage(event) {
 
     if (event.message.startsWith(prefix + "e")) {
         if (!onf) return event.room.send(msg.noti + "eval 기능이 꺼져있습니다.");
-        if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-        if (User.edit(event.sender.name).admin == false) return event.room.send(msg.admin);
+        if (User.read(event.sender.name, false) == false && data["set"]["state"] == 1) return event.room.send(msg.terms);
+        if (User.edit(event.sender.name, false).admin == false & data["set"]["state"] == 1) return event.room.send(msg.admin);
         try {
             var before = Date.now();
             event.room.send(msg.noti + eval((event.message).substr(6)));

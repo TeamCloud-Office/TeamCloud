@@ -37,7 +37,7 @@ function onMessage(event) {
     day: new Date().getDay(),
     today: (str) => new Date().getFullYear() + str + (new Date().getMonth() + 1) + str + new Date().getDate(),
     time: (str) => new Date().getHours() + str + new Date().getMinutes() + str + new Date().getSeconds()
-};
+  };
 
 
   let cut = event.message.split(" ");
@@ -70,8 +70,8 @@ function onMessage(event) {
     ]
   };
 
-
   if (h_count[event.sender.name] == undefined) h_count[event.sender.name] = 0
+
 
 
   if (event.message.startsWith(prefix + "도움말")) {
@@ -79,12 +79,13 @@ function onMessage(event) {
   }
 
 
+
   if (event.message.startsWith(prefix)) {
     switch (event.message.replace(prefix, "")) {
 
       case "":
         if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-        if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
+        if (User.edit(event.sender.name, false).ban == true) return event.room.send(msg.ban);
 
         h_count[event.sender.name] += 1;
         if (h_count[event.sender.name] > 5) {
@@ -100,7 +101,7 @@ function onMessage(event) {
 
       case "지금 몇시야?":
         if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-        if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
+        if (User.edit(event.sender.name, false).ban == true) return event.room.send(msg.ban);
 
         event.room.send(list["what_time"][Math.floor(random(list["what_time"].length))]);
 
@@ -110,9 +111,10 @@ function onMessage(event) {
   }
 
 
+
   if (event.message.startsWith(prefix + "가위바위보 ")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
+    if (User.edit(event.sender.name, false).ban == true) return event.room.send(msg.ban);
 
     if (cut[3] != undefined) return;
     switch (cut[2]) {
@@ -121,7 +123,7 @@ function onMessage(event) {
         event.room.send([
           msg.noti,
           LM("[가위바위보]"),
-          "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+          "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
           Line(3),
           array[random(3)]
         ].join("\n"));
@@ -133,7 +135,7 @@ function onMessage(event) {
         event.room.send([
           msg.noti,
           LM("[가위바위보]"),
-          "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+          "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
           Line(3),
           array[random(3)]
         ].join("\n"));
@@ -145,7 +147,7 @@ function onMessage(event) {
         event.room.send([
           msg.noti,
           LM("[가위바위보]"),
-          "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+          "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
           Line(3),
           array[random(3)]
         ].join("\n"));
@@ -156,9 +158,10 @@ function onMessage(event) {
   }
 
 
+
   if (event.message.startsWith(prefix + "디데이")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
+    if (User.edit(event.sender.name, false).ban == true) return event.room.send(msg.ban);
 
     if (cut[3] != undefined) return;
 
@@ -170,7 +173,7 @@ function onMessage(event) {
     event.room.send([
       msg.noti,
       LM("[디데이]"),
-      "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+      "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
       Line(3),
       'D-' + calculate
     ].join("\n"));
@@ -179,15 +182,16 @@ function onMessage(event) {
   }
 
 
+
   if (event.message.startsWith(prefix + "날씨 ")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
+    if (User.edit(event.sender.name, false).ban == true) return event.room.send(msg.ban);
 
     let Weader = org.jsoup.Jsoup.connect("https://www.google.com/search?q=" + event.message.replace(prefix + "날씨 ", "") + " 날씨").get();
     event.room.send([
       msg.noti,
       LM("[날씨]"),
-      "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+      "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
       Line(3),
       "위치: " + event.message.replace(prefix + "날씨 ", ""),
       Weader.select("#wob_dc").text(), //요약
@@ -204,15 +208,16 @@ function onMessage(event) {
   }
 
 
+
   if (event.message.startsWith(prefix) && event.message.endsWith("확률은?")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
+    if (User.edit(event.sender.name, false).ban == true) return event.room.send(msg.ban);
 
     let split = event.message.replace(prefix, "").replace("확률은?", "");
     event.room.send([
       msg.noti,
       LM("[확률]"),
-      "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+      "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
       Line(3),
       "► " + split + " 확률: " + (Math.random() * 100).toFixed(3) + "%"
     ].join("\n"));
@@ -221,16 +226,17 @@ function onMessage(event) {
   }
 
 
+
   if (event.message.startsWith(prefix + "주사위")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
+    if (User.edit(event.sender.name, false).ban == true) return event.room.send(msg.ban);
 
     if (cut[3] != undefined) return;
 
     event.room.send([
       msg.noti,
       LM("[주사위]"),
-      "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+      "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
       Line(3),
       "► " + random(6)
     ].join("\n"));
@@ -239,9 +245,10 @@ function onMessage(event) {
   }
 
 
+
   if (event.message.startsWith(prefix + "홀짝 ")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
+    if (User.edit(event.sender.name, false).ban == true) return event.room.send(msg.ban);
 
     if (cut[3] != undefined) return;
 
@@ -251,7 +258,7 @@ function onMessage(event) {
           event.room.send([
             msg.noti,
             LM("[홀짝]"),
-            "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+            "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
             Line(3),
             "정답입니다.",
             "정답는 [" + random(10) + "] 입니다."
@@ -263,7 +270,7 @@ function onMessage(event) {
           event.room.send([
             msg.noti,
             LM("[홀짝]"),
-            "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+            "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
             Line(3),
             "오답입니다.",
             "정답은 [" + random(10) + "] 입니다."
@@ -277,7 +284,7 @@ function onMessage(event) {
           event.room.send([
             msg.noti,
             LM("[홀짝]"),
-            "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+            "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
             Line(3),
             "정답입니다.",
             "정답는 [" + random(10) + "] 입니다."
@@ -289,7 +296,7 @@ function onMessage(event) {
           event.room.send([
             msg.noti,
             LM("[홀짝]"),
-            "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+            "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
             Line(3),
             "오답입니다.",
             "숫자는 [" + random(10) + "] 입니다."
@@ -300,14 +307,16 @@ function onMessage(event) {
     }
   }
 
+
+
   if (event.message.startsWith(prefix + "음악 차트 ")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
+    if (User.edit(event.sender.name, false).ban == true) return event.room.send(msg.ban);
 
     event.room.send([
       msg.noti,
       LM("[음악 차트]"),
-      "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+      "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
       Line(3),
       Lw,
       music_chart(cut[3]),
@@ -319,23 +328,42 @@ function onMessage(event) {
   }
   if (event.message.startsWith(prefix + "음악 검색 ")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
+    if (User.edit(event.sender.name, false).ban == true) return event.room.send(msg.ban);
+
+    let message = music_search(event.message.replace(prefix + "음악 검색 ", ""))
 
     event.room.send([
       msg.noti,
       LM("[음악 검색]"),
-      "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+      "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
       Line(3),
-      music_search(event.message.replace(prefix + "음악 검색 ", ""))
+      JSON.parse(ogimg(
+        message["artistname"] + " - " + message["songname"], //(아티스트 이름) - (노래 이름)
+        "앨범 이름: " + message["albumname"], //앨범이름: (앨범이름)
+        message["albumimg"],
+        false //ogimg 사진만
+      ))["data"]["viewUrl"]
+    ].join("\n"));
+    event.room.send([
+      msg.noti,
+      LM("[음악 검색]"),
+      "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
+      Line(3),
+      "음악: " + message["songname"],
+      Lw,
+      music_lyrics(message["songid"])
     ].join("\n"));
 
     event.room.send(Like(event.sender.name, "up", 1))
   }
 
+
+
+
   if (event.message.startsWith(prefix + "ai ")) {
     if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-    if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
-    if ((User.edit(event.sender.name).nickname).some(item => ["Light Stars", "Stars"].includes(item)) == false) {
+    if (User.edit(event.sender.name, false).ban == true) return event.room.send(msg.ban);
+    if ((User.edit(event.sender.name, false).nickname).some(item => ["Light Stars", "Stars"].includes(item)) == false) {
       event.room.send([
         msg.error_,
         "본 기능은 Stars 전용 기능입니다.",
@@ -346,7 +374,7 @@ function onMessage(event) {
     event.room.send([
       msg.noti,
       LM("[AI]"),
-      "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+      "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
       Line(3),
       "잠시만 기다려주세요."
     ].join("\n"));
@@ -355,9 +383,12 @@ function onMessage(event) {
     event.room.send(Like(event.sender.name, "up", 1))
   }
 
+
+
+
   /*
-  if (User.edit(event.sender.name).stars.ai_obj == undefined) {
-    User.edit(event.sender.name).stars.ai_obj = {
+  if (User.edit(event.sender.name, false).stars.ai_obj == undefined) {
+    User.edit(event.sender.name, false).stars.ai_obj = {
       model: "gemini",
       role: null,
       history: []
@@ -365,10 +396,10 @@ function onMessage(event) {
   }
 
   if (event.message.startsWith(prefix + "gemini")) {
-    let result = gemini(event.message.replace(prefix + "gemini ", ""), User.edit(event.sender.name).stars.ai_obj.history)
-    if (User.edit(event.sender.name).stars.ai_obj.length > 6) User.edit(event.sender.name).stars.ai_obj.splice(0, 2)
+    let result = gemini(event.message.replace(prefix + "gemini ", ""), User.edit(event.sender.name, false).stars.ai_obj.history)
+    if (User.edit(event.sender.name, false).stars.ai_obj.length > 6) User.edit(event.sender.name, false).stars.ai_obj.splice(0, 2)
     replier.reply(result)
-    User.edit(event.sender.name).stars.ai_obj.history.push({
+    User.edit(event.sender.name, false).stars.ai_obj.history.push({
       role: "model",
       parts: [{
         text: result
@@ -418,15 +449,31 @@ function music_search(song) {
       .ignoreContentType(true)
       .execute().body()
     )["SONGCONTENTS"][0];
-    return ogimg((data["ALBUMIMG"] + "'"), //image
-    data["ARTISTNAME"] + " - " + data["SONGNAME"], //title
-      "앨범 이름 : " + data["ALBUMNAME"], //des
-      false //onlyImage
-      );
+    return {
+      "albumimg": data["ALBUMIMG"].replace("resize/40/quality/80/optimize", ""),
+      "albumname": data["ALBUMNAME"],
+      "artistname": data["ARTISTNAME"],
+      "songname": data["SONGNAME"],
+      "songid": data["SONGID"],
+    }
   } catch (e) {
     return (msg.error + JSON.stringify(e));
   }
 
+}
+
+function music_lyrics(songId) {
+  try {
+    return org.jsoup.Jsoup.connect("https://www.melon.com/song/detail.htm?songId=" + songId)
+      .ignoreContentType(true)
+      .get()
+      .select("div#d_video_summary")
+      .html()
+      .split("--> ")[1]
+      .replace(/<br>/g, "\n");
+  } catch (e) {
+    return msg.error_ + "해당 노래에 대한 가사를 찾지 못했어요.";
+  }
 }
 
 

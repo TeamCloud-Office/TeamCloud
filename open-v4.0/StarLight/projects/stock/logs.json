@@ -3,269 +3,262 @@
         "t": "INFO",
         "th": "Project-stock-worker-1",
         "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709364929661
-    },
-    {
-        "t": "ERROR",
-        "a": "Project-stock",
-        "th": "Project-stock-worker-1",
-        "m": "ECOMF: org.mozilla.javascript.EcmaError: TypeError: Cannot read property \"date\" from null (file:/storage/emulated/0/StarLight/modules/stock_m.js#225)",
-        "l": 1709364929970
-    },
-    {
-        "t": "INFO",
-        "th": "Project-stock-worker-1",
-        "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709364973412
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-stock",
-        "m": "engine released",
-        "l": 1709364976090
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709364976091
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-stock",
-        "th": "Project-stock-worker-3",
-        "m": "engine released",
-        "l": 1709365985412
-    },
-    {
-        "t": "INFO",
-        "th": "Project-stock-worker-3",
-        "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709365985413
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-stock",
-        "m": "engine released",
-        "l": 1709365986941
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709365986941
-    },
-    {
-        "t": "ERROR",
-        "a": "Project-stock",
-        "th": "Project-stock-worker-1",
-        "m": "Error while running: org.mozilla.javascript.EcmaError: ReferenceError: \"APi\" is not defined. (stock#169)",
-        "l": 1709371526455
-    },
-    {
-        "t": "ERROR",
-        "a": "stock",
-        "th": "Project-stock-worker-1",
-        "m": "프로젝트 'stock' 종료중...",
-        "l": 1709371526456
-    },
-    {
-        "t": "VERBOSE",
-        "th": "Project-stock-worker-1",
-        "m": "Destroying project [stock]...",
-        "l": 1709371526457
-    },
-    {
-        "t": "INFO",
-        "th": "Project-stock-worker-1",
-        "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709371562381
+        "l": 1712573207742
     },
     {
         "t": "VERBOSE",
         "a": "Project-stock",
         "th": "Project-stock-worker-1",
         "m": "engine released",
-        "l": 1709371564313
+        "l": 1712573216339
     },
     {
         "t": "INFO",
         "th": "Project-stock-worker-1",
         "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709371564314
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-stock",
-        "th": "Project-stock-worker-3",
-        "m": "engine released",
-        "l": 1709371625520
+        "l": 1712573216340
     },
     {
         "t": "INFO",
-        "th": "Project-stock-worker-3",
-        "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709371625523
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-stock",
-        "th": "Project-stock-worker-3",
-        "m": "engine released",
-        "l": 1709371641549
-    },
-    {
-        "t": "INFO",
-        "th": "Project-stock-worker-3",
-        "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709371641550
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-stock",
-        "th": "Project-stock-worker-3",
-        "m": "engine released",
-        "l": 1709371712982
-    },
-    {
-        "t": "INFO",
-        "th": "Project-stock-worker-3",
-        "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709371712983
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-stock",
-        "m": "engine released",
-        "l": 1709372326214
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709372326215
+        "m": "stock_m[data]\n{\"name\":\"Yellu#1794\",\"id\":\"FU11P\",\"hash\":-1779026502,\"date\":\"2024/2/23\",\"admin\":true,\"ban\":false,\"coin\":133904.5407,\"warn\":0,\"nickname\":[\"관리자\",\"사용자\"],\"like\":3,\"stocks\":{\"TCSE\":2},\"stars\":{\"date\":\"\",\"D_date\":0,\"D\":\"\",\"ai\":0,\"re\":0},\"etc\":[]}",
+        "l": 1712573874059
     },
     {
         "t": "VERBOSE",
         "a": "Project-stock",
         "th": "Project-stock-worker-1",
         "m": "engine released",
-        "l": 1709372676854
+        "l": 1712574041029
     },
     {
         "t": "INFO",
         "th": "Project-stock-worker-1",
         "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709372676855
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-stock",
-        "th": "Project-stock-worker-3",
-        "m": "engine released",
-        "l": 1709384013520
+        "l": 1712574041029
     },
     {
         "t": "INFO",
-        "th": "Project-stock-worker-3",
-        "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709384013521
-    },
-    {
-        "t": "ERROR",
-        "a": "Project-stock",
-        "th": "Project-stock-worker-3",
-        "m": "ECOMF: org.mozilla.javascript.EcmaError: TypeError: Cannot read property \"date\" from null (file:/storage/emulated/0/StarLight/modules/stock_m.js#225)",
-        "l": 1709384013854
+        "th": "Project-stock-worker-1",
+        "m": "stock_m[data]\n{\"name\":\"Yellu#1794\",\"id\":\"FU11P\",\"hash\":-1779026502,\"date\":\"2024/2/23\",\"admin\":true,\"ban\":false,\"coin\":140910.5407,\"warn\":0,\"nickname\":[\"관리자\",\"사용자\"],\"like\":3,\"stocks\":{\"TCSE\":0},\"stars\":{\"date\":\"\",\"D_date\":0,\"D\":\"\",\"ai\":0,\"re\":0},\"etc\":[]}",
+        "l": 1712574731615
     },
     {
         "t": "VERBOSE",
         "a": "Project-stock",
         "th": "Project-stock-worker-1",
         "m": "engine released",
-        "l": 1709384993231
+        "l": 1712576348107
     },
     {
         "t": "INFO",
         "th": "Project-stock-worker-1",
         "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709384993232
+        "l": 1712576348108
     },
     {
-        "t": "ERROR",
+        "t": "VERBOSE",
         "a": "Project-stock",
+        "m": "engine released",
+        "l": 1712577152957
+    },
+    {
+        "t": "INFO",
+        "m": "프로젝트 stock 컴파일 중...",
+        "l": 1712577152959
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-stock",
+        "th": "Project-stock-worker-2",
+        "m": "engine released",
+        "l": 1712577184429
+    },
+    {
+        "t": "INFO",
+        "th": "Project-stock-worker-2",
+        "m": "프로젝트 stock 컴파일 중...",
+        "l": 1712577184430
+    },
+    {
+        "t": "INFO",
         "th": "Project-stock-worker-1",
-        "m": "ECOMF: org.mozilla.javascript.EcmaError: TypeError: Cannot read property \"date\" from null (file:/storage/emulated/0/StarLight/modules/stock_m.js#225)",
-        "l": 1709384993645
+        "m": "stock_m[data]\n{\"name\":\"Yellu#1794\",\"id\":\"FU11P\",\"hash\":-1779026502,\"date\":\"2024/2/23\",\"admin\":true,\"ban\":false,\"coin\":137407,\"warn\":0,\"nickname\":[\"관리자\",\"사용자\"],\"like\":3,\"stocks\":{\"TCSE\":0},\"stars\":{\"date\":\"\",\"D_date\":0,\"D\":\"\",\"ai\":0,\"re\":0},\"etc\":[]}",
+        "l": 1712577185007
     },
     {
         "t": "VERBOSE",
         "a": "Project-stock",
         "th": "Project-stock-worker-1",
         "m": "engine released",
-        "l": 1709385550837
+        "l": 1712577351857
     },
     {
         "t": "INFO",
         "th": "Project-stock-worker-1",
         "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709385550838
+        "l": 1712577351858
     },
     {
-        "t": "ERROR",
+        "t": "INFO",
+        "th": "Project-stock-worker-2",
+        "m": "stock_m[data]\n{\"name\":\"Yellu#1794\",\"id\":\"FU11P\",\"hash\":-1779026502,\"date\":\"2024/2/23\",\"admin\":true,\"ban\":false,\"coin\":133904,\"warn\":0,\"nickname\":[\"관리자\",\"사용자\"],\"like\":3,\"stocks\":{\"TCSE\":0},\"stars\":{\"date\":\"\",\"D_date\":0,\"D\":\"\",\"ai\":0,\"re\":0},\"etc\":[]}",
+        "l": 1712577352393
+    },
+    {
+        "t": "VERBOSE",
         "a": "Project-stock",
         "th": "Project-stock-worker-1",
-        "m": "ECOMF: org.mozilla.javascript.EcmaError: TypeError: Cannot read property \"date\" from null (file:/storage/emulated/0/StarLight/modules/stock_m.js#225)",
-        "l": 1709385551228
+        "m": "engine released",
+        "l": 1712577655106
+    },
+    {
+        "t": "INFO",
+        "th": "Project-stock-worker-1",
+        "m": "프로젝트 stock 컴파일 중...",
+        "l": 1712577655107
+    },
+    {
+        "t": "INFO",
+        "th": "Project-stock-worker-2",
+        "m": "stock_m[data]\n{\"name\":\"Yellu#1794\",\"id\":\"FU11P\",\"hash\":-1779026502,\"date\":\"2024/2/23\",\"admin\":true,\"ban\":false,\"coin\":130401,\"warn\":0,\"nickname\":[\"관리자\",\"사용자\"],\"like\":3,\"stocks\":{\"TCSE\":0},\"stars\":{\"date\":\"\",\"D_date\":0,\"D\":\"\",\"ai\":0,\"re\":0},\"etc\":[]}",
+        "l": 1712577668409
+    },
+    {
+        "t": "INFO",
+        "th": "Project-stock-worker-2",
+        "m": "stock_m[data]\n{\"name\":\"Yellu#1794\",\"id\":\"FU11P\",\"hash\":-1779026502,\"date\":\"2024/2/23\",\"admin\":true,\"ban\":false,\"coin\":119892,\"warn\":0,\"nickname\":[\"관리자\",\"사용자\"],\"like\":3,\"stocks\":{\"TCSE\":0},\"stars\":{\"date\":\"\",\"D_date\":0,\"D\":\"\",\"ai\":0,\"re\":0},\"etc\":[]}",
+        "l": 1712577704558
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-stock",
+        "th": "Project-stock-worker-1",
+        "m": "engine released",
+        "l": 1712577897011
+    },
+    {
+        "t": "INFO",
+        "th": "Project-stock-worker-1",
+        "m": "프로젝트 stock 컴파일 중...",
+        "l": 1712577897012
+    },
+    {
+        "t": "INFO",
+        "th": "Project-stock-worker-2",
+        "m": "stock_m[data]\n{\"name\":\"Yellu#1794\",\"id\":\"FU11P\",\"hash\":-1779026502,\"date\":\"2024/2/23\",\"admin\":true,\"ban\":false,\"coin\":109383,\"warn\":0,\"nickname\":[\"관리자\",\"사용자\"],\"like\":5,\"stocks\":{\"TCSE\":0},\"stars\":{\"date\":\"\",\"D_date\":0,\"D\":\"\",\"ai\":0,\"re\":0},\"etc\":[]}",
+        "l": 1712577910612
     },
     {
         "t": "VERBOSE",
         "a": "Project-stock",
         "m": "engine released",
-        "l": 1709385612954
+        "l": 1712578088992
     },
     {
         "t": "INFO",
         "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709385612955
-    },
-    {
-        "t": "ERROR",
-        "a": "Project-stock",
-        "m": "ECOMF: org.mozilla.javascript.EcmaError: TypeError: Cannot read property \"date\" from null (file:/storage/emulated/0/StarLight/modules/stock_m.js#225)",
-        "l": 1709385613326
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-stock",
-        "th": "Project-stock-worker-3",
-        "m": "engine released",
-        "l": 1709385858619
+        "l": 1712578088993
     },
     {
         "t": "INFO",
-        "th": "Project-stock-worker-3",
-        "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709385858620
+        "th": "Project-stock-worker-1",
+        "m": "stock_m[data]\n1:{\"name\":\"Yellu#1794\",\"id\":\"FU11P\",\"hash\":-1779026502,\"date\":\"2024/2/23\",\"admin\":true,\"ban\":false,\"coin\":98874,\"warn\":0,\"nickname\":[\"관리자\",\"사용자\"],\"like\":5,\"stocks\":{\"TCSE\":0},\"stars\":{\"date\":\"\",\"D_date\":0,\"D\":\"\",\"ai\":0,\"re\":0},\"etc\":[]}",
+        "l": 1712578091846
     },
     {
-        "t": "ERROR",
-        "a": "Project-stock",
-        "th": "Project-stock-worker-3",
-        "m": "ECOMF: org.mozilla.javascript.EcmaError: TypeError: Cannot read property \"date\" from null (file:/storage/emulated/0/StarLight/modules/stock_m.js#225)",
-        "l": 1709385859023
+        "t": "INFO",
+        "th": "Project-stock-worker-1",
+        "m": "stock_m[data]\n2:{\"name\":\"Yellu#1794\",\"id\":\"FU11P\",\"hash\":-1779026502,\"date\":\"2024/2/23\",\"admin\":true,\"ban\":false,\"coin\":98874,\"warn\":0,\"nickname\":[\"관리자\",\"사용자\"],\"like\":5,\"stocks\":{\"TCSE\":0},\"stars\":{\"date\":\"\",\"D_date\":0,\"D\":\"\",\"ai\":0,\"re\":0},\"etc\":[]}",
+        "l": 1712578091862
     },
     {
         "t": "VERBOSE",
         "a": "Project-stock",
         "m": "engine released",
-        "l": 1709386020674
+        "l": 1712578305111
     },
     {
         "t": "INFO",
         "m": "프로젝트 stock 컴파일 중...",
-        "l": 1709386020676
+        "l": 1712578305112
     },
     {
-        "t": "ERROR",
+        "t": "INFO",
+        "th": "Project-stock-worker-1",
+        "m": "stock_m[data]\n1:{\n    \"name\": \"TCSE\",\n    \"coin\": 95371,\n    \"data\": {\n        \"TCSE\": 0\n    },\n    \"number\": 1\n}",
+        "l": 1712578317482
+    },
+    {
+        "t": "INFO",
+        "th": "Project-stock-worker-1",
+        "m": "stock_m[data]\n2:{\"name\":\"Yellu#1794\",\"id\":\"FU11P\",\"hash\":-1779026502,\"date\":\"2024/2/23\",\"admin\":true,\"ban\":false,\"coin\":95371,\"warn\":0,\"nickname\":[\"관리자\",\"사용자\"],\"like\":5,\"stocks\":{\"TCSE\":0},\"stars\":{\"date\":\"\",\"D_date\":0,\"D\":\"\",\"ai\":0,\"re\":0},\"etc\":[]}",
+        "l": 1712578317495
+    },
+    {
+        "t": "VERBOSE",
         "a": "Project-stock",
-        "m": "ECOMF: org.mozilla.javascript.EcmaError: TypeError: Cannot read property \"date\" from null (file:/storage/emulated/0/StarLight/modules/stock_m.js#225)"
+        "th": "Project-stock-worker-1",
+        "m": "engine released",
+        "l": 1712578397544
+    },
+    {
+        "t": "INFO",
+        "th": "Project-stock-worker-1",
+        "m": "프로젝트 stock 컴파일 중...",
+        "l": 1712578397546
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-stock",
+        "th": "Project-stock-worker-1",
+        "m": "engine released",
+        "l": 1712578499994
+    },
+    {
+        "t": "INFO",
+        "th": "Project-stock-worker-1",
+        "m": "프로젝트 stock 컴파일 중...",
+        "l": 1712578499997
+    },
+    {
+        "t": "INFO",
+        "m": "stock_m[data]\n1:{\n    \"name\": \"TCSE\",\n    \"coin\": 157674,\n    \"data\": {\n        \"TCSE\": 0\n    },\n    \"number\": 1\n}",
+        "l": 1712579017152
+    },
+    {
+        "t": "INFO",
+        "m": "stock_m[data]\n2:{\"name\":\"Yellu#1794\",\"id\":\"FU11P\",\"hash\":-1779026502,\"date\":\"2024/2/23\",\"admin\":true,\"ban\":false,\"coin\":157674,\"warn\":0,\"nickname\":[\"관리자\",\"사용자\"],\"like\":5,\"stocks\":{\"TCSE\":0},\"stars\":{\"date\":\"\",\"D_date\":0,\"D\":\"\",\"ai\":0,\"re\":0},\"etc\":[]}",
+        "l": 1712579017167
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-stock",
+        "th": "Project-stock-worker-2",
+        "m": "engine released",
+        "l": 1712579435207
+    },
+    {
+        "t": "INFO",
+        "th": "Project-stock-worker-2",
+        "m": "프로젝트 stock 컴파일 중...",
+        "l": 1712579435209
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-stock",
+        "th": "Project-stock-worker-1",
+        "m": "engine released",
+        "l": 1712579446246
+    },
+    {
+        "t": "INFO",
+        "th": "Project-stock-worker-1",
+        "m": "프로젝트 stock 컴파일 중...",
+        "l": 1712579446251
+    },
+    {
+        "t": "INFO",
+        "m": "stock_m[data]\n{\n    \"name\": \"TCSE\",\n    \"coin\": 154171,\n    \"data\": {\n        \"TCSE\": 0\n    },\n    \"number\": 1\n}",
+        "l": 1712579448986
     }
 ]

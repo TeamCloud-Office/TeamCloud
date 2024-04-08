@@ -1,141 +1,137 @@
 [
     {
         "t": "INFO",
+        "th": "Project-mention-worker-1",
         "m": "프로젝트 mention 컴파일 중...",
-        "l": 1709364925511
+        "l": 1712573201408
     },
     {
         "t": "VERBOSE",
         "a": "Project-mention",
         "m": "engine released",
-        "l": 1709364972410
+        "l": 1712574039106
     },
     {
         "t": "INFO",
         "m": "프로젝트 mention 컴파일 중...",
-        "l": 1709364972410
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-mention",
-        "th": "Project-mention-worker-2",
-        "m": "engine released",
-        "l": 1709371640179
-    },
-    {
-        "t": "INFO",
-        "th": "Project-mention-worker-2",
-        "m": "프로젝트 mention 컴파일 중...",
-        "l": 1709371640180
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-mention",
-        "th": "Project-mention-worker-2",
-        "m": "engine released",
-        "l": 1709371711733
-    },
-    {
-        "t": "INFO",
-        "th": "Project-mention-worker-2",
-        "m": "프로젝트 mention 컴파일 중...",
-        "l": 1709371711734
+        "l": 1712574039107
     },
     {
         "t": "VERBOSE",
         "a": "Project-mention",
         "m": "engine released",
-        "l": 1709372324872
+        "l": 1712576346090
     },
     {
         "t": "INFO",
         "m": "프로젝트 mention 컴파일 중...",
-        "l": 1709372324873
+        "l": 1712576346091
     },
     {
         "t": "VERBOSE",
         "a": "Project-mention",
-        "th": "Project-mention-worker-3",
+        "th": "Project-mention-worker-1",
         "m": "engine released",
-        "l": 1709372675460
+        "l": 1712577150615
     },
     {
         "t": "INFO",
-        "th": "Project-mention-worker-3",
+        "th": "Project-mention-worker-1",
         "m": "프로젝트 mention 컴파일 중...",
-        "l": 1709372675460
+        "l": 1712577150616
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-mention",
+        "m": "engine released",
+        "l": 1712577182334
+    },
+    {
+        "t": "INFO",
+        "m": "프로젝트 mention 컴파일 중...",
+        "l": 1712577182335
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-mention",
+        "m": "engine released",
+        "l": 1712577349812
+    },
+    {
+        "t": "INFO",
+        "m": "프로젝트 mention 컴파일 중...",
+        "l": 1712577349813
     },
     {
         "t": "VERBOSE",
         "a": "Project-mention",
         "th": "Project-mention-worker-2",
         "m": "engine released",
-        "l": 1709384012236
+        "l": 1712577652919
     },
     {
         "t": "INFO",
         "th": "Project-mention-worker-2",
         "m": "프로젝트 mention 컴파일 중...",
-        "l": 1709384012237
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-mention",
-        "th": "Project-mention-worker-3",
-        "m": "engine released",
-        "l": 1709384991939
-    },
-    {
-        "t": "INFO",
-        "th": "Project-mention-worker-3",
-        "m": "프로젝트 mention 컴파일 중...",
-        "l": 1709384991940
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-mention",
-        "th": "Project-mention-worker-3",
-        "m": "engine released",
-        "l": 1709385549476
-    },
-    {
-        "t": "INFO",
-        "th": "Project-mention-worker-3",
-        "m": "프로젝트 mention 컴파일 중...",
-        "l": 1709385549477
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-mention",
-        "m": "engine released",
-        "l": 1709385611519
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 mention 컴파일 중...",
-        "l": 1709385611520
+        "l": 1712577652920
     },
     {
         "t": "VERBOSE",
         "a": "Project-mention",
         "th": "Project-mention-worker-2",
         "m": "engine released",
-        "l": 1709385856967
+        "l": 1712577895289
     },
     {
         "t": "INFO",
         "th": "Project-mention-worker-2",
         "m": "프로젝트 mention 컴파일 중...",
-        "l": 1709385856968
+        "l": 1712577895289
     },
     {
         "t": "VERBOSE",
         "a": "Project-mention",
         "m": "engine released",
-        "l": 1709386019469
+        "l": 1712578395679
     },
     {
         "t": "INFO",
-        "m": "프로젝트 mention 컴파일 중..."
+        "m": "프로젝트 mention 컴파일 중...",
+        "l": 1712578395682
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-mention",
+        "m": "engine released",
+        "l": 1712578497656
+    },
+    {
+        "t": "INFO",
+        "m": "프로젝트 mention 컴파일 중...",
+        "l": 1712578497657
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-mention",
+        "th": "Project-mention-worker-1",
+        "m": "engine released",
+        "l": 1712579432954
+    },
+    {
+        "t": "INFO",
+        "th": "Project-mention-worker-1",
+        "m": "프로젝트 mention 컴파일 중...",
+        "l": 1712579432955
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-mention",
+        "m": "engine released",
+        "l": 1712579444087
+    },
+    {
+        "t": "INFO",
+        "m": "프로젝트 mention 컴파일 중...",
+        "l": 1712579444088
     }
 ]

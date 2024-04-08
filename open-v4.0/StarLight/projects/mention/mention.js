@@ -25,7 +25,7 @@ let {
 let json = JSON.parse(FS.read(SP))
 let mentions = json['mentions'];
 let nicknames = [];
-let block_room = ["노란콩대화 자동응답기 공동체", "카카오톡봇 RPG Maker 공식방"];
+let block_room = ["노란콩대화 자동응답기 공동체", "카카오톡봇 RPG Maker 공식방", "TeamCloud 팀원"];
 
 function onMessage(event) {
 

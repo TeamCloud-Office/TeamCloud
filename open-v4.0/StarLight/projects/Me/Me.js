@@ -38,40 +38,40 @@ function onMessage(event) {
 
     if (event.message.startsWith(prefix + "내정보")) {
         if (User.read(event.sender.name) == false) return event.room.send(msg.terms);
-        if (User.edit(event.sender.name).ban == true) return event.room.send(msg.ban);
+        if (User.edit(event.sender.name, false).ban == true) return event.room.send(msg.ban);
 
         let stocks;
-        if (Object.keys(User.edit(event.sender.name).stocks) == "") {
+        if (Object.keys(User.edit(event.sender.name, false).stocks) == "") {
             stocks = "없음";
         } else {
-            stocks = Object.keys(User.edit(event.sender.name).stocks);
+            stocks = JSON.stringify(User.edit(event.sender.name, false)["stocks"], null, 4);
         }
 
         let stars;
-        if (String(User.edit(event.sender.name).stocks["date"]) == "") {
+        if (String(User.edit(event.sender.name, false).stocks["date"]) == "") {
             stars = "";
         } else {
             stars = [
-                "Stars 가입 날짜: " + User.edit(event.sender.name).stars["date"] + "(" + User.edit(event.sender.name).stars["D_date"] + "일 남음)",
-                "Ai 사용 가능 횟수: " + User.edit(event.sender.name).stars["ai"]
+                "Stars 가입 날짜: " + User.edit(event.sender.name, false).stars["date"] + "(" + User.edit(event.sender.name, false).stars["D_date"] + "일 남음)",
+                "Ai 사용 가능 횟수: " + User.edit(event.sender.name, false).stars["ai"]
             ].join("\n");
         }
 
         event.room.send([
             msg.noti,
             LM("[내정보]"),
-            "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+            "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
             Line(3),
             Lw,
-            "이름: " + User.edit(event.sender.name).name,
-            "ID: " + User.edit(event.sender.name).id,
-            "등록 날짜: " + User.edit(event.sender.name).date,
-            "닉네임: " + User.edit(event.sender.name).nickname,
-            "관리자: " + (User.edit(event.sender.name).admin ? "예" : "아니오"),
-            "팀클 코인: " + User.edit(event.sender.name).coin + "코인",
-            "경고 횟수: " + User.edit(event.sender.name).warn + "회",
+            "이름: " + User.edit(event.sender.name, false).name,
+            "ID: " + User.edit(event.sender.name, false).id,
+            "등록 날짜: " + User.edit(event.sender.name, false).date,
+            "닉네임: " + User.edit(event.sender.name, false).nickname,
+            "관리자: " + (User.edit(event.sender.name, false).admin ? "예" : "아니오"),
+            "팀클 코인: " + User.edit(event.sender.name, false).coin + "코인",
+            "경고 횟수: " + User.edit(event.sender.name, false).warn + "회",
             "주식 보유 종목: " + stocks,
-            "호감도: " + User.edit(event.sender.name).like,
+            "호감도: " + User.edit(event.sender.name, false).like,
             stars,
             Line(3),
             atten(event.sender.name)

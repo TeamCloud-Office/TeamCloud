@@ -55,56 +55,74 @@
     }
     */
 
-
-    let {
-        LocalStorage
-    } = require('LocalStorage');
-
-    let LS = new LocalStorage(UserPath, false);
-
-    function findUser(k, d) {
-        try {
-            if (d === true) // ID로 검색
-                return LS.getItem(k);
-
-            // 유저명대로 검색
-            let storageData = LS.getData();
-            let nUser;
-            for (let key in storageData) {
-                nUser = storageData[key];
-                if (nUser && nUser.name === k)
-                    return nUser;
-            }
-            return null;
-        } catch (e) {
-            Log.i(e);
+    let aUser = (function () {
+        function User() {
+            this.path = UserPath;
+            this.data = JSON.parse(FS.read(UserPath));
         }
-    }
 
-    let User = {
-        set: (k, v) => LS.setItem(k, v),
-        edit: (k, d) => findUser(k, d),
-        read: (k, d) => {
-            let result = findUser(k, d);
-            return result !== null && result !== void 0;
-        },
-        save: () => {
-            LS.save();
-        },
-        delete: (k) => {
-            LS.removeItem(k);
-        },
-        search: (k) => {
-            let target = {};
-            let storageData = LS.getData();
-            for (let key in storageData) {
-                if (storageData[key].id === k) {
-                    target[key] = storageData[key];
+        User.prototype.getPath = function () {
+            return this.path
+        }
+
+        User.prototype.getData = function () {
+            return this.data
+        }
+
+        User.prototype.keys = function () {
+            return Object.keys(this.data)
+        }
+
+        User.prototype.set = function (key, data) {
+            this.data[key] = data
+        }
+
+        User.prototype.edit = function (key, id) {
+            if (id == true) { //아이디로 찾기
+                return this.data[key]
+            } else if (id == false || id == undefined || id == null) { //이름으로 찾기
+                for (let k in this.data) {
+                    if (this.data[k]["name"] == key) return this.data[k];
                 }
+                Api.replyRoom("TeamCloud 팀원", msg.error + JSON.stringify({
+                    "message": "The User cannot be found.",
+                    "time": new Date().getFullYear() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getDate() +
+                        " - " +
+                        new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds(),
+                    "fileName": "A.js",
+                    "lineNumber": "@"
+                }));
             }
-            return JSON.stringify(target);
-        },
-        addID: () => {
+        }
+
+        User.prototype.read = function (key, id) {
+            if (id == true) return Object.keys(this.data).includes(key);
+            if (id == false || id == undefined) {
+                let result = false;
+                let userData = this.data;
+                for (let k in userData) {
+                    if (userData[k]["name"] == key) {
+                        result = true;
+                        break;
+                    }
+                }
+                return result;
+            }
+        }
+
+        User.prototype.remove = function (key) {
+            if (key in this.data) delete this.data[key];
+        }
+
+        User.prototype.save = function () {
+            FS.write(
+                this.path,
+                JSON.stringify(this.data, null, 4)
+            );
+            Api.reload();
+        }
+
+        User.prototype.addId = function () {
             let id = '';
             let list = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
@@ -113,10 +131,15 @@
                 for (let i = 0; i < 5; i++) {
                     id += list[Math.floor(Math.random() * list.length)];
                 }
-            } while (LS.hasItem(id));
+            } while (this.read(id, true));
             return id;
         }
-    };
+
+        return User
+    })
+
+    let User = new(aUser())();
+
 
     let msg = {
 
@@ -201,9 +224,7 @@
             weightSum += arr[i][1];
 
             weightSum = +weightSum.toFixed(2);
-            if (randomNum <= weightSum) {
-                return arr[i][0];
-            }
+            if (randomNum <= weightSum) return arr[i][0];
         }
     }
 
@@ -280,7 +301,8 @@
     function Nickname(s, e, n, pm) {
         let _nickname = User.edit(s).nickname[0];
         if (pm == "p") {
-            (User.edit(s).nickname).unshift(n);
+            let nickname = (User.edit(s).nickname).unshift(n);
+            User.edit(s).nickname = nickname
             User.save();
             return [
                 LM("[호칭 지급]"),
@@ -289,7 +311,8 @@
                 "지급 호칭: " + n
             ].join('\n'); //닉네임 지급
         } else if (pm == "m") {
-            (User.edit(s).nickname).filter(item => item != n);
+            let nickname = (User.edit(s).nickname).filter(item => item != n);
+            User.edit(s).nickname = nickname
             User.save();
             return [
                 LM("[호칭 회수]"),
@@ -354,7 +377,8 @@
         let _nickname = User.edit(s, true).nickname[0];
         n = String(n);
         if (pm == "p") { //증감
-            (User.edit(s, true).nickname).unshift(n);
+            let nickname = (User.edit(s, true).nickname).unshift(n);
+            User.edit(s).nickname = nickname
             User.save();
             post(s, [
                 LM("[호칭 지급]"),
@@ -365,7 +389,8 @@
             ].join("\n"), a);
             return (User.edit(s, true).name + '님께 [' + n + ']호칭이 지급되었습니다.');
         } else if (pm == "m") {
-            (User.edit(s).nickname).filter(e => e !== "Light Stars");
+            let nickname = (User.edit(s).nickname).filter(item => item !== n);
+            User.edit(s).nickname = nickname
             User.save();
             post(s, [
                 LM("[호칭 회수]"),
@@ -398,7 +423,8 @@
                         [4, 500],
                         [6, 20]
                     ], Math.random().toFixed(2))
-                    User.edit(s, false).like += r;
+                    let like = User.edit(s).like += r;
+                    User.edit(s).like = like
                     User.save();
                     result = ([
                         LM("호감도 상승"),
@@ -410,7 +436,8 @@
                         [2, 500],
                         [3, 20]
                     ], Math.random().toFixed(2))
-                    User.edit(s, false).like += r;
+                    let like = User.edit(s).like += r;
+                    User.edit(s).like = like
                     User.save();
                     result = ([
                         LM("호감도 상승"),
@@ -423,7 +450,8 @@
                     [2, 500],
                     [3, 20]
                 ], Math.random().toFixed(2))
-                User.edit(s, false).like -= r;
+                let like = User.edit(s).like += r;
+                User.edit(s).like = like
                 User.save();
                 result = ([
                     LM("호감도 하락"),
@@ -448,16 +476,16 @@
         return android.util.Base64.encodeToString(s.toByteArray(), android.util.Base64.NO_WRAP);
     }
 
-    function ogimg(image_url) {
+    function ogimg(title, description, image_url, onlyImage) {
         let APIKey = "24b8857b-cd44-4ffe-aa77-95580c993d9e";
         return org.jsoup.Jsoup.connect("https://api.molya.kr/v1/image/create")
             .header("Content-Type", "application/json")
             .header("x-api-key", APIKey)
             .requestBody(JSON.stringify({
                 "image": getImageAsBase64(image_url),
-                "title": "title",
-                "description": "description",
-                "onlyImage": true,
+                "title": title,
+                "description": description,
+                "onlyImage": onlyImage,
                 "resize": true,
                 "optOg": true
             }))
@@ -481,7 +509,6 @@
         CP: ChatPath,
         AP: AttenPath,
         Kakaocord: Kakaocord,
-        LS: LS,
         User: User,
         msg: msg,
         Pos: Pos,
@@ -514,7 +541,6 @@ let {
     AP,
     Kakaocord,
     User,
-    LS,
     msg,
     Pos,
     chat,

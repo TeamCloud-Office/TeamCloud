@@ -54,49 +54,44 @@ function onMessage(event) {
         }*/
 
         if (event.message.startsWith(prefix + "경고 ")) {
-            if (!User.read(event.sender.name)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
+            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
+            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
             if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
 
             if (cut[4] != undefined) return;
 
             if (cut[3] > 0) {
                 event.room.send(User.edit(id, true).name + "님의 경고 횟수가 " + cut[3] + "회 증감되었습니다.");
-                User.edit(id, true).warn += cut[3];
-                User.save();
+                User.edit(id, true).warn += Number(cut[3])
             }
             if (cut[3] < 0) {
                 event.room.send(User.edit(id, true).name + "님의 경고 횟수가 " + cut[3] + "회 차감되었습니다.");
-                let a = User.edit(id, true).warn += cut[3];
-                User.edit(id, true).warn = a;
-                User.save();
+                User.edit(id, true).warn += Number(cut[3])
             }
         }
 
 
         if (event.message.startsWith(prefix + "차단 ")) {
-            if (!User.read(event.sender.name)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
+            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
+            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
             if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
 
             if (cut[4] != undefined) return;
 
             if (cut[3] == 1) {
-                event.room.send("해당 사용자가 차단되었습니다.");
+                event.room.send(User.edit(id, true).name + "님의 차단이 설정되었습니다.");
                 User.edit(id, true).ban = true;
-                User.save();
             }
             if (cut[3] == 0) {
-                event.room.send("해당 사용자가 차단해제되었습니다.");
+                event.room.send(User.edit(id, true).name + "님의 차단이 해제되었습니다.");
                 User.edit(id, true).ban = false;
-                User.save();
             }
         }
 
 
         if (event.message.startsWith(prefix + "코인 ")) {
-            if (!User.read(event.sender.name)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
+            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
+            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
             if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
 
             if (cut[6] != undefined) return;
@@ -107,8 +102,8 @@ function onMessage(event) {
 
 
         if (event.message.startsWith(prefix + "닉네임 ")) {
-            if (!User.read(event.sender.name)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
+            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
+            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
             if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
 
             if (cut[6] != undefined) return;
@@ -119,8 +114,8 @@ function onMessage(event) {
 
 
         if (event.message.startsWith(prefix + "S")) {
-            if (!User.read(event.sender.name)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
+            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
+            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
             if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
 
             if (cut[4] != undefined) return;
@@ -133,7 +128,6 @@ function onMessage(event) {
                     User.edit(id, true).stars["re"] = getDate.month;
                     User.edit(id, true).stars["D"] = getDate.date;
                     User.edit(id, true).stars["D_date"] = 60;
-                    User.save();
                     break;
                 case "2":
                     event.room.send(NicknameA(id, "Stars 가입", "Light Stars", "p", event.sender.name))
@@ -142,15 +136,14 @@ function onMessage(event) {
                     User.edit(id, true).stars["re"] = getDate.month;
                     User.edit(id, true).stars["D"] = getDate.date;
                     User.edit(id, true).stars["D_date"] = 120;
-                    User.save();
                     break;
             }
         }
 
 
         if (event.message.startsWith(prefix + "변경 ")) {
-            if (!User.read(event.sender.name)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
+            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
+            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
             if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
 
             if (cut[4] != undefined) return;
@@ -159,14 +152,14 @@ function onMessage(event) {
                 new_id = cut[3]; //new
             let newName = User.edit(id2, true).name;
             User.edit(old_id, true).name = newName;
-            User.set(new_id, JSON.parse(User.edit(id1)));
+            User.set(new_id, JSON.parse(User.edit(id1, true)));
             User.delete(id1);
         }
 
 
         if (event.message.startsWith(prefix + "정보 ")) {
-            if (!User.read(event.sender.name)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
+            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
+            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
             if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
 
             if (cut[3] != undefined) return;
@@ -196,8 +189,8 @@ function onMessage(event) {
 
 
         if (event.message.startsWith(prefix + "탈퇴 ")) {
-            if (!User.read(event.sender.name)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
+            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
+            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
             if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
 
             if (cut[3] != undefined) return;
@@ -208,15 +201,13 @@ function onMessage(event) {
                 '해당 사용자와의 연결을 종료했습니다.',
                 "사용자명: " + User.edit(id, true).name
             ].join("\n"));
-
             User.delete(id);
-            User.save();
         }
 
 
         if (event.message.startsWith(prefix + "공지 ")) {
-            if (!User.read(event.sender.name)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
+            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
+            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
             if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
 
             let rooms = {
@@ -240,8 +231,8 @@ function onMessage(event) {
 
 
         if (event.message.startsWith(prefix + "우편 ")) {
-            if (!User.read(event.sender.name)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
+            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
+            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
             if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
 
             let splitIndex = event.message.replace(prefix + "우편 ", "").indexOf(" * ");
@@ -258,8 +249,8 @@ function onMessage(event) {
 
 
         if (event.message.startsWith(prefix + "전체우편 ")) {
-            if (!User.read(event.sender.name)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name).admin) return event.room.send(msg.noti + msg.admin);
+            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
+            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
             if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
 
             let msgp = event.message.replace(prefix + "우편 ", "");
@@ -272,8 +263,8 @@ function onMessage(event) {
 
 
         if (User.read(event.sender.name)) {
-            if (Object.keys(data["snd"]).includes(User.edit(event.sender.name).id) && data["snd"][User.edit(event.sender.name).id].length >= 1) {
-                let items = data["snd"][User.edit(event.sender.name).id];
+            if (Object.keys(data["snd"]).includes(User.edit(event.sender.name, false).id) && data["snd"][User.edit(event.sender.name, false).id].length >= 1) {
+                let items = data["snd"][User.edit(event.sender.name, false).id];
                 let contents = [];
 
                 for (let i = 0; i < items.length; i++) {
@@ -288,13 +279,13 @@ function onMessage(event) {
                 event.room.send([
                     msg.noti,
                     LM("우편"),
-                    "사용자: " + "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name,
+                    "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
                     '우편 개수: ' + contents.length,
                     Lw,
                     contents.join('\n━━━━━━━━━━━━━━━━━━━━━━━━\n')
                 ].join('\n'));
 
-                delete data["snd"][User.edit(event.sender.name).id];
+                delete data["snd"][User.edit(event.sender.name, false).id];
                 FS.write(SP, JSON.stringify(data, null, 4));
             }
         }

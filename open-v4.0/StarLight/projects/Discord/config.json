@@ -1,0 +1,44 @@
+{
+    "beta_features": {
+    },
+    "editor": {
+        "saved_tabs": {
+            "type": "String",
+            "value": "[\"Discord.js\"]"
+        }
+    },
+    "events": {
+        "allowed_events": {
+            "type": "String",
+            "value": "[{\"event_id\":{\"type\":\"String\",\"value\":\"discord.*\"}},{\"event_id\":{\"type\":\"String\",\"value\":\"starlight.*\"}}]"
+        }
+    },
+    "JS_RHINO": {
+        "js_version": {
+            "type": "Int",
+            "value": "9"
+        },
+        "optimize_code": {
+            "type": "Boolean",
+            "value": "true"
+        },
+        "optimization_level": {
+            "type": "Int",
+            "value": "2"
+        },
+        "load_ext_module_sandbox": {
+            "type": "Boolean",
+            "value": "false"
+        },
+        "load_ext_modules": {
+            "type": "Boolean",
+            "value": "true"
+        }
+    },
+    "general": {
+        "shutdown_on_error": {
+            "type": "Boolean",
+            "value": "false"
+        }
+    }
+}

@@ -25,25 +25,31 @@ let rooms = {};
 
 function onProjectButtonClicked(id) {
     let data = JSON.parse(FS.read(SP))
-    let state = data["set"]["state"];
     if (id == "normal") {
-        state = 1;
+        data["set"]["state"] = 1;
         Api.showToast('정상 모드', 0);
+        Api.makeNoti("현재 상태", "정상 모드");
         FS.write(SP, JSON.stringify(data, null, 4))
+        Api.replyRoom("TeamCloud 팀원", "정상모드로 변경되었습니다.")
     }
     if (id == "check") {
-        state = 0;
+        data["set"]["state"] = 0;
         Api.showToast('점검 모드', 0);
+        Api.makeNoti("현재 상태", "점검 모드");
         FS.write(SP, JSON.stringify(data, null, 4))
+        Api.replyRoom("TeamCloud 팀원", "점검모드로 변경되었습니다.")
     }
     if (id == "test") {
-        state = 2;
+        data["set"]["state"] = 2;
         Api.showToast('테스트 모드', 0);
+        Api.makeNoti("현재 상태", "테스트 모드");
         FS.write(SP, JSON.stringify(data, null, 4))
+        Api.replyRoom("TeamCloud 팀원", "테스트모드로 변경되었습니다.")
     }
 
     if (id == "reset") {
         Api.showToast('전체 리로드 시작', 0);
+        Api.makeNoti("현재 상태", "리로드 시작");
         for (let room in rooms) {
             if (!rooms[room]) {
                 Api.markAsRead(room);
@@ -51,6 +57,8 @@ function onProjectButtonClicked(id) {
         }
         Api.compile();
         Api.showToast('전체 리로드 성공', 0);
+        Api.makeNoti("현재 상태", "리로드 완료");
+        Api.replyRoom("TeamCloud 팀원", "리로드가 완료되었습니다.")
     }
 }
 

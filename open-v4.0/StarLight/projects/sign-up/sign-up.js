@@ -51,16 +51,16 @@ function onMessage(event) {
             if (User.read(event.sender.name)) return event.room.send([
                 msg.error_,
                 "",
-                LM(User.edit(event.sender.name).id),
+                LM("회원 등록"),
                 "이미 등록하셨습니다."
             ].join("\n"));
-            if (User.edit(event.sender.name).name == event.sender.name) return event.room.send([
+            if (User.edit(event.sender.name, false).name == event.sender.name) return event.room.send([
                 msg.error_,
                 "동일한 이름이 있습니다.",
                 "이름을 변경하여 등록해주시길 바랍니다."
             ].join("\n"));
         }
-        let Id = User.addID();
+        let Id = User.addId();
         let Data = {
             name: event.sender.name,
             //이름
@@ -101,7 +101,6 @@ function onMessage(event) {
             //기타
         };
         User.set(Id, Data);
-        User.save();
 
 
         event.room.send(Coin(event.sender.name, "사용자 등록", 50000, false));
@@ -111,17 +110,15 @@ function onMessage(event) {
         event.room.send([
             msg.noti,
             LM("사용자 등록"),
-            "[" + User.edit(event.sender.name).nickname[0] + "]" + event.sender.name + "님, 사용자 등록이 완료되었습니다.",
-            "[사용자 ID: " + User.edit(event.sender.name).id + "]"
+            "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name + "님, 사용자 등록이 완료되었습니다.",
+            "[사용자 ID: " + User.edit(event.sender.name, false).id + "]"
         ].join("\n"));
         Api.replyRoom("TeamCloud 팀원", [
             "사용자 등록 > " + event.sender.name,
-            "[사용자 ID: " + User.edit(event.sender.name).id + "]"
+            "[사용자 ID: " + User.edit(event.sender.name, false).id + "]"
         ].join("\n"));
         //event.room.send(Coin(event.sender.name, "오픈기념", 30, false));
         //event.room.send("현재 나랑 친구할 수 없어..");
-        User.save();
-        Api.compile();
     }
 
 }
