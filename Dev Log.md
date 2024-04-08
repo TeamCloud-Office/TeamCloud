@@ -38,7 +38,7 @@
 - [x] events.js
 
 - [ ] like.js
-  -[ ] Affinity increase function
+  - [x] Affinity increase function
 
 - [x] Me.js
   - [x] My information function
@@ -46,9 +46,13 @@
 - [x] mention.js
   - [x] Chat room classification function
 
-- [ ] stock.js(module)
+- [ ] stock_m.js(module)
+  - [x] Stock value change function
+  - [ ] User data storage function
+  - [x] stock message function
+  - [x] Stock (reserve) purchase and (reserve) sale functions
 
-- [ ] stock.js
+- [x] stock.js
 
 - [x] Normal.js
   - [x] settings function
