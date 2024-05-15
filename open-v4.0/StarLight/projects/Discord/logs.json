@@ -3,135 +3,103 @@
         "t": "INFO",
         "th": "Project-Discord-worker-1",
         "m": "프로젝트 Discord 컴파일 중...",
-        "l": 1712573202137
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-Discord",
-        "m": "engine released",
-        "l": 1712574040042
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 Discord 컴파일 중...",
-        "l": 1712574040043
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-Discord",
-        "m": "engine released",
-        "l": 1712576347006
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 Discord 컴파일 중...",
-        "l": 1712576347007
+        "l": 1714795550531
     },
     {
         "t": "VERBOSE",
         "a": "Project-Discord",
         "th": "Project-Discord-worker-1",
         "m": "engine released",
-        "l": 1712577151516
+        "l": 1714795780127
     },
     {
         "t": "INFO",
         "th": "Project-Discord-worker-1",
         "m": "프로젝트 Discord 컴파일 중...",
-        "l": 1712577151517
+        "l": 1714795780128
     },
     {
         "t": "VERBOSE",
         "a": "Project-Discord",
         "m": "engine released",
-        "l": 1712577183446
+        "l": 1714973631266
     },
     {
         "t": "INFO",
         "m": "프로젝트 Discord 컴파일 중...",
-        "l": 1712577183447
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-Discord",
-        "m": "engine released",
-        "l": 1712577350795
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 Discord 컴파일 중...",
-        "l": 1712577350796
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-Discord",
-        "th": "Project-Discord-worker-2",
-        "m": "engine released",
-        "l": 1712577653924
-    },
-    {
-        "t": "INFO",
-        "th": "Project-Discord-worker-2",
-        "m": "프로젝트 Discord 컴파일 중...",
-        "l": 1712577653927
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-Discord",
-        "th": "Project-Discord-worker-2",
-        "m": "engine released",
-        "l": 1712577896119
-    },
-    {
-        "t": "INFO",
-        "th": "Project-Discord-worker-2",
-        "m": "프로젝트 Discord 컴파일 중...",
-        "l": 1712577896119
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-Discord",
-        "m": "engine released",
-        "l": 1712578396573
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 Discord 컴파일 중...",
-        "l": 1712578396574
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-Discord",
-        "m": "engine released",
-        "l": 1712578498875
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 Discord 컴파일 중...",
-        "l": 1712578498876
+        "l": 1714973631267
     },
     {
         "t": "VERBOSE",
         "a": "Project-Discord",
         "th": "Project-Discord-worker-1",
         "m": "engine released",
-        "l": 1712579434027
+        "l": 1714973833507
     },
     {
         "t": "INFO",
         "th": "Project-Discord-worker-1",
         "m": "프로젝트 Discord 컴파일 중...",
-        "l": 1712579434029
+        "l": 1714973833508
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-Discord",
+        "th": "Project-Discord-worker-3",
+        "m": "engine released",
+        "l": 1714974745333
+    },
+    {
+        "t": "INFO",
+        "th": "Project-Discord-worker-3",
+        "m": "프로젝트 Discord 컴파일 중...",
+        "l": 1714974745334
     },
     {
         "t": "VERBOSE",
         "a": "Project-Discord",
         "m": "engine released",
-        "l": 1712579445022
+        "l": 1714981296390
     },
     {
         "t": "INFO",
         "m": "프로젝트 Discord 컴파일 중...",
-        "l": 1712579445023
+        "l": 1714981296390
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-Discord",
+        "th": "Project-Discord-worker-1",
+        "m": "engine released",
+        "l": 1714981685946
+    },
+    {
+        "t": "INFO",
+        "th": "Project-Discord-worker-1",
+        "m": "프로젝트 Discord 컴파일 중...",
+        "l": 1714981685947
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-Discord",
+        "th": "Project-Discord-worker-3",
+        "m": "engine released",
+        "l": 1715340095397
+    },
+    {
+        "t": "INFO",
+        "th": "Project-Discord-worker-3",
+        "m": "프로젝트 Discord 컴파일 중...",
+        "l": 1715340095397
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-Discord",
+        "m": "engine released",
+        "l": 1715340468225
+    },
+    {
+        "t": "INFO",
+        "m": "프로젝트 Discord 컴파일 중..."
     }
 ]

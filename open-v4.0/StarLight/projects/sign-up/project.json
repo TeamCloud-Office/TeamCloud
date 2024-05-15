@@ -4,7 +4,7 @@
     "name": "sign-up",
     "mainScript": "sign-up.js",
     "languageId": "JS_RHINO",
-    "isEnabled": true,
+    "isEnabled": false,
     "isPinned": false,
     "createdMillis": 1691818658918,
     "allowedEventIds": [

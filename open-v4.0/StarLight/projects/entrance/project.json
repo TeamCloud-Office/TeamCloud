@@ -4,7 +4,7 @@
     "name": "entrance",
     "mainScript": "entrance.js",
     "languageId": "JS_RHINO",
-    "isEnabled": true,
+    "isEnabled": false,
     "isPinned": false,
     "createdMillis": 1695826371170,
     "allowedEventIds": [

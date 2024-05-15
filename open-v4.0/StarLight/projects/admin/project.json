@@ -4,7 +4,7 @@
     "name": "admin",
     "mainScript": "admin.js",
     "languageId": "JS_RHINO",
-    "isEnabled": true,
+    "isEnabled": false,
     "isPinned": false,
     "createdMillis": 1696169486173,
     "allowedEventIds": [

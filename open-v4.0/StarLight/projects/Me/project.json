@@ -4,7 +4,7 @@
     "name": "Me",
     "mainScript": "Me.js",
     "languageId": "JS_RHINO",
-    "isEnabled": true,
+    "isEnabled": false,
     "isPinned": false,
     "createdMillis": 1697365802946,
     "allowedEventIds": [

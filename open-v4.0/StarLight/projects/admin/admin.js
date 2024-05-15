@@ -22,12 +22,13 @@ let {
     NicknameA,
     Like,
     ogimg
-} = require("A");
+} = require("Basic");
 
 function onMessage(event) {
-    let cut = event.message.split(" ");
 
-    let data = JSON.parse(FS.read(SP))
+
+    let Set = JSON.parse(FS.read(SP))
+
 
     let getDate = {
         year: new Date().getFullYear(),
@@ -41,9 +42,22 @@ function onMessage(event) {
         time: (str) => new Date().getHours() + str + new Date().getMinutes() + str + new Date().getSeconds()
     };
 
-    let id = cut[2];
-    let count = Number(cut[3]);
+
     try {
+        let user = event.message.match(/u:([^,]+)/) ? event.message.match(/u:([^,]+)/)[1] : null
+        let season = event.message.match(/e:([^,]+)/) ? event.message.match(/e:([^,]+)/)[1] : null
+        let warn = event.message.match(/w:([^,]+)/) ? event.message.match(/w:([^,]+)/)[1] : null
+        let ban = event.message.match(/b:([^,]+)/) ? event.message.match(/b:([^,]+)/)[1] : null
+        let coin = event.message.match(/c:([^,]+)/) ? event.message.match(/c:([^,]+)/)[1] : null
+        let nickname = event.message.match(/n:([^,]+)/) ? event.message.match(/n:([^,]+)/)[1] : null
+        let pm = event.message.match(/p:([^,]+)/) ? event.message.match(/p:([^,]+)/)[1] : null
+        let stars = event.message.match(/s:([^,]+)/) ? event.message.match(/s:([^,]+)/)[1] : null
+        let nuser = event.message.match(/nu:([^,]+)/) ? event.message.match(/nu:([^,]+)/)[1] : null
+        let message = event.message.match(/m:([^,]+)/) ? event.message.match(/m:([^,]+)/)[1] : null
+
+        let Udata_id = User.get(user)
+        let Udata_name = User.get(event.sender.name)
+
 
         /*if (event.message.startsWith(prefix + "기록 ")) {
             if (!User.read(event.sender.name)) return event.room.send(msg.noti + msg.terms);
@@ -53,162 +67,229 @@ function onMessage(event) {
             event.room.send(JSON.stringify(JSON.parse(FS.read("sdcard/BotData/chat/" + (cut[2] + "y/") + (cut[3] + "m/") + (cut[4] + "d") + ".json")), null, 4));
         }*/
 
+
+        /**
+            @param {String} user 사용자 아이디 (또는 사용자 이름)
+            @param {String} season 사유
+            @param {Number} warn 지급/회수할 경고수
+         */
         if (event.message.startsWith(prefix + "경고 ")) {
-            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
-            if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
+            if (Boolean(Udata_name) == false) return event.room.send(msg.noti + msg.terms);
+            if (Udata_name["admin"] == false) return event.room.send(msg.noti + msg.admin);
 
-            if (cut[4] != undefined) return;
+            if (user == null || season == null || warn == null) return event.room.send(error_ + "해당 명령어의 필수 값을 작성하지 않았습니다.")
+            if (Boolean(Udata_id) == true) return event.room.send([
+                error_,
+                "해당 사용자를 찾을 수 없습니다.",
+                "사용자: " + user
+            ].join("\n"));
 
-            if (cut[3] > 0) {
-                event.room.send(User.edit(id, true).name + "님의 경고 횟수가 " + cut[3] + "회 증감되었습니다.");
-                User.edit(id, true).warn += Number(cut[3])
-            }
-            if (cut[3] < 0) {
-                event.room.send(User.edit(id, true).name + "님의 경고 횟수가 " + cut[3] + "회 차감되었습니다.");
-                User.edit(id, true).warn += Number(cut[3])
+            Udata_id["warn"] += Number(warn)
+            User.put(Udata_id["id"], Udata_id)
+
+            if (warn > 0) {
+                post(Udata_id["id"], [
+                    "제목: 경고 안내",
+                    "사용자: " + "[" + Udata_id["nickname"][0] + "]" + Udata_id["name"],
+                    "사유: " + season,
+                    Udata_id["warn"] + "회" + "(+" + Math.abs(warn) + "회" + ")"
+                ], Udata_name["name"])
+            } else {
+                post(Udata_id["id"], [
+                    "제목: 경고 안내",
+                    "사용자: " + "[" + Udata_id["nickname"][0] + "]" + Udata_id["name"],
+                    "사유: " + season,
+                    Udata_id["warn"] + "회" + "(-" + Math.abs(warb) + "회" + ")"
+                ], Udata_name["name"])
             }
         }
 
 
         if (event.message.startsWith(prefix + "차단 ")) {
-            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
-            if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
+            if (Boolean(Udata_name) == false) return event.room.send(msg.noti + msg.terms);
+            if (Udata_name["admin"] == false) return event.room.send(msg.noti + msg.admin);
 
-            if (cut[4] != undefined) return;
+            if (user == null || season == null || ban == null) return event.room.send(error_ + "해당 명령어의 필수 값을 작성하지 않았습니다.")
+            if (Boolean(Udata_id) == true) return event.room.send([
+                error_,
+                "해당 사용자를 찾을 수 없습니다.",
+                "사용자: " + user
+            ].join("\n"));
 
-            if (cut[3] == 1) {
-                event.room.send(User.edit(id, true).name + "님의 차단이 설정되었습니다.");
-                User.edit(id, true).ban = true;
+            Udata_id["ban"] = Boolean(ban)
+            User.put(Udata_id["id"], Udata_id)
+
+            if (ban == true) {
+                post(Udata_id["id"], [
+                    "제목: 차단 안내",
+                    "사용자: " + "[" + Udata_id["nickname"][0] + "]" + Udata_id["name"],
+                    "사유: " + season,
+                    "차단: " + ban ? "O" : "X"
+                ], Udata_name["name"])
             }
-            if (cut[3] == 0) {
-                event.room.send(User.edit(id, true).name + "님의 차단이 해제되었습니다.");
-                User.edit(id, true).ban = false;
+            if (ban == false) {
+                post(Udata_id["id"], [
+                    "제목: 차단 안내",
+                    "사용자: " + "[" + Udata_id["nickname"][0] + "]" + Udata_id["name"],
+                    "사유: " + season,
+                    "차단: " + ban ? "O" : "X"
+                ], Udata_name["name"])
             }
         }
 
 
         if (event.message.startsWith(prefix + "코인 ")) {
-            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
-            if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
+            if (Boolean(Udata_name) == false) return event.room.send(msg.noti + msg.terms);
+            if (Udata_name["admin"] == false) return event.room.send(msg.noti + msg.admin);
 
-            if (cut[6] != undefined) return;
+            if (user == null || season == null || coin == null) return event.room.send(error_ + "해당 명령어의 필수 값을 작성하지 않았습니다.")
+            if (Boolean(Udata_id) == true) return event.room.send([
+                error_,
+                "해당 사용자를 찾을 수 없습니다.",
+                "사용자: " + user
+            ].join("\n"));
 
-            event.room.send(CoinA(id, cut[3], cut[4], cut[5], event.sender.name));
-            //                  사용자, 사유, 코인, 증감/감소, 관리자 이름
+            event.room.send(Coin(user, season, coin, true, Udata_name["name"]));
+            User.put(Udata_id["id"], Udata_id)
         }
 
 
         if (event.message.startsWith(prefix + "닉네임 ")) {
-            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
-            if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
+            if (Boolean(Udata_name) == false) return event.room.send(msg.noti + msg.terms);
+            if (Udata_name["admin"] == false) return event.room.send(msg.noti + msg.admin);
 
-            if (cut[6] != undefined) return;
+            if (user == null || season == null || nickname == null || pm == null) return event.room.send(error_ + "해당 명령어의 필수 값을 작성하지 않았습니다.")
+            if (Boolean(Udata_id) == true) return event.room.send([
+                error_,
+                "해당 사용자를 찾을 수 없습니다.",
+                "사용자: " + user
+            ].join("\n"));
 
-            event.room.send(NicknameA(id, cut[3], cut[4], cut[5], event.sender.name));
-            //                      사용자, 사유, 닉네임, 지급/회수, 관리자 이름
+            event.room.send(Nickname(user, season, nickname, pm, true, Udata_name["name"]));
+            User.put(Udata_id["id"], Udata_id)
         }
 
 
         if (event.message.startsWith(prefix + "S")) {
-            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
-            if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
+            if (Boolean(Udata_name) == false) return event.room.send(msg.noti + msg.terms);
+            if (Udata_name["admin"] == false) return event.room.send(msg.noti + msg.admin);
 
-            if (cut[4] != undefined) return;
+            if (user == null || stars == null) return event.room.send(error_ + "해당 명령어의 필수 값을 작성하지 않았습니다.")
+            if (Boolean(Udata_id) == true) return event.room.send([
+                error_,
+                "해당 사용자를 찾을 수 없습니다.",
+                "사용자: " + user
+            ].join("\n"));
 
-            switch (cut[3]) {
+            switch (stars) {
                 case "1":
-                    event.room.send(NicknameA(id, "Stars 가입", "Stars", "p", event.sender.name))
-                    User.edit(id, true).stars["date"] = getDate.today("/");
-                    User.edit(id, true).stars["ai"] = 30;
-                    User.edit(id, true).stars["re"] = getDate.month;
-                    User.edit(id, true).stars["D"] = getDate.date;
-                    User.edit(id, true).stars["D_date"] = 60;
+                    Udata_id["stars"]["date"] = getDate.today("/");
+                    Udata_id["stars"]["ai"] = 30;
+                    Udata_id["stars"]["re"] = getDate.month;
+                    Udata_id["stars"]["D"] = getDate.date;
+                    Udata_id["stars"]["D_date"] = 60;
+                    User.put(Udata_id["id"], Udata_id)
+                    event.room.send(Coin(Udata["id"], "Stars 가입", 10000, true, "TeamCloud 시스템"));
+                    event.room.send(Nickname(Udata["id"], "Stars 가입", "Stars", true, true, Udata_name["name"]))
                     break;
                 case "2":
-                    event.room.send(NicknameA(id, "Stars 가입", "Light Stars", "p", event.sender.name))
-                    User.edit(id, true).stars["date"] = getDate.today("/");
-                    User.edit(id, true).stars["ai"] = 60;
-                    User.edit(id, true).stars["re"] = getDate.month;
-                    User.edit(id, true).stars["D"] = getDate.date;
-                    User.edit(id, true).stars["D_date"] = 120;
+                    Udata_id["stars"]["date"] = getDate.today("/");
+                    Udata_id["stars"]["ai"] = 60;
+                    Udata_id["stars"]["re"] = getDate.month;
+                    Udata_id["stars"]["D"] = getDate.date;
+                    Udata_id["stars"]["D_date"] = 120;
+                    User.put(Udata_id["id"], Udata_id)
+                    event.room.send(Coin(Udata["id"], "Stars 가입", 50000, true, "TeamCloud 시스템"));
+                    event.room.send(Nickname(Udata["id"], "Stars 가입", "Light Stars", true, true, Udata_name["name"]))
                     break;
             }
         }
 
 
         if (event.message.startsWith(prefix + "변경 ")) {
-            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
-            if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
+            if (Boolean(Udata_name) == false) return event.room.send(msg.noti + msg.terms);
+            if (Udata_name["admin"] == false) return event.room.send(msg.noti + msg.admin);
 
-            if (cut[4] != undefined) return;
+            if (user == null || nuser == null) return event.room.send(error_ + "해당 명령어의 필수 값을 작성하지 않았습니다.")
+            if (Boolean(Udata_id) == true) return event.room.send([
+                error_,
+                "해당 사용자를 찾을 수 없습니다.",
+                "사용자: " + user
+            ].join("\n"));
 
-            let old_id = cut[2], //old
-                new_id = cut[3]; //new
-            let newName = User.edit(id2, true).name;
-            User.edit(old_id, true).name = newName;
-            User.set(new_id, JSON.parse(User.edit(id1, true)));
-            User.delete(id1);
+            if ((Udata_id["change"] > 5) == false) return event.room.send("해당 사용자는 계정 변경을 5번 이상 진행하였습니다.")
+            Udata_id["name"] = User.get(nuser)["name"];
+            Udata_id["change"]++
+            User.put(Udata_id["id"], Udata_id);
+            User.delete(nuser);
+            post(Udata_id["id"], [
+                "제목: " + "계정 변경 안내",
+                "사용자: " + "[" + "[" + Udata_id["nickname"][0] + "]" + Udata_id["name"] + "]",
+                "위 사용자의 계정 변경이 완료되었습니다."
+            ])
+            event.room.send("계정 변경이 완료되었습니다.")
         }
 
 
         if (event.message.startsWith(prefix + "정보 ")) {
-            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
-            if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
+            if (Boolean(Udata_name) == false) return event.room.send(msg.noti + msg.terms);
+            if (Udata_name["admin"] == false) return event.room.send(msg.noti + msg.admin);
 
-            if (cut[3] != undefined) return;
+            if (user == null) return event.room.send(error_ + "해당 명령어의 필수 값을 작성하지 않았습니다.")
+            if (Boolean(Udata_id) == true) return event.room.send([
+                error_,
+                "해당 사용자를 찾을 수 없습니다.",
+                "사용자: " + user
+            ].join("\n"));
 
             let stocks;
-            if (Object.keys(User.edit(id, true).stocks) == "") {
+            if (Object.keys(Udata_id["stocks"]) == "") {
                 stocks = "없음";
             } else {
-                stocks = Object.keys(User.edit(id, true).stocks)
+                stocks = Object.keys(Udata_id["stocks"])
             }
             event.room.send([
                 msg.noti,
-                "이름: " + User.edit(id, true).name,
-                "ID: " + User.edit(id, true).id,
-                "등록 날짜: " + User.edit(id, true).date,
-                "닉네임: " + User.edit(id, true).nickname,
-                "관리자: " + (User.edit(id, true).admin ? "예" : "아니오"),
-                "팀클 코인: " + User.edit(id, true).coin + "코인",
-                "경고 횟수: " + User.edit(id, true).warn + "회",
+                "이름: " + Udata_id["name"],
+                "ID: " + Udata_id["id"],
+                "등록 날짜: " + Udata_id["date"],
+                "닉네임: " + Udata_id["nickname"],
+                "관리자: " + (Udata_id["admin"] ? "예" : "아니오"),
+                "팀클 코인: " + Udata_id["coin"] + "코인",
+                "경고 횟수: " + Udata_id["warn"] + "회",
                 "주식 보유 종목: " + stocks,
-                "호감도: " + User.edit(id, true).like,
-                "Stars 가입 날짜: " + User.edit(id, true).stars["date"] + "(" + User.edit(id, true).stars["D_date"] + "일 남음)",
-                "Ai 사용 가능 횟수: " + User.edit(id, true).stars["ai"],
-                "기타: " + User.edit(id, true).etc
+                "호감도: " + Udata_id["like"],
+                "Stars 가입 날짜: " + Udata_id["stars"]["date"] + "(" + Udata_id["stars"]["D_date"] + "일 남음)",
+                "Ai 사용 가능 횟수: " + Udata_id["stars"]["ai"],
+                "기타: " + Udata_id["etc"]
             ].join("\n"));
         }
 
 
         if (event.message.startsWith(prefix + "탈퇴 ")) {
-            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
-            if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
+            if (Boolean(Udata_name) == false) return event.room.send(msg.noti + msg.terms);
+            if (Udata_name["admin"] == false) return event.room.send(msg.noti + msg.admin);
 
-            if (cut[3] != undefined) return;
+            if (user == null) return event.room.send(error_ + "해당 명령어의 필수 값을 작성하지 않았습니다.")
+            if (Boolean(Udata_id) == true) return event.room.send([
+                error_,
+                "해당 사용자를 찾을 수 없습니다.",
+                "사용자: " + user
+            ].join("\n"));
 
             event.room.send([
                 msg.noti,
-                LM(id),
+                LM("서비스 탈퇴"),
                 '해당 사용자와의 연결을 종료했습니다.',
-                "사용자명: " + User.edit(id, true).name
+                "사용자명: " + Udata_id["name"]
             ].join("\n"));
             User.delete(id);
         }
 
 
         if (event.message.startsWith(prefix + "공지 ")) {
-            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
-            if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
+            if (Boolean(Udata_name) == false) return event.room.send(msg.noti + msg.terms);
+            if (Udata_name["admin"] == false) return event.room.send(msg.noti + msg.admin);
 
             let rooms = {
                 "Little women": false,
@@ -231,62 +312,27 @@ function onMessage(event) {
 
 
         if (event.message.startsWith(prefix + "우편 ")) {
-            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
-            if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
+            if (Boolean(Udata_name) == false) return event.room.send(msg.noti + msg.terms);
+            if (Udata_name["admin"] == false) return event.room.send(msg.noti + msg.admin);
 
-            let splitIndex = event.message.replace(prefix + "우편 ", "").indexOf(" * ");
-            if (splitIndex !== -1) {
-                let target = event.message.replace(prefix + "우편 ", "").slice(0, splitIndex);
-                let msgp = event.message.replace(prefix + "우편 ", "").slice(splitIndex + 3); // " * "의 길이: 3
+            if (user == null || message == null) return event.room.send(error_ + "해당 명령어의 필수 값을 작성하지 않았습니다.")
+            if (Boolean(Udata_id) == true) return event.room.send([
+                error_,
+                "해당 사용자를 찾을 수 없습니다.",
+                "사용자: " + user
+            ].join("\n"));
 
-                post(target, msgp, event.sender.name);
-                event.room.send(msg.noti + User.edit(target, true).name + '님께 우편을 전송하였습니다.');
-            } else {
-                event.room.send(msg.error + "올바르지 않은 형식입니다.");
-            }
+            post(Udata_id["id"], message, Udata_name["name"]);
         }
 
 
         if (event.message.startsWith(prefix + "전체우편 ")) {
-            if (!User.read(event.sender.name, false)) return event.room.send(msg.noti + msg.terms);
-            if (!User.edit(event.sender.name, false).admin) return event.room.send(msg.noti + msg.admin);
-            if (!User.read(id, true)) return event.room.send(["해당 사용자를 찾을 수 없습니다.", "사용자: " + id].join("\n"));
+            if (Boolean(Udata_name) == false) return event.room.send(msg.noti + msg.terms);
+            if (Udata_name["admin"] == false) return event.room.send(msg.noti + msg.admin);
 
-            let msgp = event.message.replace(prefix + "우편 ", "");
-            for (i = 0; i < Object.keys(LS.getDate()).length; i++) {
-                let target = Object.keys(LS.getDate())[i];
-                post(target, msgp, event.sender.name);
-            }
-            event.room.send(msg.noti + '모든 사용자에게 우편을 전송하였습니다.');
-        }
-
-
-        if (User.read(event.sender.name)) {
-            if (Object.keys(data["snd"]).includes(User.edit(event.sender.name, false).id) && data["snd"][User.edit(event.sender.name, false).id].length >= 1) {
-                let items = data["snd"][User.edit(event.sender.name, false).id];
-                let contents = [];
-
-                for (let i = 0; i < items.length; i++) {
-                    let item = items[i];
-
-                    contents.push(User.edit(item.sender, true).name + '의 메시지 | ' + item.time +
-                        "\n" +
-                        '→ ' + item.content +
-                        "\n" +
-                        '관리자 이름: ' + item.admin);
-                }
-                event.room.send([
-                    msg.noti,
-                    LM("우편"),
-                    "사용자: " + "[" + User.edit(event.sender.name, false).nickname[0] + "]" + event.sender.name,
-                    '우편 개수: ' + contents.length,
-                    Lw,
-                    contents.join('\n━━━━━━━━━━━━━━━━━━━━━━━━\n')
-                ].join('\n'));
-
-                delete data["snd"][User.edit(event.sender.name, false).id];
-                FS.write(SP, JSON.stringify(data, null, 4));
+            for (i = 0; i < (User.id()).length; i++) {
+                let target = User.id()[i];
+                post(target, message, Udata_name["name"]);
             }
         }
 

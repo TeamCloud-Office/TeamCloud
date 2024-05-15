@@ -1,140 +1,105 @@
 [
     {
         "t": "INFO",
+        "th": "Project-atten-worker-1",
         "m": "프로젝트 atten 컴파일 중...",
-        "l": 1712573200405
+        "l": 1714795548803
     },
     {
         "t": "VERBOSE",
         "a": "Project-atten",
-        "th": "Project-atten-worker-2",
+        "th": "Project-atten-worker-1",
         "m": "engine released",
-        "l": 1712574037834
+        "l": 1714795778649
     },
     {
         "t": "INFO",
-        "th": "Project-atten-worker-2",
+        "th": "Project-atten-worker-1",
         "m": "프로젝트 atten 컴파일 중...",
-        "l": 1712574037835
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-atten",
-        "th": "Project-atten-worker-2",
-        "m": "engine released",
-        "l": 1712576344733
-    },
-    {
-        "t": "INFO",
-        "th": "Project-atten-worker-2",
-        "m": "프로젝트 atten 컴파일 중...",
-        "l": 1712576344734
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-atten",
-        "th": "Project-atten-worker-2",
-        "m": "engine released",
-        "l": 1712577149271
-    },
-    {
-        "t": "INFO",
-        "th": "Project-atten-worker-2",
-        "m": "프로젝트 atten 컴파일 중...",
-        "l": 1712577149272
+        "l": 1714795778650
     },
     {
         "t": "VERBOSE",
         "a": "Project-atten",
         "m": "engine released",
-        "l": 1712577180879
+        "l": 1714973629653
     },
     {
         "t": "INFO",
         "m": "프로젝트 atten 컴파일 중...",
-        "l": 1712577180880
+        "l": 1714973629658
     },
     {
         "t": "VERBOSE",
         "a": "Project-atten",
+        "th": "Project-atten-worker-1",
         "m": "engine released",
-        "l": 1712577348299
+        "l": 1714973831828
     },
     {
         "t": "INFO",
+        "th": "Project-atten-worker-1",
         "m": "프로젝트 atten 컴파일 중...",
-        "l": 1712577348300
+        "l": 1714973831829
     },
     {
         "t": "VERBOSE",
         "a": "Project-atten",
         "th": "Project-atten-worker-3",
         "m": "engine released",
-        "l": 1712577651582
+        "l": 1714974743545
     },
     {
         "t": "INFO",
         "th": "Project-atten-worker-3",
         "m": "프로젝트 atten 컴파일 중...",
-        "l": 1712577651582
+        "l": 1714974743547
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-atten",
+        "m": "engine released",
+        "l": 1714981295043
+    },
+    {
+        "t": "INFO",
+        "m": "프로젝트 atten 컴파일 중...",
+        "l": 1714981295044
+    },
+    {
+        "t": "VERBOSE",
+        "a": "Project-atten",
+        "th": "Project-atten-worker-1",
+        "m": "engine released",
+        "l": 1714981683902
+    },
+    {
+        "t": "INFO",
+        "th": "Project-atten-worker-1",
+        "m": "프로젝트 atten 컴파일 중...",
+        "l": 1714981683902
     },
     {
         "t": "VERBOSE",
         "a": "Project-atten",
         "th": "Project-atten-worker-3",
         "m": "engine released",
-        "l": 1712577894315
+        "l": 1715340093675
     },
     {
         "t": "INFO",
         "th": "Project-atten-worker-3",
         "m": "프로젝트 atten 컴파일 중...",
-        "l": 1712577894316
+        "l": 1715340093680
     },
     {
         "t": "VERBOSE",
         "a": "Project-atten",
         "m": "engine released",
-        "l": 1712578394259
+        "l": 1715340466234
     },
     {
         "t": "INFO",
-        "m": "프로젝트 atten 컴파일 중...",
-        "l": 1712578394259
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-atten",
-        "m": "engine released",
-        "l": 1712578496441
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 atten 컴파일 중...",
-        "l": 1712578496442
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-atten",
-        "th": "Project-atten-worker-2",
-        "m": "engine released",
-        "l": 1712579431440
-    },
-    {
-        "t": "INFO",
-        "th": "Project-atten-worker-2",
-        "m": "프로젝트 atten 컴파일 중...",
-        "l": 1712579431440
-    },
-    {
-        "t": "VERBOSE",
-        "a": "Project-atten",
-        "m": "engine released",
-        "l": 1712579442744
-    },
-    {
-        "t": "INFO",
-        "m": "프로젝트 atten 컴파일 중...",
-        "l": 1712579442745
+        "m": "프로젝트 atten 컴파일 중..."
     }
 ]

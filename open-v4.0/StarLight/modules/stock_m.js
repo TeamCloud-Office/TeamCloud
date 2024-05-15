@@ -1,22 +1,19 @@
 /**
- * 제작자: hello
+ * 제작자: Yellu#1794 , hello
  * 라이선스: 없음
  * 본 코드는 TeamCloud의 코드 라이선스(CCL BY-SA 2.0)를 따릅니다.
  * 기타: 본 코드는 TeamCloud의 저작물로 TeamCloud의 코드 라이선스를 따라야합니다.
  * 
- * Ver: Alpha-4.3.2-240407
+ * Ver: Alpha 4.2.5.03
  */
 
 (function () {
 
     let {
-        prefix,
-        User,
-        Coin,
-        SP
+        User
     } = require("A")
 
-    let change_m = 60 // 단위 : 분
+    let change_m = 30 // 단위: 분
 
     /**
      *
@@ -24,14 +21,12 @@
      * @returns
      */
     function toFixed(number) {
-        return ~~(number * 1e4) / 1e4
+        return Math.floor(number * 1e4) / 1e4
     }
 
-    let open = [14, 24];
+    let open = [9, 24];
 
-    let path1 = "sdcard/StarLight/BotData/stock_assess.json"; //기업정보
-
-    let path2 = "sdcard/StarLight/BotData/admin/UseData.json"; //유저정보
+    let path = "sdcard/StarLight/BotData/stock_assess.json"; //기업정보
 
     let company = {
         // "주식코드" : [가격:Number,  판매가능유무:Boolean[unfinished],  분류:Number[0:IT, 1:보건(건강), 2:환경, 3:엔터테이먼트],  기업정보:String[], 가격변동:Number[] ]
@@ -46,7 +41,7 @@
         //Cherry Blossom Entertainment - 벚꽃엔터 주식회사(엔터테이먼트)
     }
 
-    let company_fs = JSON.parse(FileStream.read(path1))["company"]
+    let company_fs = JSON.parse(FileStream.read(path))["company"]
     if (company_fs !== company) {
         company = company_fs
     }
@@ -94,7 +89,7 @@
     }
 
     /**
-     * (원작자 몽둥)
+     * 원작자: 몽둥
      * @param {Object} data
      * @returns
      */
@@ -173,7 +168,7 @@
             delay = undefined
             //예외처리
         }
-        Log.d(delay)
+        Log.d("[stock_m] delay: " + delay)
         return delay
     }
 
@@ -182,7 +177,7 @@
      * @param {number} delay delay
      */
     function price(delay) {
-        let result = JSON.parse(FileStream.read(path1)).date;
+        let result = JSON.parse(FileStream.read(path)).date;
         if (result == new Date().toLocaleDateString()) {
             /*
         	 //이미 오늘 1회이상 실행되었을떄 (점검을 진행했을시 무시하고 작동)
@@ -199,9 +194,9 @@
         }
         f_delay(function () {
             if (!Api.isOn("stock")) {
-                let data = JSON.parse(FileStream.read(path1))
+                let data = JSON.parse(FileStream.read(path))
                 data["date"] = "0"
-                FileStream.write(path1, JSON.stringify(data))
+                FileStream.write(path, JSON.stringify(data))
                 f_delay(false)
             }
             if (open[1] == new Date().getHours() && new Date().getMinutes() != 0) return price(get_delay(open[0], open[1])) //장마감
@@ -232,32 +227,32 @@
                 }
             }
             Log.d("주식가격 변경되었습니다\n\n" + JSON.stringify(company))
-            let result = JSON.parse(FileStream.read(path1));
+            let result = JSON.parse(FileStream.read(path));
             result["company"] = company
-            FileStream.write(path1, JSON.stringify(result));
+            FileStream.write(path, JSON.stringify(result));
         }, delay, 1000 * 60 * change_m, timer);
     }
 
     /**
      * @param {string} name 기업명
      * @param {number} number 갯수
-     * @param {string} sender
+     * @param {string} sender 사용자 이름
      * @param {number|boolean} type1 구매 판매 구분
      * @param {number|boolean} type2 예약 유무
-     * @returns {string} 결과
-     * type1 이 0 일떄 구매 / 1일떄 판매
-     * type2이 0일떄 즉시처리 / 1일떄 예약처리
+     * @returns
+     * type1 이 0일 때 구매 / 1일 때 판매
+     * type2이 0일 때 즉시처리 / 1일 때 예약처리
      */
     function process(name, number, sender, type1, type2) {
-        let data = User.edit(sender)
+        let Udata = User.search(sender)
         number = Number(number)
         if (name == undefined || number == undefined) {
             return "형식을 확인해주세요";
         } else if (!Object.keys(company).includes(name)) {
             return "존재하지 않는 기업명입니다";
         } else {
-            if (data["stocks"][name] == undefined || typeof data["stocks"][name] == "string") {
-                data["stocks"][name] = 0;
+            if (Udata["stocks"][name] == undefined || typeof Udata["stocks"][name] == "string") {
+                Udata["stocks"][name] = 0;
             }
             if (number <= 0.000099999999999999998) {
                 return "0.0001주 이상만 구매 및 판매가 가능합니다";
@@ -265,70 +260,47 @@
                 return "형식을 다시 확인해주세요";
             } else if (number.length > 6) {
                 return "소수점 4자리까지만 구매 및 판매가 가능합니다";
+            }
+            if (company[name][0] * number > Udata["coin"]) {
+                return "잔액이 부족합니다";
             } else {
                 if (!type1 && !type2) { //구매
-                    if (company[name][0] * number > data["coin"]) {
-                        return "잔액이 부족합니다";
-                    } else {
-                        data["coin"] = parseInt(toFixed(data["coin"] - company[name][0] * number));
-                        if (data["stocks"][name] <= 0) {
-                            delete data["stocks"][name]
-                        }
-                        data["stocks"][name] = toFixed(data["stocks"][name] + number);
-                        User.save();
-                        java.lang.Thread.sleep(2000);
-                        Log.i("stock_m[data]\n" + JSON.stringify({
-                            "name": name,
-                            "coin": data["coin"],
-                            "data": data["stocks"],
-                            "number": number
-                        }, null, 4));
-                        return "구매가 완료되었습니다";
+                    Udata["coin"] = parseInt(toFixed(Udata["coin"] - company[name][0] * number));
+                    if (Udata["stocks"][name] <= 0) {
+                        delete Udata["stocks"][name]
                     }
+                    Udata["stocks"][name] = toFixed(Udata["stocks"][name] + number);
+                    User.put(Udata["id"], Udata);
+                    return "구매가 완료되었습니다";
                 } else if (!type1 && type2) { //예약구매
-                    if (company[name][0] * number > data["coin"]) {
-                        return "잔액이 부족합니다";
-                    } else {
-                        setTimeout(() => {
-                            data["coin"] = parseInt(toFixed(data["coin"] - company[name][0] * number));
-                            if (data["stocks"][name] <= 0) {
-                                delete data["stocks"][name]
-                            }
-                            data["stocks"][name] = toFixed(data["stocks"][name] + number);
-                        }, get_delay(open[0], open[1]));
-                        User.save();
-                        Log.i("stock_m[data]\n" + JSON.stringify(data));
-                        return "구매신청이 완료되었습니다";
-                    }
+                    setTimeout(() => {
+                        Udata["coin"] = parseInt(toFixed(Udata["coin"] - company[name][0] * number));
+                        if (Udata["stocks"][name] <= 0) {
+                            delete Udata["stocks"][name]
+                        }
+                        Udata["stocks"][name] = toFixed(Udata["stocks"][name] + number);
+                    }, get_delay(open[0], open[1]));
+                    User.put(Udata["id"], Udata);
+                    return "구매 신청이 완료되었습니다";
                 } else if (type1 && !type2) { //판매
-                    if (number > data["stocks"][name]) {
-                        return "보유중인 주식이 부족합니다";
-                    } else {
-                        data["coin"] = Number((data["coin"] + company[name][0] * number).toFixed(4));
-                        data["stocks"][name] = Number((data["stocks"][name] - number).toFixed(4));
-                        User.save();
-                        Log.i("stock_m[data]\n" + JSON.stringify(data));
-                        return "판매가 완료되었습니다";
-                    }
+                    Udata["coin"] = Number((Udata["coin"] + company[name][0] * number).toFixed(4));
+                    Udata["stocks"][name] = Number((Udata["stocks"][name] - number).toFixed(4));
+                    User.put(Udata["id"], Udata);
+                    return "판매가 완료되었습니다";
                 } else if (type1 && type2) { //예약판매
-                    if (number > data["stocks"][name]) {
-                        return "보유중인 주식이 부족합니다";
-                    } else {
-                        setTimeout(() => {
-                            data["coin"] = Number((data["coin"] + company[name][0] * number).toFixed(4));
-                            data["stocks"][name] = Number((data["stocks"][name] - number).toFixed(4));
-                        }, get_delay(open[0], open[1]));
-                        User.save();
-                        Log.i("stock_m[data]\n" + JSON.stringify(data));
-                        return "판매신청이 완료되었습니다";
-                    }
+                    setTimeout(() => {
+                        Udata["coin"] = Number((Udata["coin"] + company[name][0] * number).toFixed(4));
+                        Udata["stocks"][name] = Number((Udata["stocks"][name] - number).toFixed(4));
+                    }, get_delay(open[0], open[1]));
+                    User.put(Udata["id"], Udata);
+                    return "판매 신청이 완료되었습니다";
                 }
             }
         }
     }
 
     function fix_date() {
-        let result = JSON.parse(FileStream.read(path1));
+        let result = JSON.parse(FileStream.read(path));
         result.date = new Date().toLocaleDateString();
         for (let i = 0; i <= Object.keys(company).length - 1; i++) {
             let random = array_random(assess[company[Object.keys(company)[i]][2]]);
@@ -337,7 +309,7 @@
             //0 - 상승위주 / 1 - 하락위주 / 2 - 랜덤
         }
         result["company"] = company
-        FileStream.write(path1, JSON.stringify(result));
+        FileStream.write(path, JSON.stringify(result));
     }
 
     module.exports = {
@@ -350,8 +322,7 @@
         get_delay: get_delay,
         price: price,
         process: process,
-        path1: path1,
-        path2: path2,
+        path: path,
         assess: assess,
         get_remain: get_remain,
         change_m: change_m,

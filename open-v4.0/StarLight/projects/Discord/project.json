@@ -4,7 +4,7 @@
     "name": "Discord",
     "mainScript": "Discord.js",
     "languageId": "JS_RHINO",
-    "isEnabled": true,
+    "isEnabled": false,
     "isPinned": false,
     "createdMillis": 1684419221575,
     "allowedEventIds": [

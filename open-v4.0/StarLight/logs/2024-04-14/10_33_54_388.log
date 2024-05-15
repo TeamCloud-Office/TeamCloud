@@ -1,0 +1,75 @@
+2024-04-14 10:33:54.398    INFO [main                       ] -    GlobalApplication: 포그라운드 서비스 등록 성공!
+2024-04-14 10:33:54.401    INFO [DefaultDispatcher-worker-3 ] -   ApplicationSession: 카카오톡 버전: 10.6.1
+2024-04-14 10:33:54.401   DEBUG [DefaultDispatcher-worker-3 ] -   ApplicationSession: Initializing with locale KOREAN
+2024-04-14 10:33:54.408    WARN [DefaultDispatcher-worker-3 ] -         PluginLoader: res/raw 경로는 더 이상 사용되지 않습니다. assets 경로를 사용하세요.
+2024-04-14 10:33:54.410   DEBUG [main                       ] - NotificationListener: Listener connected
+2024-04-14 10:33:54.410   DEBUG [main                       ] - NotificationListener: Listener connected
+2024-04-14 10:33:54.412    WARN [DefaultDispatcher-worker-3 ] -         PluginLoader: res/raw 경로는 더 이상 사용되지 않습니다. assets 경로를 사용하세요.
+2024-04-14 10:33:54.438   DEBUG [DefaultDispatcher-worker-3 ] -            AwtPlugin: Testing awt class loading, color = java.awt.Color[r=0,g=0,b=0]
+2024-04-14 10:33:54.554   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Discord Api 등록 성공
+2024-04-14 10:33:54.560   DEBUG [DefaultDispatcher-worker-3 ] -        DiscordPlugin: Starting discord client with intent: MESSAGE_CONTENT, DIRECT_MESSAGES, GUILD_MESSAGES, GUILD_MEMBERS
+2024-04-14 10:33:56.790    INFO [DefaultDispatcher-worker-3 ] -        DiscordPlugin: 디스코드 클라이언트 시작 성공! [디코서버 도우미]Eric#0937 로 로그인했어요.
+2024-04-14 10:33:56.793    INFO [DefaultDispatcher-worker-8 ] -       SplashActivity: 기본 라이브러리 로드중…
+2024-04-14 10:33:56.810   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: LanguageManager Api 등록 성공
+2024-04-14 10:33:56.810   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Log Api 등록 성공
+2024-04-14 10:33:56.811   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: ProjectManager Api 등록 성공
+2024-04-14 10:33:56.811   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: PluginManager Api 등록 성공
+2024-04-14 10:33:56.811   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Notification Api 등록 성공
+2024-04-14 10:33:56.811   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Env Api 등록 성공
+2024-04-14 10:33:56.811   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Java Api 등록 성공
+2024-04-14 10:33:56.811   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Utils Api 등록 성공
+2024-04-14 10:33:56.811   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: EventEmitter Api 등록 성공
+2024-04-14 10:33:56.811   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: App Api 등록 성공
+2024-04-14 10:33:56.811   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Api Api 등록 성공
+2024-04-14 10:33:56.811   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Bridge Api 등록 성공
+2024-04-14 10:33:56.811   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: FileStream Api 등록 성공
+2024-04-14 10:33:56.811   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: DataBase Api 등록 성공
+2024-04-14 10:33:56.811   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Device Api 등록 성공
+2024-04-14 10:33:56.815    INFO [DefaultDispatcher-worker-2 ] -       SplashActivity: 프로젝트 로드중…
+2024-04-14 10:33:56.812   DEBUG [DefaultDispatcher-worker-3 ] -           ApiManager: Broadcast Api 등록 성공
+2024-04-14 10:33:56.920   ERROR [DefaultDispatcher-worker-3 ] -        ProjectLoader: Failed to load project 'stock': java.lang.IllegalArgumentException: Failed to parse project.json from stock
+2024-04-14 10:33:56.936    INFO [DefaultDispatcher-worker-3 ] -               System: | Project ✦ StarLight |
+Running PluginCore v0.2.0
+2024-04-14 10:34:08.118    INFO [Project-Normal-worker-1    ] -                 INFO: 프로젝트 Normal 컴파일 중...
+2024-04-14 10:34:09.168    INFO [Project-eval-worker-1      ] -                 INFO: 프로젝트 eval 컴파일 중...
+2024-04-14 10:34:09.530    INFO [Project-atten-worker-1     ] -                 INFO: 프로젝트 atten 컴파일 중...
+2024-04-14 10:34:09.750    INFO [Project-Me-worker-1        ] -                 INFO: 프로젝트 Me 컴파일 중...
+2024-04-14 10:34:09.990    INFO [Project-admin-worker-1     ] -                 INFO: 프로젝트 admin 컴파일 중...
+2024-04-14 10:34:10.590    INFO [Project-Discord-worker-1   ] -                 INFO: 프로젝트 Discord 컴파일 중...
+2024-04-14 10:34:10.756    INFO [Project-sign-up-worker-1   ] -                 INFO: 프로젝트 sign-up 컴파일 중...
+2024-04-14 10:34:10.994    INFO [Project-reply-worker-1     ] -                 INFO: 프로젝트 reply 컴파일 중...
+2024-04-14 10:34:11.499    INFO [Project-Normal-worker-2    ] -                 INFO: 프로젝트 Normal 컴파일 중...
+2024-04-14 10:34:11.696    INFO [Project-chat_history-worker] -                 INFO: 프로젝트 chat_history 컴파일 중...
+2024-04-14 10:34:11.913    INFO [Project-entrance-worker-1  ] -                 INFO: 프로젝트 entrance 컴파일 중...
+2024-04-14 10:34:11.945    INFO [Project-mention-worker-1   ] -                 INFO: 프로젝트 mention 컴파일 중...
+2024-04-14 10:34:12.273    INFO [Project-ASet-worker        ] -                 INFO: 프로젝트 ASet 컴파일 중...
+2024-04-14 10:34:18.874    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:DVHQB
+2024-04-14 10:34:18.887    INFO [Project-ASet-worker        ] -                 INFO: ASet[Stars Count]: 14
+2024-04-14 10:34:18.888    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-14 10:34:18.889    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:T4OE4
+2024-04-14 10:34:18.899    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-14 10:34:18.895    INFO [Project-ASet-worker        ] -                 INFO: ASet[Stars Count]: 14
+2024-04-14 10:34:18.897    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-14 10:34:18.898    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:FU11P
+2024-04-14 10:34:18.898    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-14 10:34:18.898    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:ZA6CT
+2024-04-14 10:34:26.075    INFO [Project-atten-worker-1     ] -                 INFO: 프로젝트 atten 컴파일 중...
+2024-04-14 10:34:29.274    INFO [Project-entrance-worker-1  ] -                 INFO: 프로젝트 entrance 컴파일 중...
+2024-04-14 10:34:31.692    INFO [Project-mention-worker-1   ] -                 INFO: 프로젝트 mention 컴파일 중...
+2024-04-14 10:34:33.678    INFO [Project-reply-worker-1     ] -                 INFO: 프로젝트 reply 컴파일 중...
+2024-04-14 10:34:34.140    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:DVHQB
+2024-04-14 10:34:34.141    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-14 10:34:34.142    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:T4OE4
+2024-04-14 10:34:34.143    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-14 10:34:34.144    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:FU11P
+2024-04-14 10:34:34.145    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-14 10:34:34.146    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:ZA6CT
+2024-04-14 10:34:34.147    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-14 10:35:03.581    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-14 10:35:03.580    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:DVHQB
+2024-04-14 10:35:03.582    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:T4OE4
+2024-04-14 10:35:03.584    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-14 10:35:03.585    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:FU11P
+2024-04-14 10:35:03.586    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-14 10:35:03.586    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:ZA6CT
+2024-04-14 10:35:03.588    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]

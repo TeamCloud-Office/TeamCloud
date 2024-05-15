@@ -15,8 +15,8 @@
         "stocks": {},
         "stars": {
             "date": "2024/2/22",
-            "D_date": 53,
-            "D": 8,
+            "D_date": 44,
+            "D": 27,
             "ai": 30,
             "re": 4
         },
@@ -29,7 +29,7 @@
         "date": "2024/2/22",
         "admin": true,
         "ban": false,
-        "coin": 22,
+        "coin": 20001,
         "warn": 0,
         "nickname": [
             "관리자",
@@ -39,8 +39,8 @@
         "stocks": {},
         "stars": {
             "date": "2024/2/24",
-            "D_date": 54,
-            "D": 8,
+            "D_date": 46,
+            "D": 27,
             "ai": 30,
             "re": 4
         },
@@ -53,7 +53,7 @@
         "date": "2024/2/23",
         "admin": true,
         "ban": false,
-        "coin": 154171,
+        "coin": 152280,
         "warn": 0,
         "nickname": [
             "관리자",
@@ -61,7 +61,8 @@
         ],
         "like": 5,
         "stocks": {
-            "TCSE": 0
+            "TCSE": 0,
+            "CAPE": 0
         },
         "stars": {
             "date": "",

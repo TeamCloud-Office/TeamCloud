@@ -1,12 +1,12 @@
 {
-    "id": "5a5cafe7-30b7-4c32-a5aa-899be7d38d13",
+    "id": "00f74609-de32-411b-b7c9-3e174731fcf1",
     "version": 0,
     "name": "stock",
     "mainScript": "stock.js",
     "languageId": "JS_RHINO",
-    "isEnabled": true,
+    "isEnabled": false,
     "isPinned": false,
-    "createdMillis": 1697365802946,
+    "createdMillis": 1691818658918,
     "allowedEventIds": [
         "starlight.*"
     ],

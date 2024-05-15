@@ -119,7 +119,6 @@
                 this.path,
                 JSON.stringify(this.data, null, 4)
             );
-            Api.reload();
         }
 
         User.prototype.addId = function () {

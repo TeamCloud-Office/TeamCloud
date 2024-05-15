@@ -10,7 +10,7 @@ let {
     AP,
     Kakaocord,
     User,
-    LS,
+    KV,
     msg,
     Pos,
     chat,
@@ -74,12 +74,16 @@ function onMessage(event) {
 
     let test = "본 메시지는 테스트 메시지 입니다!";
 
-    let data = JSON.parse(FS.read(SP))
+    let Set = JSON.parse(FS.read(SP))
+
+    let Udata = User.get(event.sender.name)
 
     if (event.message.startsWith(prefix + "e")) {
         if (!onf) return event.room.send(msg.noti + "eval 기능이 꺼져있습니다.");
-        if (User.read(event.sender.name, false) == false && data["set"]["state"] == 1) return event.room.send(msg.terms);
-        if (User.edit(event.sender.name, false).admin == false & data["set"]["state"] == 1) return event.room.send(msg.admin);
+        if (Set["set"]["state"] == 1) {
+            if (Boolean(Udata) == false) return event.room.send(msg.terms);
+            if (Udata["admin"] == false) return event.room.send(msg.admin);
+        }
         try {
             var before = Date.now();
             event.room.send(msg.noti + eval((event.message).substr(6)));
@@ -87,7 +91,11 @@ function onMessage(event) {
             var after = Date.now();
             event.room.send("RunTime : " + (after - before) + "ms");
         } catch (e) {
-            event.room.send(msg.error + JSON.stringify(e));
+            event.room.send(msg.error(e.name, e.message, e.lineNumber));
         }
     }
+}
+
+function onStartCompile() {
+    User.open();
 }

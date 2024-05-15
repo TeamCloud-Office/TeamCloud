@@ -777,3 +777,255 @@ Running PluginCore v0.2.0
 2024-04-08 21:32:18.184    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
 2024-04-08 21:32:18.186    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:ZA6CT
 2024-04-08 21:32:18.188    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:38:26.825    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:DVHQB
+2024-04-08 21:38:26.840    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:38:26.828    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:38:26.852    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:FU11P
+2024-04-08 21:38:26.832    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:T4OE4
+2024-04-08 21:38:26.862    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:38:26.865    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:ZA6CT
+2024-04-08 21:38:26.869    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:38:52.509    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:DVHQB
+2024-04-08 21:38:52.511    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:T4OE4
+2024-04-08 21:38:52.510    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:38:52.514    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:38:52.515    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:FU11P
+2024-04-08 21:38:52.516    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:38:52.517    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:ZA6CT
+2024-04-08 21:38:52.518    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:40:04.850    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:DVHQB
+2024-04-08 21:40:04.876    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:40:04.861    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:40:04.868    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:T4OE4
+2024-04-08 21:40:04.901    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:FU11P
+2024-04-08 21:40:04.911    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:ZA6CT
+2024-04-08 21:40:04.909    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:40:04.912    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:52:49.190    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:DVHQB
+2024-04-08 21:52:49.194    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:52:49.204    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:T4OE4
+2024-04-08 21:52:49.211    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:52:49.216    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:52:49.213    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:FU11P
+2024-04-08 21:52:49.214    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:52:49.215    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:ZA6CT
+2024-04-08 21:55:46.582    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:DVHQB
+2024-04-08 21:55:46.602    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:55:46.584    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:55:46.600    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:T4OE4
+2024-04-08 21:55:46.603    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:FU11P
+2024-04-08 21:55:46.604    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:55:46.606    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:ZA6CT
+2024-04-08 21:55:46.607    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:55:55.206    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:DVHQB
+2024-04-08 21:55:55.209    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:55:55.210    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:T4OE4
+2024-04-08 21:55:55.212    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:55:55.215    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:FU11P
+2024-04-08 21:55:55.221    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-08 21:55:55.225    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:ZA6CT
+2024-04-08 21:55:55.227    INFO [Project-ASet-worker        ] -                 INFO: ASet[Success]
+2024-04-09 10:11:44.448    INFO [Project-ASet-worker        ] -                 INFO: ASet[Start] 대상 ID:DVHQB
+2024-04-09 10:11:44.543    INFO [Project-User-worker-1      ] -                 INFO: 프로젝트 User 컴파일 중...
+2024-04-09 10:11:45.081    INFO [Project-atten-worker-1     ] -                 INFO: 프로젝트 atten 컴파일 중...
+2024-04-09 10:11:45.647    INFO [Project-admin-worker-3     ] -                 INFO: 프로젝트 admin 컴파일 중...
+2024-04-09 10:11:47.325    INFO [Project-Normal-worker-3    ] -                 INFO: 프로젝트 Normal 컴파일 중...
+2024-04-09 10:11:47.920    INFO [Project-chat_history-worker] -                 INFO: 프로젝트 chat_history 컴파일 중...
+2024-04-09 10:11:48.335    INFO [Project-mention-worker-3   ] -                 INFO: 프로젝트 mention 컴파일 중...
+2024-04-09 10:11:49.430    INFO [Project-eval-worker-2      ] -                 INFO: 프로젝트 eval 컴파일 중...
+2024-04-09 10:11:50.494    INFO [Project-Me-worker-3        ] -                 INFO: 프로젝트 Me 컴파일 중...
+2024-04-09 10:11:51.452    INFO [Project-Discord-worker-3   ] -                 INFO: 프로젝트 Discord 컴파일 중...
+2024-04-09 10:11:51.891    INFO [Project-sign-up-worker-3   ] -                 INFO: 프로젝트 sign-up 컴파일 중...
+2024-04-09 10:11:55.356    INFO [Project-reply-worker-3     ] -                 INFO: 프로젝트 reply 컴파일 중...
+2024-04-09 10:11:58.278    INFO [Project-entrance-worker-1  ] -                 INFO: 프로젝트 entrance 컴파일 중...
+2024-04-09 10:11:58.323    INFO [Project-stock-worker-2     ] -                 INFO: 프로젝트 stock 컴파일 중...
+2024-04-09 10:11:59.491   DEBUG [Project-stock-worker-2     ] -                DEBUG: 13680510
+2024-04-09 10:13:47.233    INFO [Project-User-worker-1      ] -                 INFO: 프로젝트 User 컴파일 중...
+2024-04-09 10:13:47.345    INFO [Project-atten-worker-1     ] -                 INFO: 프로젝트 atten 컴파일 중...
+2024-04-09 10:13:48.722    INFO [Project-admin-worker-3     ] -                 INFO: 프로젝트 admin 컴파일 중...
+2024-04-09 10:13:50.969    INFO [Project-Normal-worker-3    ] -                 INFO: 프로젝트 Normal 컴파일 중...
+2024-04-09 10:13:51.424    INFO [Project-chat_history-worker] -                 INFO: 프로젝트 chat_history 컴파일 중...
+2024-04-09 10:13:52.243    INFO [Project-mention-worker-3   ] -                 INFO: 프로젝트 mention 컴파일 중...
+2024-04-09 10:13:52.777    INFO [Project-eval-worker-2      ] -                 INFO: 프로젝트 eval 컴파일 중...
+2024-04-09 10:13:53.882    INFO [Project-Me-worker-3        ] -                 INFO: 프로젝트 Me 컴파일 중...
+2024-04-09 10:13:54.889    INFO [Project-Discord-worker-3   ] -                 INFO: 프로젝트 Discord 컴파일 중...
+2024-04-09 10:13:55.758    INFO [Project-sign-up-worker-3   ] -                 INFO: 프로젝트 sign-up 컴파일 중...
+2024-04-09 10:13:56.320    INFO [Project-reply-worker-1     ] -                 INFO: 프로젝트 reply 컴파일 중...
+2024-04-09 10:14:23.691    INFO [Project-entrance-worker-3  ] -                 INFO: 프로젝트 entrance 컴파일 중...
+2024-04-09 10:14:23.756    INFO [Project-stock-worker-3     ] -                 INFO: 프로젝트 stock 컴파일 중...
+2024-04-09 10:14:24.929   DEBUG [Project-stock-worker-3     ] -                DEBUG: 13535071
+2024-04-10 10:04:20.814   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3503,true,0,"서비스 장애로 불만족 증가",1,[]],"CAPE":[1860,true,1,"핵심 임직원 이탈로 조직 안정성 저하",2,[]],"COEN":[1856,true,2,"환경 비용 증가에 따른 수익 감소",2,[]],"CBEN":[3961,true,3,"글로벌 엔터테인먼트 이슈에 대한 대응 부재",2,[]]}
+2024-04-10 10:04:20.840   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3480,true,0,"신뢰성 높은 보안 시스템 도입",0,[]],"CAPE":[1868,true,1,"코로나19 대유행으로 인한 경영 난관",2,[]],"COEN":[1858,true,2,"지속 가능한 비즈니스 전략",0,[]],"CBEN":[3937,true,3,"글로벌 팬덤 확대",0,[]]}
+2024-04-10 10:04:20.859   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3491,true,0,"기업 내부 정보 유출에 대한 우려",2,[]],"CAPE":[1873,true,1,"기술력 미흡으로 시장 경쟁력 하락",2,[]],"COEN":[1867,true,2,"환경 기업 내부 정보 유출에 대한 우려",2,[]],"CBEN":[3937,true,3,"콘텐츠 기획 실패",1,[]]}
+2024-04-10 10:04:20.876   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3490,true,0,"전략적 비전 부재로 사업 방향성 불분명",2,[]],"CAPE":[1873,true,1,"경영진 변동에 불안감 표출",1,[]],"COEN":[1881,true,2,"환경 비용 증가에 따른 수익 감소",2,[]],"CBEN":[3937,true,3,"글로벌 팬덤 확대",0,[]]}
+2024-04-10 10:04:20.896   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3467,true,0,"금융 위기로 인한 영향 커짐",1,[]],"CAPE":[1868,true,1,"전략적 비전 부재로 사업 방향성 불분명",2,[]],"COEN":[1881,true,2,"환경 산업 리더십 인정",0,[]],"CBEN":[3937,true,3,"콘텐츠 부진",1,[]]}
+2024-04-10 10:04:20.915   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3465,true,0,"글로벌 경제 불안으로 인한 영향",2,[]],"CAPE":[1877,true,1,"감염 예방을 위한 새로운 의약품 개발",0,[]],"COEN":[1895,true,2,"친환경 인프라 사업",0,[]],"CBEN":[3909,true,3,"시장 경쟁 악화",1,[]]}
+2024-04-10 10:04:20.934   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3431,true,0,"차세대 기술 도입으로 경쟁우위",0,[]],"CAPE":[1877,true,1,"환경 변화에 대한 대비 부족으로 리스크 상승",2,[]],"COEN":[1878,true,2,"환경 보호 정책의 긍정적 영향",0,[]],"CBEN":[3916,true,3,"경영진의 투명성 부족으로 신뢰 감소",2,[]]}
+2024-04-10 10:04:20.954   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3442,true,0,"사용자 데이터 보호 강화로 신뢰 회복",0,[]],"CAPE":[1893,true,1,"자연 속에 치유를 찾는 치유 여행 프로그램",0,[]],"COEN":[1872,true,2,"환경 기업 내부 정보 유출에 대한 우려",2,[]],"CBEN":[3927,true,3,"글로벌 엔터테인먼트 전략 부재",2,[]]}
+2024-04-10 10:04:20.971   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3450,true,0,"코로나19 대유행으로 인한 경영 난관",2,[]],"CAPE":[1892,true,1,"품질 관리 미흡으로 불량률 상승",1,[]],"COEN":[1887,true,2,"지속 가능한 경영에 대한 긍정적 평가",0,[]],"CBEN":[3923,true,3,"글로벌 경제 불안",1,[]]}
+2024-04-10 10:04:20.989   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3432,true,0,"서비스 장애로 불만족 증가",1,[]],"CAPE":[1904,true,1,"전략적 비전 부재로 사업 방향성 불분명",2,[]],"COEN":[1887,true,2,"환경 기술 혁신",0,[]],"CBEN":[3929,true,3,"글로벌 경제 불안으로 인한 영향",2,[]]}
+2024-04-10 10:04:21.008   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3450,true,0,"핵심 임직원 이탈로 조직 안정성 저하",2,[]],"CAPE":[1895,true,1,"보안 취약점으로 우려 상승",1,[]],"COEN":[1885,true,2,"지속적인 연구 및 개발 부재로 혁신성 부족",2,[]],"CBEN":[3928,true,3,"글로벌 경제 불안으로 인한 영향",2,[]]}
+2024-04-10 10:04:21.029   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3465,true,0,"글로벌 이슈에 대한 대응 부재",2,[]],"CAPE":[1893,true,1,"핵심 임직원 이탈로 조직 안정성 저하",2,[]],"COEN":[1885,true,2,"환경 산업 지속적인 성장",0,[]],"CBEN":[3958,true,3,"수요 증가에 따른 수익 상승",0,[]]}
+2024-04-10 10:04:21.045   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3498,true,0,"사용자 경험 개선에 긍정적인 피드백",0,[]],"CAPE":[1909,true,1,"새로운 치료법 개발로 기대감 상승",0,[]],"COEN":[1885,true,2,"환경 기술 혁신 부재",1,[]],"CBEN":[3960,true,3,"사회적 책임에 대한 불만이 커지는 추세",2,[]]}
+2024-04-10 10:04:21.058   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3485,true,0,"사내 인재 발굴 및 육성으로 업무 성과 향상",0,[]],"CAPE":[1922,true,1,"지속적인 연구 및 개발 부재로 혁신성 부족",2,[]],"COEN":[1872,true,2,"환경 인프라 사업 어려움",1,[]],"CBEN":[3960,true,3,"차별화된 콘텐츠 전략",0,[]]}
+2024-04-10 10:04:21.072   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3487,true,0,"지속 가능한 경영으로 사회적 기업 이미지 강화",0,[]],"CAPE":[1916,true,1,"지속적인 연구 및 개발 부재로 혁신성 부족",2,[]],"COEN":[1881,true,2,"글로벌 환경 이슈에 대한 대응 부재",2,[]],"CBEN":[3960,true,3,"글로벌 엔터테인먼트 경쟁 심화",1,[]]}
+2024-04-10 10:04:21.090   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3474,true,0,"종업원 파업으로 인한 생산 차질",1,[]],"CAPE":[1917,true,1,"신기술 도입으로 미래 전망 긍정적",2,[]],"COEN":[1866,true,2,"환경 산업 성과 부진",1,[]],"CBEN":[3946,true,3,"코로나19 대유행으로 인한 경영 난관",2,[]]}
+2024-04-10 10:04:21.102   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3484,true,0,"핵심 임직원 이탈로 조직 안정성 저하",2,[]],"CAPE":[1917,true,1,"전략적 파트너십 해지로 영업 손실",1,[]],"COEN":[1856,true,2,"친환경 투자의 긍정적 영향",0,[]],"CBEN":[3945,true,3,"판권 문제로 수익 부진",1,[]]}
+2024-04-10 10:04:21.119   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3489,true,0,"핵심 임직원 이탈로 조직 안정성 저하",2,[]],"CAPE":[1913,true,1,"글로벌 경제 불안으로 인한 영향",2,[]],"COEN":[1850,true,2,"환경 산업 기술적 한계",1,[]],"CBEN":[3920,true,3,"글로벌 경제 불안",1,[]]}
+2024-04-10 10:04:21.135   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3489,true,0,"경영진 변동에 불안감 표출",1,[]],"CAPE":[1919,true,1,"건강 관리 솔루션으로 소비자 만족도 상승",0,[]],"COEN":[1861,true,2,"지속 가능한 경영에 대한 긍정적 평가",0,[]],"CBEN":[3903,true,3,"엔터테인먼트 기술 혁신",2,[]]}
+2024-04-10 10:04:21.150   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3512,true,0,"전략적 파트너십 해지로 영업 손실",1,[]],"CAPE":[1917,true,1,"관련 법규 위반으로 인한 소송 발생",1,[]],"COEN":[1861,true,2,"환경 변화에 대한 기업 대응 부재",1,[]],"CBEN":[3903,true,3,"콘텐츠 부진",1,[]]}
+2024-04-10 10:04:21.164   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3484,true,0,"파트너십 강화로 사업 다각화",0,[]],"CAPE":[1931,true,1,"새로운 치료법 개발로 기대감 상승",0,[]],"COEN":[1853,true,2,"환경 산업 리더십 인정",0,[]],"CBEN":[3865,true,3,"글로벌 경제 불안",1,[]]}
+2024-04-10 10:50:16.822   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3536,true,0,"사용자 데이터 보호 강화로 신뢰 회복",0,[]],"CAPE":[1861,true,1,"사용자 데이터 유출 사건으로 신뢰 손상",1,[]],"COEN":[1856,true,2,"탄소 배출 감소에 따른 긍정적 평가",0,[]],"CBEN":[3959,true,3,"글로벌 시장 공략",0,[]]}
+2024-04-10 10:50:16.838   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3516,true,0,"고객 중심의 서비스 개선",0,[]],"CAPE":[1877,true,1,"협력 기관과의 파트너십 강화로 사업 다각화",0,[]],"COEN":[1866,true,2,"환경 산업 지속적인 성장",0,[]],"CBEN":[3973,true,3,"글로벌 엔터테인먼트 전략 부재",2,[]]}
+2024-04-10 10:50:16.859   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3528,true,0,"사내 인재 발굴 및 육성으로 업무 성과 향상",0,[]],"CAPE":[1878,true,1,"고객 서비스 품질 하락으로 불신 증가",1,[]],"COEN":[1867,true,2,"환경 혁신 기술 개발",0,[]],"CBEN":[3944,true,3,"엔터테인먼트 기술 부재",1,[]]}
+2024-04-10 10:50:16.877   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3520,true,0,"책임 회피 발언으로 인한 브랜드 이미지 하락",1,[]],"CAPE":[1870,true,1,"환경 변화에 대한 대비 부족으로 리스크 상승",2,[]],"COEN":[1867,true,2,"탄소 배출 감소에 따른 긍정적 평가",0,[]],"CBEN":[3936,true,3,"엔터테인먼트 기술 혁신",0,[]]}
+2024-04-10 10:50:16.896   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3518,true,0,"금융 위기로 인한 영향 커짐",1,[]],"CAPE":[1859,true,1,"종업원 파업으로 인한 생산 차질",1,[]],"COEN":[1873,true,2,"환경 투자 부진",1,[]],"CBEN":[3959,true,3,"글로벌 엔터테인먼트 트렌드를 반영",0,[]]}
+2024-04-10 10:50:16.906   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3530,true,0,"기술력 미흡으로 시장 경쟁력 하락",2,[]],"CAPE":[1864,true,1,"건강식품 수요 증가에 따른 성장",0,[]],"COEN":[1867,true,2,"환경 투자 부진",1,[]],"CBEN":[3942,true,3,"엔터테인먼트 기업 내부 정보 유출에 대한 우려",2,[]]}
+2024-04-10 10:50:16.921   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3547,true,0,"핵심 임직원 이탈로 조직 안정성 저하",2,[]],"CAPE":[1853,true,1,"기업 내부 정보 유출에 대한 우려",2,[]],"COEN":[1852,true,2,"환경 친화적 제품 수요 부진",1,[]],"CBEN":[3971,true,3,"코로나19 대유행으로 인한 경영 난관",2,[]]}
+2024-04-10 10:50:16.934   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3557,true,0,"비즈니스 모델 쇠퇴로 수익 감소",1,[]],"CAPE":[1862,true,1,"글로벌 건강 트렌드에 부응하여 성과 향상",0,[]],"COEN":[1850,true,2,"환경 문제로 인한 사회적 불신",1,[]],"CBEN":[3993,true,3,"코로나19 대유행으로 인한 경영 난관",2,[]]}
+2024-04-10 10:50:16.944   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3588,true,0,"환경 친화적 제품 출시로 호감도 상승",0,[]],"CAPE":[1877,true,1,"고객 서비스 품질 하락으로 불신 증가",1,[]],"COEN":[1850,true,2,"환경 친화적 제품 수요 부진",1,[]],"CBEN":[4026,true,3,"글로벌 경제 불안",1,[]]}
+2024-04-10 10:50:16.956   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3597,true,0,"사용자 경험 개선에 긍정적인 피드백",0,[]],"CAPE":[1872,true,1,"비즈니스 모델 쇠퇴로 수익 감소",1,[]],"COEN":[1863,true,2,"경영진의 투명성 부족으로 신뢰 감소",2,[]],"CBEN":[4026,true,3,"엔터테인먼트 기술 부재",1,[]]}
+2024-04-10 10:50:16.974   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3589,true,0,"글로벌 경제 여건에 대한 대응력 강화",0,[]],"CAPE":[1882,true,1,"신기술 도입으로 미래 전망 긍정적",2,[]],"COEN":[1862,true,2,"코로나19 대유행으로 인한 경영 난관",2,[]],"CBEN":[4005,true,3,"시장 경쟁 악화",1,[]]}
+2024-04-10 10:50:16.995   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3591,true,0,"글로벌 경제 불안으로 인한 영향",2,[]],"CAPE":[1884,true,1,"의료 기술 혁신으로 인한 업계 선도",0,[]],"COEN":[1872,true,2,"글로벌 경제 불안으로 인한 영향",2,[]],"CBEN":[4014,true,3,"기술력 미흡으로 시장 경쟁력 하락",2,[]]}
+2024-04-10 10:50:17.013   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3591,true,0,"전략적 파트너십 해지로 영업 손실",1,[]],"CAPE":[1884,true,1,"환자 중심의 의료 서비스로 신뢰 회복",0,[]],"COEN":[1861,true,2,"자원 확보 어려움으로 인한 생산 차질",2,[]],"CBEN":[4014,true,3,"글로벌 경제 불안",1,[]]}
+2024-04-10 10:50:17.025   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3563,true,0,"경영진 갈등으로 회사 내부 불안",1,[]],"CAPE":[1885,true,1,"생활습관 개선 프로그램으로 긍정적 평가",0,[]],"COEN":[1874,true,2,"환경 산업 경쟁 심화",1,[]],"CBEN":[4040,true,3,"글로벌 팬덤 확대",0,[]]}
+2024-04-10 10:50:17.038   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3587,true,0,"고객 중심의 서비스 개선",0,[]],"CAPE":[1885,true,1,"사회적 책임에 대한 불만이 커지는 추세",2,[]],"COEN":[1857,true,2,"환경 보호 정책 불확실성",1,[]],"CBEN":[4061,true,3,"독창적인 콘텐츠 생산",0,[]]}
+2024-04-10 10:50:17.050   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3599,true,0,"코로나19 대유행으로 인한 경영 난관",2,[]],"CAPE":[1903,true,1,"글로벌 건강 트렌드에 부응하여 성과 향상",0,[]],"COEN":[1859,true,2,"환경 보호 정책 불확실성",1,[]],"CBEN":[4074,true,3,"수요 증가에 따른 수익 상승",0,[]]}
+2024-04-10 10:50:17.059   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3609,true,0,"사회적 책임에 대한 불만이 커지는 추세",2,[]],"CAPE":[1897,true,1,"비즈니스 모델 쇠퇴로 수익 감소",1,[]],"COEN":[1858,true,2,"자원 확보 어려움으로 인한 생산 차질",2,[]],"CBEN":[4061,true,3,"판권 문제로 수익 부진",1,[]]}
+2024-04-10 10:50:17.069   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3630,true,0,"긍정적인 인터뷰로 신뢰 회복",0,[]],"CAPE":[1904,true,1,"새로운 치료법 개발로 기대감 상승",0,[]],"COEN":[1866,true,2,"친환경 제품 수요 증가",0,[]],"CBEN":[4068,true,3,"사회적 책임에 대한 불만이 커지는 추세",2,[]]}
+2024-04-10 10:50:17.078   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3612,true,0,"기술력 미흡으로 시장 경쟁력 하락",2,[]],"CAPE":[1918,true,1,"자원 확보 어려움으로 인한 생산 차질",2,[]],"COEN":[1850,true,2,"환경 산업 부정적 전망",1,[]],"CBEN":[4068,true,3,"최신 인기 콘텐츠 진행",0,[]]}
+2024-04-10 10:50:17.090   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3626,true,0,"기술 문제로 제품 불만족이 급증",1,[]],"CAPE":[1918,true,1,"의료 기술 혁신으로 인한 업계 선도",0,[]],"COEN":[1860,true,2,"글로벌 경제 불안으로 인한 영향",2,[]],"CBEN":[4068,true,3,"수요 부진으로 수익 하락",1,[]]}
+2024-04-10 10:50:17.103   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3626,true,0,"글로벌 경제 여건에 대한 대응력 강화",0,[]],"CAPE":[1903,true,1,"경영진 갈등으로 회사 내부 불안",1,[]],"COEN":[1859,true,2,"환경 비용 증가에 따른 수익 감소",2,[]],"CBEN":[4054,true,3,"글로벌 엔터테인먼트 경쟁 심화",1,[]]}
+2024-04-10 11:01:34.737   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3450,true,0,"경영진 갈등으로 회사 내부 불안",1,[]],"CAPE":[1933,true,1,"글로벌 이슈에 대한 대응 부재",2,[]],"COEN":[1861,true,2,"자원 확보 어려움으로 인한 생산 차질",2,[]],"CBEN":[3865,true,3,"급격한 시장 변화",1,[]]}
+2024-04-10 11:01:34.736   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3631,true,0,"사회적 책임에 대한 불만이 커지는 추세",2,[]],"CAPE":[1890,true,1,"글로벌 경제 불안으로 인한 영향",2,[]],"COEN":[1854,true,2,"예측불가능한 환경 변화",2,[]],"CBEN":[4064,true,3,"다양한 협업 및 파트너십",0,[]]}
+2024-04-10 12:24:41.011   DEBUG [Timer-10                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3611,true,0,"서비스 장애로 불만족 증가",1,[]],"CAPE":[1889,true,1,"경영진 변동에 불안감 표출",1,[]],"COEN":[1847,true,2,"친환경 인프라 사업",0,[]],"CBEN":[4099,true,3,"독창적인 콘텐츠 생산",0,[]]}
+2024-04-10 12:24:41.017   DEBUG [Timer-11                   ] -                DEBUG: 주식가격 변경되었습니다
+
+{"TCSE":[3476,true,0,"신뢰성 높은 보안 시스템 도입",0,[]],"CAPE":[1924,true,1,"보안 취약점으로 우려 상승",1,[]],"COEN":[1862,true,2,"예측불가능한 환경 변화",2,[]],"CBEN":[3853,true,3,"글로벌 엔터테인먼트 전략 부재",2,[]]}
+2024-04-10 12:24:41.039 CRITICA [Timer-11                   ] -   ApplicationSession: *** 치명적인 오류가 발생했습니다. 앱을 종료하는 중... ***
+[버그 제보시 아래 메세지를 첨부해주세요.]
+──────────
+StarLight v0.2.1a-240209(build 3)
+PluginCore v0.2.0
+Build.VERSION.SDK_INT: 31
+Build.DEVICE: d1x
+thread  : Timer-11
+message : SyntaxError: Empty JSON string (file:/storage/emulated/0/StarLight/modules/stock_m.js#235)
+cause   : null
+┉┉┉┉┉┉┉┉┉┉
+Stack Trace:
+org.mozilla.javascript.EcmaError: SyntaxError: Empty JSON string (file:/storage/emulated/0/StarLight/modules/stock_m.js#235)
+	at org.mozilla.javascript.ScriptRuntime.constructError(ScriptRuntime.java:4280)
+	at org.mozilla.javascript.ScriptRuntime.constructError(ScriptRuntime.java:4258)
+	at org.mozilla.javascript.NativeJSON.parse(NativeJSON.java:111)
+	at org.mozilla.javascript.NativeJSON.execIdCall(NativeJSON.java:88)
+	at org.mozilla.javascript.IdFunctionObject.call(IdFunctionObject.java:100)
+	at org.mozilla.javascript.optimizer.OptRuntime.call1(OptRuntime.java:45)
+	at org.mozilla.javascript.gen.file__storage_emulated_0_StarLight_modules_stock_m_js_580._c_anonymous_9(file:/storage/emulated/0/StarLight/modules/stock_m.js:235)
+	at org.mozilla.javascript.gen.file__storage_emulated_0_StarLight_modules_stock_m_js_580.call(Unknown Source:89)
+	at org.mozilla.javascript.ContextFactory.doTopCall(ContextFactory.java:412)
+	at org.mozilla.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3578)
+	at org.mozilla.javascript.gen.file__storage_emulated_0_StarLight_modules_stock_m_js_580.call(Unknown Source:18)
+	at org.mozilla.javascript.Context.lambda$call$0(Context.java:545)
+	at org.mozilla.javascript.Context$$ExternalSyntheticLambda0.run(Unknown Source:8)
+	at org.mozilla.javascript.Context.call(Context.java:554)
+	at org.mozilla.javascript.Context.call(Context.java:545)
+	at org.mozilla.javascript.JavaAdapter.callMethod(JavaAdapter.java:589)
+	at adapter1.run(Unknown Source:21)
+	at java.util.TimerThread.mainLoop(Timer.java:562)
+	at java.util.TimerThread.run(Timer.java:512)
+
+──────────
+2024-04-10 12:24:41.085   DEBUG [Timer-11                   ] -        DiscordPlugin: 디스코드 클라이언트 로그아웃중...
+2024-04-10 12:24:41.361   DEBUG [Timer-11                   ] -            JobLocker: 부모 Project-Normal-worker 의 모든 작업 release 완료
+2024-04-10 12:24:41.387   DEBUG [Timer-11                   ] -            JobLocker: 부모 Project-ASet-worker 의 모든 작업 release 완료
