@@ -1,0 +1,574 @@
+{
+    "today": "2024.5.30",
+    "list": {
+        "♡ 78 마굿간 ♡": {
+            "대니 남🇺🇸기": "3:31:46",
+            "수야 /대전/남  돌": "3:31:59",
+            "냥 인천 여 돌": "7:23:34",
+            "송이 통영 여기": "7:44:28",
+            "여비 천안 남 돌": "8:20:58",
+            "단감 구미 남 기": "8:24:14",
+            "뿌슬여캐돌": "8:32:59",
+            "시냐 양평 남 기": "9:9:40",
+            "🌈보라 미스서울👑": "10:39:51",
+            "해달 대전 여 기": "14:31:45",
+            "쭌 오스트리아  남  기": "14:32:13",
+            "연희 전북 여 돌": "20:42:4"
+        },
+        "카봇커": {},
+        "Little women": {
+            "Yellu": "0:17:9",
+            "흑우놈뚝배기깰사람모집(3/1000)": "0:20:41",
+            "Piano Man": "0:25:19",
+            "샤넬": "0:48:24",
+            "🎀작은아씨들-로나작가": "7:41:51",
+            "Boyam🥕": "21:46:22"
+        },
+        "데브로봇스": {
+            "숨 참고 love ive": "7:22:6",
+            "AURORA BOT ✅️": "7:27:35"
+        },
+        "Heizza Mr J의 이야기?방": {},
+        "밀크초코 수다방": {},
+        "카알메": {},
+        "TeamCloud 커뮤니티": {},
+        "TeamCloud 개발방": {}
+    },
+    "store": {
+        "TeamCloud": {},
+        "TeamCloud 팀원": {
+            "Yellu#1794": {
+                "today_ranking": 1,
+                "first_count": 3,
+                "count": 3,
+                "achieve": [
+                    3,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "Yellu": {
+                "today": "",
+                "today_ranking": 1,
+                "first_count": 2,
+                "count": 2,
+                "achieve": [
+                    2,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "경례하는 프로도": {},
+        "Yellu#1794": {},
+        "Yellu": {},
+        "TeamCloud 커뮤니티": {
+            "🌈보라 미스서울👑": {
+                "today": "",
+                "today_ranking": 2,
+                "first_count": 3,
+                "count": 5,
+                "achieve": [
+                    3,
+                    2,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "딸기우유(닌텐도)": {
+                "today": "",
+                "today_ranking": 2,
+                "first_count": 0,
+                "count": 1,
+                "achieve": [
+                    0,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "hello": {
+                "today": "",
+                "today_ranking": 1,
+                "first_count": 1,
+                "count": 1,
+                "achieve": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "Yellu": {
+                "today": "",
+                "today_ranking": 1,
+                "first_count": 1,
+                "count": 1,
+                "achieve": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "다잡방": {
+            "Yellu": {
+                "today": "",
+                "today_ranking": 1,
+                "first_count": 1,
+                "count": 1,
+                "achieve": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "Little women": {
+            "🎀작은아씨들-로나작가": {
+                "today": "",
+                "today_ranking": 5,
+                "first_count": 2,
+                "count": 7,
+                "achieve": [
+                    2,
+                    0,
+                    1,
+                    2,
+                    2
+                ]
+            },
+            "Piano Man": {
+                "today": "",
+                "today_ranking": 3,
+                "first_count": 1,
+                "count": 7,
+                "achieve": [
+                    1,
+                    3,
+                    3,
+                    0,
+                    0
+                ]
+            },
+            "샤넬": {
+                "today": "",
+                "today_ranking": 4,
+                "first_count": 0,
+                "count": 7,
+                "achieve": [
+                    0,
+                    2,
+                    3,
+                    2,
+                    0
+                ]
+            },
+            "Boyam🥕": {
+                "today": "",
+                "today_ranking": 6,
+                "first_count": 0,
+                "count": 6,
+                "achieve": [
+                    0,
+                    0,
+                    0,
+                    2,
+                    2,
+                    1
+                ]
+            },
+            "초롱초롱 액옹스ദ്ദി  ॑꒳ ॑c)": {
+                "today": "",
+                "today_ranking": 5,
+                "first_count": 1,
+                "count": 3,
+                "achieve": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    2
+                ]
+            },
+            "흑우놈뚝배기깰사람모집(3/1000)": {
+                "today": "",
+                "today_ranking": 2,
+                "first_count": 2,
+                "count": 6,
+                "achieve": [
+                    2,
+                    1,
+                    0,
+                    1,
+                    1,
+                    null
+                ]
+            },
+            "세요리": {
+                "today": "",
+                "today_ranking": 7,
+                "first_count": 0,
+                "count": 2,
+                "achieve": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    null,
+                    1
+                ]
+            },
+            "이렇게 저렇게 몰래 들어온 프로도": {
+                "today": "",
+                "today_ranking": 2,
+                "first_count": 0,
+                "count": 1,
+                "achieve": [
+                    0,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "Yellu": {
+                "today": "",
+                "today_ranking": 1,
+                "first_count": 1,
+                "count": 1,
+                "achieve": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "♡ 78 마굿간 ♡": {
+            "👹 척희 경남 남 기 👹": {
+                "today": "",
+                "today_ranking": 2,
+                "first_count": 1,
+                "count": 6,
+                "achieve": [
+                    1,
+                    1,
+                    2,
+                    1,
+                    1
+                ]
+            },
+            "송이 통영 여기": {
+                "today": "",
+                "today_ranking": 4,
+                "first_count": 2,
+                "count": 7,
+                "achieve": [
+                    2,
+                    2,
+                    0,
+                    2,
+                    1
+                ]
+            },
+            "🌈보라 미스서울👑": {
+                "today": "",
+                "today_ranking": 9,
+                "first_count": 2,
+                "count": 7,
+                "achieve": [
+                    2,
+                    1,
+                    2,
+                    0,
+                    0,
+                    null,
+                    null,
+                    null,
+                    null
+                ]
+            },
+            "냥 인천 여 돌": {
+                "today": "",
+                "today_ranking": 3,
+                "first_count": 1,
+                "count": 6,
+                "achieve": [
+                    1,
+                    2,
+                    2,
+                    0,
+                    0,
+                    null,
+                    null,
+                    null
+                ]
+            },
+            "해달 대전 여 기": {
+                "today": "",
+                "today_ranking": 10,
+                "first_count": 0,
+                "count": 6,
+                "achieve": [
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    null,
+                    1,
+                    null,
+                    null,
+                    1
+                ]
+            },
+            "뿌슬여캐돌": {
+                "today": "",
+                "today_ranking": 7,
+                "first_count": 0,
+                "count": 5,
+                "achieve": [
+                    0,
+                    0,
+                    1,
+                    1,
+                    0,
+                    null,
+                    null
+                ]
+            },
+            "단감 구미 남 기": {
+                "today": "",
+                "today_ranking": 6,
+                "first_count": 0,
+                "count": 4,
+                "achieve": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    2,
+                    null
+                ]
+            },
+            "대니 남🇺🇸기": {
+                "today": "",
+                "today_ranking": 1,
+                "first_count": 1,
+                "count": 3,
+                "achieve": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    null,
+                    null,
+                    1
+                ]
+            },
+            "여비 천안 남 돌": {
+                "today": "",
+                "today_ranking": 5,
+                "first_count": 0,
+                "count": 4,
+                "achieve": [
+                    0,
+                    0,
+                    0,
+                    1,
+                    3
+                ]
+            },
+            "시냐 양평 남 기": {
+                "today": "",
+                "today_ranking": 8,
+                "first_count": 0,
+                "count": 3,
+                "achieve": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    null,
+                    null,
+                    null
+                ]
+            },
+            "수야 /대전/남  돌": {
+                "today": "",
+                "today_ranking": 2,
+                "first_count": 0,
+                "count": 4,
+                "achieve": [
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    1,
+                    null,
+                    null,
+                    1,
+                    null
+                ]
+            },
+            "쭌 오스트리아  남  기": {
+                "today": "",
+                "today_ranking": 11,
+                "first_count": 0,
+                "count": 3,
+                "achieve": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "연희 전북 여 돌": {
+                "today": "",
+                "today_ranking": 12,
+                "first_count": 0,
+                "count": 2,
+                "achieve": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "TeamCloud 개발방": {
+            "hello": {
+                "today": "",
+                "today_ranking": 1,
+                "first_count": 1,
+                "count": 1,
+                "achieve": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "데브로봇스": {
+            "Yellu": {
+                "today": "",
+                "today_ranking": 1,
+                "first_count": 3,
+                "count": 3,
+                "achieve": [
+                    3,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "민호": {
+                "today": "",
+                "today_ranking": 2,
+                "first_count": 0,
+                "count": 1,
+                "achieve": [
+                    0,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "숨 참고 love ive": {
+                "today": "",
+                "today_ranking": 1,
+                "first_count": 1,
+                "count": 1,
+                "achieve": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "AURORA BOT ✅️": {
+                "today": "",
+                "today_ranking": 2,
+                "first_count": 0,
+                "count": 1,
+                "achieve": [
+                    0,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "Heizza Mr J의 이야기?방": {},
+        "카봇커": {
+            "Yellu": {
+                "today": "",
+                "today_ranking": 1,
+                "first_count": 3,
+                "count": 3,
+                "achieve": [
+                    3,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "삼플": {
+                "today": "",
+                "today_ranking": 2,
+                "first_count": 0,
+                "count": 1,
+                "achieve": [
+                    0,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "카알메": {},
+        "밀크초코 수다방": {
+            "Yellu": {
+                "today": "",
+                "today_ranking": 1,
+                "first_count": 1,
+                "count": 1,
+                "achieve": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        }
+    }
+}

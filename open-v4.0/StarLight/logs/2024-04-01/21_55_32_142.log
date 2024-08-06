@@ -1,5 +1,0 @@
-2024-04-01 21:55:32.157    INFO [main                       ] -    GlobalApplication: 포그라운드 서비스 등록 성공!
-2024-04-01 21:55:32.159    INFO [DefaultDispatcher-worker-5 ] -   ApplicationSession: 카카오톡 버전: 10.6.1
-2024-04-01 21:55:32.159   DEBUG [DefaultDispatcher-worker-5 ] -   ApplicationSession: Initializing with locale KOREAN
-2024-04-01 21:55:32.166    WARN [DefaultDispatcher-worker-5 ] -         PluginLoader: res/raw 경로는 더 이상 사용되지 않습니다. assets 경로를 사용하세요.
-2024-04-01 21:55:32.174    WARN [DefaultDispatcher-worker-5 ] -         PluginLoader: res/raw 경로는 더 이상 사용되지 않습니다. assets 경로를 사용하세요.

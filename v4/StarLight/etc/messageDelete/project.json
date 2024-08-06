@@ -1,0 +1,16 @@
+{
+    "id": "78bd4552-f526-40e2-89c3-5204038a6a46",
+    "version": 0,
+    "name": "messageDelete",
+    "mainScript": "messageDelete.js",
+    "languageId": "JS_RHINO",
+    "isEnabled": true,
+    "isPinned": false,
+    "createdMillis": 1719323395669,
+    "allowedEventIds": [
+        "starlight.*"
+    ],
+    "packages": [
+        "com.kakao.talk"
+    ]
+}
